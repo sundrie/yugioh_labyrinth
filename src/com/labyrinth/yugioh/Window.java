@@ -3,13 +3,16 @@ package com.labyrinth.yugioh;
 import javax.swing.JFrame;
 
 
-public class Window {
+public class Window extends JFrame {
+    int width = 1280;
+    int height = 720;
+    String title = "Yu-Gi-Oh! Labyrinth";
     // La méthode pour créer notre fenêtre
-    public static void createWindow(){
+    public void createWindow(){
         JFrame myWindow = new JFrame();
 
-        myWindow.setTitle("Yu-Gi-Oh! Labyrinth");
-        myWindow.setSize(1280, 720);
+        myWindow.setTitle(title);
+        myWindow.setSize(width, height);
         // Centre la fenêtre
         myWindow.setLocationRelativeTo(null);
         // Termine le processus lorsqu'on clique sur la croix rouge

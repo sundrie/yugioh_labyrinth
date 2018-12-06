@@ -12,6 +12,15 @@ public class ContentPanel extends JPanel {
     public void paintComponent(Graphics g){
         // getWidth() et getHeight() retournent la width et height de la fenêtre en divisant par 2 on centre notre contenu
         g.drawString("Hello world !",this.getWidth()/2,this.getHeight()/2);
+
+        try {
+            // On créé notre variable de type Image
+            Image bgImgStartMenu = ImageIO.read(new File("assets/interface/img/yu-gi-oh_logo.jpg"));
+            // On la dessine il faudrait ajouter après le x et y la largeur et hauteur du panel par exemple pour en faire une image de fond
+            g.drawImage(bgImgStartMenu, 0, 0, this);
+        } catch (IOException e) {
+            System.out.println("Erreur pour l'affichage du logo");
+        }
     }
 
 

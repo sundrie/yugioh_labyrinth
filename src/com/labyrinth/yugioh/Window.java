@@ -1,6 +1,6 @@
 package com.labyrinth.yugioh;
 // On importe la librairie pour faire des fenêtres
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Window extends JFrame {
     int width = 1280;
@@ -17,7 +17,8 @@ public class Window extends JFrame {
 
         // on dit à Window que notre classe ContentPanel est son contentPane
         this.setContentPane(new ContentPanel());
-
+        JButton startButton = new JButton("Commencer");
+        this.add(startButton);
         this.setVisible(true);
     }
 

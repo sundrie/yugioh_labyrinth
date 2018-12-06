@@ -1,7 +1,11 @@
 package com.labyrinth.yugioh;
 
 import javax.swing.JPanel;
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 public class ContentPanel extends JPanel {
     // Cette méthode est fournie de base par jpanel grâce à extends JPanel on peut y accéder

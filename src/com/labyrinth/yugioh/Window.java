@@ -8,6 +8,10 @@ public class Window extends JFrame {
     String title = "Yu-Gi-Oh! Labyrinth";
     // La méthode pour créer notre fenêtre
     public void createWindow(){
+
+        // on dit à Window que notre classe ContentPanel est son contentPane
+        this.setContentPane(new ContentPanel());
+
         this.setTitle(title);
         this.setSize(width, height);
         // Centre la fenêtre
@@ -15,10 +19,14 @@ public class Window extends JFrame {
         // Termine le processus lorsqu'on clique sur la croix rouge
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // on dit à Window que notre classe ContentPanel est son contentPane
-        this.setContentPane(new ContentPanel());
-        JButton startButton = new JButton("Commencer");
-        this.add(startButton);
+
+        // JButton startButton = new JButton("Commencer");
+        this.add(new BtnStartingW("Commencer"));
+
+        this.add(new BtnStartingW("Quitter"));
+
+
+
         this.setVisible(true);
     }
 

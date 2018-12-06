@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 public class ContentPanel extends JPanel {
     // Cette méthode est fournie de base par jpanel grâce à extends JPanel on peut y accéder
     public void paintComponent(Graphics g){
-
         try {
             // On créé notre variable de type Image
             Image bgImgStartMenu = ImageIO.read(new File("assets/interface/img/yu-gi-oh_logo.jpg"));
@@ -19,10 +18,6 @@ public class ContentPanel extends JPanel {
         } catch (IOException e) {
             System.out.println("Erreur pour l'affichage du logo");
         }
-
-
-        // getWidth() et getHeight() retournent la width et height de la fenêtre en divisant par 2 on centre notre contenu
-        g.drawString("Hello world !",this.getWidth()/2,this.getHeight()/2);
     }
 
 

@@ -21,12 +21,13 @@ public class BtnStartingW extends JButton implements MouseListener {
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         // Ceci est pour changer la couleur du texte
         g.setColor(Color.white);
+        // Pour changer la font le font.plain peut être remplacé par bold, italic ou Font.BOLD+Font.ITALIC si on veut 2 effets ensemble
+        g.setFont(new Font("Impact", Font.PLAIN, 20));
 
         // Ce bout de code sert a centrer le texte (trouvé sur : https://stackoverflow.com/questions/32859509/how-to-center-a-drawstring-in-java)
         Graphics2D g2d = (Graphics2D)g.create();
         FontMetrics fm = g2d.getFontMetrics();
         int centeredX = (this.getWidth() - fm.stringWidth(this.name)) / 2;
-
         g.drawString(this.name, centeredX, this.getHeight()/2);
     }
 

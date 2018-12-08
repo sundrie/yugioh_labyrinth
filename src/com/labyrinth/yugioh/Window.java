@@ -21,24 +21,17 @@ public class Window extends JFrame {
         // Termine le processus lorsqu'on clique sur la croix rouge
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel pbtn1 = new JPanel();
-        //On définit le layout en lui indiquant qu'il travaillera en ligne
-        pbtn1.setLayout(new BoxLayout(pbtn1, BoxLayout.LINE_AXIS));
-        pbtn1.add(new BtnStartingW("Commencer"));
-        System.out.println(pbtn1.getPreferredSize());
-
-        JPanel pbtn2 = new JPanel();
-        pbtn2.setLayout(new BoxLayout(pbtn2, BoxLayout.LINE_AXIS));
-        pbtn2.add(new BtnStartingW("Quitter"));
-
-
+        // On définit un nouveau panel qui contiendra nos boutons
         JPanel btncontainer = new JPanel();
-        //On positionne maintenant nos boutons en colonne
-        // container.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        //On positionne maintenant nos boutons en utilisant GridLayout avec 2 lignes et 1 seule colonne
         btncontainer.setLayout(new GridLayout(2, 1));
-        btncontainer.setPreferredSize(new Dimension(200,600));
-        btncontainer.add(pbtn1);
-        btncontainer.add(pbtn2);
+        // Ceci permets aux boutons de faire leurs tailles complètes et de ne pas être ultra réduits (- de 50 px de large et 10 de haut)
+        btncontainer.setPreferredSize(new Dimension(200,200));
+
+        btncontainer.add(new BtnStartingW("Commencer"));
+        btncontainer.add(new BtnStartingW("Quitter"));
+
+        // On ajoute notre panel de boutons à celui global
         panel.add(btncontainer);
         this.setVisible(true);
     }

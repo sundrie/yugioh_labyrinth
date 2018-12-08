@@ -36,7 +36,10 @@ public class BtnStartingW extends JButton implements MouseListener {
     }
 
     //Méthode appelée lors du survol de la souris
-    public void mouseEntered(MouseEvent event) { }
+    public void mouseEntered(MouseEvent event) {
+        // Ceci fait passer le curseur de la souris en main (signifie que c'est cliquable)
+        this.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }
 
     //Méthode appelée lorsque la souris sort de la zone du bouton
     public void mouseExited(MouseEvent event) { }

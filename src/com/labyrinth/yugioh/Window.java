@@ -10,10 +10,8 @@ public class Window extends JFrame {
     private ContentPanel panel = new ContentPanel();
     // La méthode pour créer notre fenêtre
     public void createWindow(){
-
         // on dit à Window que notre classe ContentPanel est son contentPane
         this.setContentPane(panel);
-
         this.setTitle(title);
         this.setSize(width, height);
         // Centre la fenêtre
@@ -33,6 +31,7 @@ public class Window extends JFrame {
 
         // On ajoute notre panel de boutons à celui global
         panel.add(btncontainer);
+
         this.setVisible(true);
     }
 

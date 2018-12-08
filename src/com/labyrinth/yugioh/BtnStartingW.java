@@ -3,7 +3,7 @@ package com.labyrinth.yugioh;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JButton;
+import javax.swing.*;
 
 public class BtnStartingW extends JButton implements MouseListener {
     private String name;
@@ -34,6 +34,11 @@ public class BtnStartingW extends JButton implements MouseListener {
     //Méthode appelée lors du clic de souris
     public void mouseClicked(MouseEvent event) {
         System.out.println("Tu as cliqué sur le bouton"+this.name);
+        if(this.name == "Quitter"){
+            System.out.println("Il faut quitter le programme");
+            // Ceci ferme la fenêtre lorsque l'utilisateur appuie sur le bouton quitter
+            System.exit(0);
+        }
     }
 
     //Méthode appelée lors du survol de la souris
@@ -50,6 +55,8 @@ public class BtnStartingW extends JButton implements MouseListener {
 
 
     //Méthode appelée lorsque l'on relâche le clic de souris
-    public void mouseReleased(MouseEvent event) { }
+    public void mouseReleased(MouseEvent event) {
+
+    }
 
 }

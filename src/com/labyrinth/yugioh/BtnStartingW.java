@@ -1,13 +1,18 @@
 package com.labyrinth.yugioh;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
-public class BtnStartingW extends JButton {
+public class BtnStartingW extends JButton implements MouseListener {
     private String name;
     public BtnStartingW(String str){
         this.name = str;
+        // Pour que l'objet s'écoute
+        this.addMouseListener(this);
     }
+
     public void paintComponent(Graphics g){
         // On définit la taille de nos boutons
         this.setSize(200,100);
@@ -24,5 +29,23 @@ public class BtnStartingW extends JButton {
 
         g.drawString(this.name, centeredX, this.getHeight()/2);
     }
+
+    //Méthode appelée lors du clic de souris
+    public void mouseClicked(MouseEvent event) {
+        System.out.println("Tu as cliqué sur le bouton"+this.name);
+    }
+
+    //Méthode appelée lors du survol de la souris
+    public void mouseEntered(MouseEvent event) { }
+
+    //Méthode appelée lorsque la souris sort de la zone du bouton
+    public void mouseExited(MouseEvent event) { }
+
+    //Méthode appelée lorsque l'on presse le bouton gauche de la souris
+    public void mousePressed(MouseEvent event) { }
+
+
+    //Méthode appelée lorsque l'on relâche le clic de souris
+    public void mouseReleased(MouseEvent event) { }
 
 }

@@ -34,8 +34,14 @@ public class BtnStartingW extends JButton implements MouseListener {
     //Méthode appelée lors du clic de souris
     public void mouseClicked(MouseEvent event) {
         System.out.println("Tu as cliqué sur le bouton"+this.name);
+        if(this.name == "Commencer"){
+            System.out.println("Let's go !");
+            // On créé une nouvelle fenêtre où se passera le jeu
+            GameWindow gameWindow = new GameWindow();
+            gameWindow.createWindow();
+        }
+
         if(this.name == "Quitter"){
-            System.out.println("Il faut quitter le programme");
             // Ceci ferme la fenêtre lorsque l'utilisateur appuie sur le bouton quitter
             System.exit(0);
         }

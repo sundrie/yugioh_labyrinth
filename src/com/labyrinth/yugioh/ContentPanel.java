@@ -18,6 +18,8 @@ public class ContentPanel extends JPanel {
         } catch (IOException e) {
             System.out.println("Erreur pour l'affichage du logo");
         }
+
+        g.drawString("made by Alexandre Blin",320,660);
     }
 
 

@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
-    int width = 1280;
+    int width = 480;
     int height = 720;
-    String title = "Yu-Gi-Oh! Labyrinth";
+    String title = "Yu-Gi-Oh! Labyrinth Launcher";
     private ContentPanel panel = new ContentPanel();
     // La méthode pour créer notre fenêtre
     public void createWindow(){

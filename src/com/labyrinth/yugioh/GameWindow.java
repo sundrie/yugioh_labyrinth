@@ -13,8 +13,8 @@ public class GameWindow extends JFrame {
         this.setSize(width, height);
         // Centre la fenêtre
         this.setLocationRelativeTo(null);
-        // Termine le processus lorsqu'on clique sur la croix rouge
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Ferme la fenêtre en cours lorsqu'on clique sur la croix rouge au lieu de fermer tout comme le fait JFrame.EXIT_ON_CLOSE
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         this.setVisible(true);

@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
-    int width = 480;
+    int width = 1280;
     int height = 720;
-    String title = "Yu-Gi-Oh! Labyrinth Launcher";
+    String title = "Yu-Gi-Oh! Labyrinth";
     private ContentPanel panel = new ContentPanel();
     // La méthode pour créer notre fenêtre
     public void createWindow(){
@@ -26,8 +26,9 @@ public class Window extends JFrame {
         // Ceci permets aux boutons de faire leurs tailles complètes et de ne pas être ultra réduits (- de 50 px de large et 10 de haut)
         btncontainer.setPreferredSize(new Dimension(200,200));
 
-        btncontainer.add(new BtnStartingW("Commencer"));
-        btncontainer.add(new BtnStartingW("Quitter"));
+        // Le panel est envoyé pour pouvoir le masquer lors du clic sur le bouton commencer
+        btncontainer.add(new BtnStartingW("Commencer",panel));
+        btncontainer.add(new BtnStartingW("Quitter",panel));
 
         // On ajoute notre panel de boutons à celui global
         panel.add(btncontainer);

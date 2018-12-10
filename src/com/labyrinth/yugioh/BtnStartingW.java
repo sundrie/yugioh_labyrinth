@@ -7,8 +7,11 @@ import javax.swing.*;
 
 public class BtnStartingW extends JButton implements MouseListener {
     private String name;
-    public BtnStartingW(String str){
+    // On sauvegarde le ContentPanel pour pouvoir l'utiliser n'importe où
+    private ContentPanel mainPanel;
+    public BtnStartingW(String str,ContentPanel panel){
         this.name = str;
+        mainPanel = panel;
         // Pour que l'objet s'écoute
         this.addMouseListener(this);
     }
@@ -36,9 +39,8 @@ public class BtnStartingW extends JButton implements MouseListener {
         System.out.println("Tu as cliqué sur le bouton"+this.name);
         if(this.name == "Commencer"){
             System.out.println("Let's go !");
-            // On créé une nouvelle fenêtre où se passera le jeu
-            GameWindow gameWindow = new GameWindow();
-            gameWindow.createWindow();
+            // On masque le menu de démarrage
+            mainPanel.setVisible(false);
         }
 
         if(this.name == "Quitter"){

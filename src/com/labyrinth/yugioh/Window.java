@@ -19,19 +19,13 @@ public class Window extends JFrame {
         // Termine le processus lorsqu'on clique sur la croix rouge
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // On définit un nouveau panel qui contiendra nos boutons
-        JPanel btncontainer = new JPanel();
-        //On positionne maintenant nos boutons en utilisant GridLayout avec 2 lignes et 1 seule colonne
-        btncontainer.setLayout(new GridLayout(2, 1));
-        // Ceci permets aux boutons de faire leurs tailles complètes et de ne pas être ultra réduits (- de 50 px de large et 10 de haut)
-        btncontainer.setPreferredSize(new Dimension(200,200));
+        // Pour empêcher la multiplication de nos boutons (à cause de add())
+        boolean alreadyExecuted = false;
+        if(!alreadyExecuted) {
+            panel.drawButtons();
+            alreadyExecuted = true;
+        }
 
-        // Le panel est envoyé pour pouvoir le masquer lors du clic sur le bouton commencer
-        btncontainer.add(new BtnStartingW("Commencer",panel));
-        btncontainer.add(new BtnStartingW("Quitter",panel));
-
-        // On ajoute notre panel de boutons à celui global
-        panel.add(btncontainer);
 
         this.setVisible(true);
     }

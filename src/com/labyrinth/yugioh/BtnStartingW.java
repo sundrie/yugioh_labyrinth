@@ -36,9 +36,7 @@ public class BtnStartingW extends JButton implements MouseListener {
 
     //Méthode appelée lors du clic de souris
     public void mouseClicked(MouseEvent event) {
-        System.out.println("Tu as cliqué sur le bouton"+this.name);
         if(this.name == "Commencer"){
-            System.out.println("Let's go !");
             // On masque le menu de démarrage
             mainPanel.setVisible(false);
         }

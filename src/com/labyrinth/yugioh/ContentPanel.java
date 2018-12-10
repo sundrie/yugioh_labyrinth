@@ -1,8 +1,7 @@
 package com.labyrinth.yugioh;
 
 import javax.swing.JPanel;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -19,8 +18,23 @@ public class ContentPanel extends JPanel {
             System.out.println("Erreur pour l'affichage du logo");
         }
 
-        g.drawString("made by Alexandre Blin",320,660);
+        g.drawString("made by Alexandre Blin",this.getWidth()-130,this.getHeight()-10);
     }
 
+    public void drawButtons(){
+        // On définit un nouveau panel qui contiendra nos boutons
+        JPanel btncontainer = new JPanel();
+        //On positionne maintenant nos boutons en utilisant GridLayout avec 2 lignes et 1 seule colonne
+        btncontainer.setLayout(new GridLayout(2, 1));
+        // Ceci permets aux boutons de faire leurs tailles complètes et de ne pas être ultra réduits (- de 50 px de large et 10 de haut)
+        btncontainer.setPreferredSize(new Dimension(200,200));
+
+        // Le panel est envoyé pour pouvoir le masquer lors du clic sur le bouton commencer
+        btncontainer.add(new BtnStartingW("Commencer",this));
+        btncontainer.add(new BtnStartingW("Quitter",this));
+
+        // On ajoute notre panel de boutons à celui global
+        this.add(btncontainer);
+    }
 
 }

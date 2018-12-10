@@ -9,11 +9,14 @@ public class BtnStartingW extends JButton implements MouseListener {
     private String name;
     // On sauvegarde le ContentPanel pour pouvoir l'utiliser n'importe où
     private ContentPanel mainPanel;
-    public BtnStartingW(String str,ContentPanel panel){
+    private Window theWindow;
+
+    public BtnStartingW(String str,ContentPanel panel,Window window){
         this.name = str;
         mainPanel = panel;
         // Pour que l'objet s'écoute
         this.addMouseListener(this);
+        theWindow = window;
     }
 
     public void paintComponent(Graphics g){
@@ -37,8 +40,7 @@ public class BtnStartingW extends JButton implements MouseListener {
     //Méthode appelée lors du clic de souris
     public void mouseClicked(MouseEvent event) {
         if(this.name == "Commencer"){
-            // On masque le menu de démarrage
-            mainPanel.setVisible(false);
+            theWindow.gameStart();
         }
 
         if(this.name == "Quitter"){

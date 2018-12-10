@@ -21,7 +21,8 @@ public class ContentPanel extends JPanel {
         g.drawString("made by Alexandre Blin",this.getWidth()-130,this.getHeight()-10);
     }
 
-    public void drawButtons(){
+    // Méthode pour dessiner notre panneau de boutons
+    public void drawButtons(Window theWindow){
         // On définit un nouveau panel qui contiendra nos boutons
         JPanel btncontainer = new JPanel();
         //On positionne maintenant nos boutons en utilisant GridLayout avec 2 lignes et 1 seule colonne
@@ -30,8 +31,8 @@ public class ContentPanel extends JPanel {
         btncontainer.setPreferredSize(new Dimension(200,200));
 
         // Le panel est envoyé pour pouvoir le masquer lors du clic sur le bouton commencer
-        btncontainer.add(new BtnStartingW("Commencer",this));
-        btncontainer.add(new BtnStartingW("Quitter",this));
+        btncontainer.add(new BtnStartingW("Commencer",this,theWindow));
+        btncontainer.add(new BtnStartingW("Quitter",this,theWindow));
 
         // On ajoute notre panel de boutons à celui global
         this.add(btncontainer);

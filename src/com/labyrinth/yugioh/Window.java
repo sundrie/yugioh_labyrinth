@@ -8,6 +8,8 @@ public class Window extends JFrame {
     int height = 720;
     String title = "Yu-Gi-Oh! Labyrinth";
     private ContentPanel panel = new ContentPanel();
+    private GamePanel gpanel = new GamePanel();
+    private Window theWindow = this;
     // La méthode pour créer notre fenêtre
     public void createWindow(){
         // on dit à Window que notre classe ContentPanel est son contentPane
@@ -22,13 +24,21 @@ public class Window extends JFrame {
         // Pour empêcher la multiplication de nos boutons (à cause de add())
         boolean alreadyExecuted = false;
         if(!alreadyExecuted) {
-            panel.drawButtons();
+            // theWindow est envoyé aux autres class pour pouvoir faire référence à notre Window
+            panel.drawButtons(theWindow);
             alreadyExecuted = true;
         }
-
 
         this.setVisible(true);
     }
 
+    // Cette méthode va lancer le panel qui contiendra le jeu
+    public void gameStart(){
+
+        // On masque le menu de démarrage
+        panel.setVisible(false);
+        // Et notre fenêtre de jeu deviens le ContentPane principal de Window
+        theWindow.setContentPane(gpanel);
+    }
 
 }

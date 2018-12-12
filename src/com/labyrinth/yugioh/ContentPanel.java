@@ -11,7 +11,7 @@ public class ContentPanel extends JPanel {
     public void paintComponent(Graphics g){
         try {
             // On créé notre variable de type Image
-            Image bgImgStartMenu = ImageIO.read(new File("assets/interface/img/yu-gi-oh_logo.jpg"));
+            Image bgImgStartMenu = ImageIO.read(new File("assets/interface/img/yugioh-labyrinth.png"));
             // On la dessine il faudrait ajouter après le x et y la largeur et hauteur du panel par exemple pour en faire une image de fond
             g.drawImage(bgImgStartMenu, 0, 0, this);
         } catch (IOException e) {

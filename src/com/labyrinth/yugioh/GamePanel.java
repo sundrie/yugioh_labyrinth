@@ -26,6 +26,9 @@ public class GamePanel extends JPanel {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.LINE_AXIS));
         mainPanel.setSize(1280,720);
         gamePanelContainer.setBackground(Color.black);
+        // Pour illustration j'ajoute le plateau de jeu de base
+        JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
+        gamePanelContainer.add(lab);
         gamePanelContainer.setSize(920,720);
         infoPanelContainer.setBackground(Color.cyan);
         infoPanelContainer.setPreferredSize(new Dimension(360,720));

@@ -34,7 +34,6 @@ public class Window extends JFrame {
 
     // Cette méthode va lancer le panel qui contiendra le jeu
     public void gameStart(){
-
         // On masque le menu de démarrage
         panel.setVisible(false);
         // Et notre fenêtre de jeu deviens le ContentPane principal de Window

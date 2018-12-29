@@ -38,7 +38,6 @@ public class Window extends JFrame {
         panel.setVisible(false);
         // Et notre fenêtre de jeu deviens le ContentPane principal de Window
         theWindow.setContentPane(gpanel);
-        gpanel.drawGamePanel();
     }
 
 }

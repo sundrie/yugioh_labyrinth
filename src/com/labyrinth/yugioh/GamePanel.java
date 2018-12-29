@@ -25,5 +25,14 @@ public class GamePanel extends JPanel {
         mainPanel.add(infoPanelContainer);
     }
 
-
+    // Ceci est une classe interne
+    class InfoPanel extends JPanel {
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            setBackground(Color.gray);
+            setPreferredSize(new Dimension(360, 720));
+            g.setColor(Color.black);
+            g.drawString("Informations", 20, 20);
+        }
+    }
 }

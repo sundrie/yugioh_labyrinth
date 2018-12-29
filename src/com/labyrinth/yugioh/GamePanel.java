@@ -17,10 +17,7 @@ public class GamePanel extends JPanel implements MouseListener {
         //mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.LINE_AXIS));
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setSize(1280,720);
-        gamePanelContainer.setBackground(Color.black);
-        // Pour illustration j'ajoute le plateau de jeu de base
-        JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
-        gamePanelContainer.add(lab);
+
         gamePanelContainer.setPreferredSize(new Dimension(920,720));
 
         mainPanel.add(gamePanelContainer, BorderLayout.WEST);
@@ -28,6 +25,19 @@ public class GamePanel extends JPanel implements MouseListener {
 
         gamePanelContainer.addMouseListener(this);
         infoPanelContainer.addMouseListener(this);
+
+        // Une fois nos 2 conteneurs créés on génère le labyrinthe
+        generateLabyrinth();
+    }
+
+    // Cette méthode va générer le labyrinthe
+    public void generateLabyrinth(){
+        gamePanelContainer.setBackground(Color.black);
+        // Pour illustration j'ajoute le plateau de jeu de base
+        JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
+        gamePanelContainer.add(lab);
+
+        // Les futures tiles feront 60 sur 60 en taille
     }
 
     // Ceci est une classe interne
@@ -45,12 +55,15 @@ public class GamePanel extends JPanel implements MouseListener {
             g.drawString(testString, 20, 20);
         }
     }
-
+    // Ceci sert d'exemple test
+    int i = 0;
     public void mouseClicked(MouseEvent e) {
-
-        infoPanelContainer.testString = "Clic !";
+        i++;
+        infoPanelContainer.testString = "Clic "+i+" fois !!";
+        // repaint actualise le contenu
         repaint();
-        System.out.println(e.getSource());
+
+        System.out.println(e.getSource().getClass());
     }
 
 

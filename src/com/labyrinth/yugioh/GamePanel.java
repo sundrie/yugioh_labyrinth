@@ -10,7 +10,8 @@ public class GamePanel extends JPanel implements MouseListener {
     JPanel mainPanel = this;
     // Celui ci servira a afficher toutes les infos utiles pour le joueur (description créatures, créatures restantes,etc.)
     InfoPanel infoPanelContainer = new InfoPanel();
-
+    // tSize correspond à la taille de nos tiles
+    int tSize = 60;
     public void paintComponent(Graphics g){
 
         g.setColor(Color.black);
@@ -35,7 +36,7 @@ public class GamePanel extends JPanel implements MouseListener {
             for (int j=0;j<14;j++){
                 // System.out.println(j);
                 g.setColor(Color.ORANGE);
-                g.drawRect(j * 60, k * 60, 60, 60);
+                g.drawRect(j * tSize, k * tSize, tSize, tSize);
             }
         }
     }

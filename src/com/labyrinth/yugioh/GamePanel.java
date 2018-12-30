@@ -27,14 +27,16 @@ public class GamePanel extends JPanel implements MouseListener {
         // Pour illustration j'ajoute le plateau de jeu de base
         //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
         //gamePanelContainer.add(lab);
-        g.setColor(Color.white);
-        g.drawString("generation en cours",20,20);
         // Les futures tiles feront 60 sur 60 en taille
-        for (int j=0;j<14;j++){
-            // System.out.println(j);
-            g.setColor(Color.ORANGE);
-            g.drawRect(j*60,0,60,60);
-
+        // Le plateau fait 14 de long sur 11 de haut
+        // Et celle ci de la hauteur
+        for (int k=0;k<11;k++) {
+            // Cette boucle va s'occuper de la longueur
+            for (int j=0;j<14;j++){
+                // System.out.println(j);
+                g.setColor(Color.ORANGE);
+                g.drawRect(j * 60, k * 60, 60, 60);
+            }
         }
     }
 

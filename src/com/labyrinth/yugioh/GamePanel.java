@@ -1,22 +1,23 @@
 package com.labyrinth.yugioh;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class GamePanel extends JPanel implements MouseListener {
-    JPanel mainPanel = this;
     // Celui ci servira a afficher toutes les infos utiles pour le joueur (description créatures, créatures restantes,etc.)
-    InfoPanel infoPanelContainer = new InfoPanel();
+    //InfoPanel infoPanelContainer = new InfoPanel();
     // tSize correspond à la taille de nos tiles
     int tSize = 60;
-    public void paintComponent(Graphics g){
 
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(0,0,920,720);
-        this.add(infoPanelContainer);
+//        infoPanelContainer.setPreferredSize(new Dimension(360,720));
+//        this.add(infoPanelContainer);
+//        System.out.println(infoPanelContainer);
         this.addMouseListener(this);
 
         // Une fois nos 2 conteneurs créés on génère le labyrinthe
@@ -42,7 +43,7 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Clic");
+        System.out.println(e.getSource().getClass());
     }
 
     public void mousePressed(MouseEvent e) {

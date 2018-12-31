@@ -37,7 +37,10 @@ public class Window extends JFrame {
         // On masque le menu de démarrage
         panel.setVisible(false);
         // Et notre fenêtre de jeu deviens le ContentPane principal de Window
-        theWindow.setContentPane(gpanel);
+        GameContainer gContainer = new GameContainer();
+        gContainer.launch();
+        theWindow.setContentPane(gContainer);
+
     }
 
 }

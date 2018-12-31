@@ -6,20 +6,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 // Ceci est une classe interne
-class InfoPanel extends JPanel implements MouseListener {
+public class InfoPanel extends JPanel implements MouseListener {
 
     String testString = "Informations";
 
     public void paintComponent(Graphics g) {
-        System.out.println("ENCULAR !");
+        super.paintComponent(g);
         //super.paintComponent(g);
-        setBackground(Color.gray);
-        setPreferredSize(new Dimension(360, 720));
-
+        g.setColor(Color.gray);
+        g.fillRect(920,0,360,720);
         // Pour les tests
         g.setColor(Color.black);
         g.drawString(testString, 20, 20);
-
+        this.addMouseListener(this);
 
     }
 

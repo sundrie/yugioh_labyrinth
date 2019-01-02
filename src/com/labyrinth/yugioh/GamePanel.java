@@ -19,7 +19,6 @@ public class GamePanel extends JPanel implements MouseListener {
 //        this.add(infoPanelContainer);
 //        System.out.println(infoPanelContainer);
         this.addMouseListener(this);
-
         // Une fois nos 2 conteneurs créés on génère le labyrinthe
         generateLabyrinth(g);
     }
@@ -29,6 +28,8 @@ public class GamePanel extends JPanel implements MouseListener {
         // Pour illustration j'ajoute le plateau de jeu de base
         //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
         //gamePanelContainer.add(lab);
+
+
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
         // Et celle ci de la hauteur

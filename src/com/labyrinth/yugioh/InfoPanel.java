@@ -8,29 +8,33 @@ import java.awt.event.MouseListener;
 // Ceci est une classe interne
 public class InfoPanel extends JPanel implements MouseListener {
 
-    String testString = "Informations";
+    // Va s'occuper d'afficher nos unités encore vivantes
+    JLabel alliedLeftUnit = new JLabel("Nombre d'unités alliées vivantes : 0");
+    // Va s'occuper d'afficher les unités ennemies encore vivantes
+    JLabel enemyLeftUnit = new JLabel("Nombre d'unités ennemies vivantes : 0");
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //super.paintComponent(g);
         g.setColor(Color.gray);
         g.fillRect(920,0,360,720);
-        // Pour les tests
-        g.setColor(Color.black);
-        g.drawString(testString, 20, 20);
-        this.addMouseListener(this);
+        alliedLeftUnit.setFont(new Font("Arial",Font.PLAIN,18));
+        add(alliedLeftUnit);
+        // Permets de capter les actions de la souris sur le label
+        alliedLeftUnit.addMouseListener(this);
 
+        enemyLeftUnit.setFont(new Font("Arial",Font.PLAIN,18));
+        add(enemyLeftUnit);
+        // Permets de capter les actions de la souris sur le label
+        enemyLeftUnit.addMouseListener(this);
+
+        // Pour capter les actions de la souris sur le panel
+        this.addMouseListener(this);
+        // Validate est obligatoire pour que les JLabel s'affiche
+        validate();
     }
 
-    // Ceci sert d'exemple test
-    int i = 0;
     public void mouseClicked(MouseEvent e) {
-        i++;
-        this.testString = "Clic "+i+" fois !!";
-        // repaint actualise le contenu
-        repaint();
-
-        System.out.println(e.getSource().getClass());
+        System.out.println(e.getSource());
     }
 
 
@@ -45,7 +49,6 @@ public class InfoPanel extends JPanel implements MouseListener {
 
 
     public void mouseEntered(MouseEvent e) {
-
     }
 
 

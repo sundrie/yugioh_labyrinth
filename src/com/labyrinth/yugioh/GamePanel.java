@@ -28,31 +28,29 @@ public class GamePanel extends JPanel implements MouseListener {
         // Pour illustration j'ajoute le plateau de jeu de base
         //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
         //gamePanelContainer.add(lab);
-        int tilemap[] =
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-                 0,0,0,0,0,0,0,0,0,0,0,0,0,0
-                };
-
-        System.out.println(tilemap.length);
+        int grid[][] = {
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+        };
 
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
-        // Et celle ci de la hauteur
-        for (int k=0;k<11;k++) {
-            // Cette boucle va s'occuper de la longueur
-            for (int j=0;j<14;j++){
-                // System.out.println(j);
+        // Cette boucle va s'occuper de la hauteur
+        for (int i=0;i<grid.length;i++) {
+            // Et celle ci de la longueur
+            // grid[i] permets de changer de ligne dans un tableau 2D (en gros ça fait grid[de 0 à 10 lignes][et de 0 à 13 colonnes])
+            for (int j=0;j<grid[i].length;j++) {
                 g.setColor(Color.ORANGE);
-                g.drawRect(j * tSize, k * tSize, tSize, tSize);
+                g.drawRect(j * tSize, i * tSize, tSize, tSize);
             }
         }
     }

@@ -31,13 +31,13 @@ public class GamePanel extends JPanel implements MouseListener {
         int grid[][] = {
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
@@ -49,8 +49,17 @@ public class GamePanel extends JPanel implements MouseListener {
             // Et celle ci de la longueur
             // grid[i] permets de changer de ligne dans un tableau 2D (en gros ça fait grid[de 0 à 10 lignes][et de 0 à 13 colonnes])
             for (int j=0;j<grid[i].length;j++) {
-                g.setColor(Color.ORANGE);
-                g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                // Un switch sera mieux que plusieurs if (et ça permets d'utiliser quelque chose de peu utilisé)
+                switch (grid[i][j]){
+                    case 0:
+                        g.setColor(Color.ORANGE);
+                        g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                        break;
+                    case 1:
+                        g.setColor(Color.BLUE);
+                        g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                        break;
+                }
             }
         }
     }

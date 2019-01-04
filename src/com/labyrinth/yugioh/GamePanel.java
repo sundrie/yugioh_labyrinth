@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class GamePanel extends JPanel implements MouseListener {
     // Celui ci servira a afficher toutes les infos utiles pour le joueur (description créatures, créatures restantes,etc.)
@@ -53,7 +56,14 @@ public class GamePanel extends JPanel implements MouseListener {
                 switch (grid[i][j]){
                     case 0:
                         g.setColor(Color.ORANGE);
-                        g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                        // g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                        try {
+                            // On créé notre variable de type Image puis on la dessine
+                            Image tiletest = ImageIO.read(new File("assets/game/labyrinth/tiletest.png"));
+                            g.drawImage(tiletest,j * tSize, i * tSize, this);
+                        } catch (IOException e) {
+                            System.out.println("Erreur pour l'affichage de la tile test");
+                        }
                         break;
                     case 1:
                         g.setColor(Color.BLUE);

@@ -55,15 +55,7 @@ public class GamePanel extends JPanel implements MouseListener {
                 // Un switch sera mieux que plusieurs if (et ça permets d'utiliser quelque chose de peu utilisé)
                 switch (grid[i][j]){
                     case 0:
-                        g.setColor(Color.ORANGE);
-                        // g.drawRect(j * tSize, i * tSize, tSize, tSize);
-                        try {
-                            // On créé notre variable de type Image puis on la dessine
-                            Image tiletest = ImageIO.read(new File("assets/game/labyrinth/tiletest.png"));
-                            g.drawImage(tiletest,j * tSize, i * tSize, this);
-                        } catch (IOException e) {
-                            System.out.println("Erreur pour l'affichage de la tile test");
-                        }
+                        drawTile(g,j,i,0);
                         break;
                     case 1:
                         g.setColor(Color.BLUE);
@@ -71,6 +63,17 @@ public class GamePanel extends JPanel implements MouseListener {
                         break;
                 }
             }
+        }
+    }
+
+    // Permets de dessiner la tile demandée
+    public void drawTile(Graphics g,int j,int i,int tilenb){
+        try {
+            // On créé notre variable de type Image puis on la dessine
+            Image tiletest = ImageIO.read(new File("assets/game/labyrinth/tiletest.png"));
+            g.drawImage(tiletest,j * tSize, i * tSize, this);
+        } catch (IOException e) {
+            System.out.println("Erreur pour l'affichage de la tile");
         }
     }
 

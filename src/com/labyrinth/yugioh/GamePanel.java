@@ -58,8 +58,7 @@ public class GamePanel extends JPanel implements MouseListener {
                         drawTile(g,j,i,0);
                         break;
                     case 1:
-                        g.setColor(Color.BLUE);
-                        g.drawRect(j * tSize, i * tSize, tSize, tSize);
+                        drawTile(g,j,i,1);
                         break;
                 }
             }

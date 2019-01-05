@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0fa5713-da4a-481f-8185-c7f015aa0b5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="224">
+              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,9 +116,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="30" />
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-454" />
+    <option name="y" value="27" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -200,16 +200,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\game\labyrinth\tiles" />
-      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\game\labyrinth" />
-      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\interface\img" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.labyrinth.yugioh" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.labyrinth.yugioh" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.labyrinth.yugioh" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\game\labyrinth\tiles" />
+      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\game\labyrinth" />
+      <recent name="C:\Users\Utilisateur\Documents\java\yugioh\assets\interface\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -255,7 +255,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-341" y="23" width="1400" height="776" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -263,15 +263,15 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.15637584" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.17388059" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32608697" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32453415" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.34844193" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.38198757" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -377,8 +377,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="224">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

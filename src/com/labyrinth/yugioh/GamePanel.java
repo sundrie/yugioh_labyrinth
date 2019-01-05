@@ -60,6 +60,9 @@ public class GamePanel extends JPanel implements MouseListener {
                     case 1:
                         drawTile(g,j,i,1);
                         break;
+                    case 2:
+                        drawTile(g,j,i,2);
+                        break;
                     case 11:
                         drawTile(g,j,i,11);
                         break;

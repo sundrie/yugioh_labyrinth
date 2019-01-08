@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0fa5713-da4a-481f-8185-c7f015aa0b5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="f0fa5713-da4a-481f-8185-c7f015aa0b5b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +194,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546968952365" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546969488916" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">

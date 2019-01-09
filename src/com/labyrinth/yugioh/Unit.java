@@ -13,7 +13,6 @@ public class Unit implements MouseListener {
     int h = 30;
 
     public Unit(int x, int y){
-        System.out.println(x+" "+y);
         // On enregistre la position de notre unité
         posX = x;
         posY = y;
@@ -40,7 +39,7 @@ public class Unit implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Clic sur une unité de la team bleu");
+        System.out.println(posX+" "+posY);
     }
 
     public void mousePressed(MouseEvent e) {

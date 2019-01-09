@@ -108,18 +108,15 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
             if (grid[i][0]==11){
-//                g.setColor(Color.blue);
-//                g.fillOval(unitSize/2,i*tSize+unitSize/2,unitSize,unitSize);
-
                 Unit blueUnit = new Unit(unitSize/2,i*tSize+unitSize/2);
                 g.setColor(Color.blue);
                 g.fillOval(blueUnit.getX(),blueUnit.getY(),blueUnit.getW(),blueUnit.getH());
-
             }
 
             if (grid[i][13]==11){
+                Unit redUnit = new Unit(gpW-tSize*2,i*tSize+unitSize/2);
                 g.setColor(Color.red);
-                g.fillOval(gpW-tSize*2,i*tSize+unitSize/2,unitSize,unitSize);
+                g.fillOval(redUnit.getX(),redUnit.getY(),redUnit.getW(),redUnit.getH());
             }
         }
     }

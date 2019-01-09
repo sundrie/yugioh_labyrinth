@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0fa5713-da4a-481f-8185-c7f015aa0b5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -71,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="104" column="36" lean-forward="true" selection-start-line="104" selection-start-column="36" selection-end-line="104" selection-end-column="36" />
+            <state relative-caret-position="181">
+              <caret line="106" column="63" selection-start-line="106" selection-start-column="63" selection-end-line="106" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2415#3662#0" />
@@ -371,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="104" column="36" lean-forward="true" selection-start-line="104" selection-start-column="36" selection-end-line="104" selection-end-column="36" />
+        <state relative-caret-position="181">
+          <caret line="106" column="63" selection-start-line="106" selection-start-column="63" selection-end-line="106" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2415#3662#0" />

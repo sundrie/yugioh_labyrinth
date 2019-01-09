@@ -100,10 +100,16 @@ public class GamePanel extends JPanel implements MouseListener {
     // Ajoute les unités sur le labyrinthe
     // Pour l'instant et pour les tests ce sera 7 pions sur chaque spawn
     public void generateUnits(int grid[][],Graphics g){
+        // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
+        int unitSize = 30;
         // Puisque les points de spawn sur ce labyrinth sont fixés il suffit d'une seule boucle pour la colonne 0 et 13
         for (int i=0;i<grid.length;i++){
-            g.setColor(Color.BLACK);
-            g.fillOval(15,i*60+15,30,30);
+            // Les tiles 11 correspondent à nos points de spawn
+            if (grid[i][0]==11){
+                g.setColor(Color.BLACK);
+                g.fillOval(unitSize/2,i*tSize+unitSize/2,unitSize,unitSize);
+                System.out.println(grid[i][0]);
+            }
         }
 
     }

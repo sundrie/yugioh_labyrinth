@@ -16,6 +16,9 @@ public class GamePanel extends JPanel implements MouseListener {
     int gpW = 920;
     int gpH = 720;
 
+    Unit blueUnit;
+    Unit toto = new Unit(0,0);
+
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.black);
@@ -119,6 +122,8 @@ public class GamePanel extends JPanel implements MouseListener {
                 g.fillOval(redUnit.getX(),redUnit.getY(),redUnit.getW(),redUnit.getH());
             }
         }
+        g.setColor(Color.magenta);
+        g.fillOval(toto.getX(),toto.getY(),toto.getW(),toto.getH());
     }
 
     // Permets de dessiner la tile demandée
@@ -133,7 +138,11 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getSource().getClass());
+//        System.out.println(e.getSource().getClass());
+        System.out.println(MouseInfo.getPointerInfo().getLocation());
+        toto.move(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
+        System.out.println(toto.getX());
+        repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
     }
 
     public void mousePressed(MouseEvent e) {

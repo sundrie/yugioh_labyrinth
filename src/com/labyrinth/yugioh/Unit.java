@@ -38,6 +38,12 @@ public class Unit implements MouseListener {
         return h;
     }
 
+    public void move(int newX, int newY){
+        posX = newX;
+        posY = newY;
+        System.out.println(posX+" "+posY);
+    }
+
     public void mouseClicked(MouseEvent e) {
         System.out.println(posX+" "+posY);
     }

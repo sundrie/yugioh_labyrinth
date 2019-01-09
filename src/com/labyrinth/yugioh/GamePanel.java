@@ -13,11 +13,13 @@ public class GamePanel extends JPanel implements MouseListener {
     //InfoPanel infoPanelContainer = new InfoPanel();
     // tSize correspond à la taille de nos tiles
     int tSize = 60;
+    int gpW = 920;
+    int gpH = 720;
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.black);
-        g.fillRect(0,0,920,720);
+        g.fillRect(0,0,gpW,gpH);
 //        infoPanelContainer.setPreferredSize(new Dimension(360,720));
 //        this.add(infoPanelContainer);
 //        System.out.println(infoPanelContainer);
@@ -106,9 +108,14 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
             if (grid[i][0]==11){
-                g.setColor(Color.BLACK);
+                g.setColor(Color.blue);
                 g.fillOval(unitSize/2,i*tSize+unitSize/2,unitSize,unitSize);
-                System.out.println(grid[i][0]);
+            }
+
+            System.out.println(grid[i][13]);
+            if (grid[i][13]==11){
+                g.setColor(Color.red);
+                g.fillOval(gpW-tSize*2,i*tSize+unitSize/2,unitSize,unitSize);
             }
         }
 

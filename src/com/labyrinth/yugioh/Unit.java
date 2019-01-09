@@ -38,10 +38,10 @@ public class Unit implements MouseListener {
         return h;
     }
 
+    // Permets de changer la position de notre unité en écrasant les valeurs par les nouvelles
     public void move(int newX, int newY){
         posX = newX;
         posY = newY;
-        System.out.println(posX+" "+posY);
     }
 
     public void mouseClicked(MouseEvent e) {

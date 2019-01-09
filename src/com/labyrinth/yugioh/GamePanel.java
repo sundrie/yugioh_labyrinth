@@ -139,9 +139,8 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
 //        System.out.println(e.getSource().getClass());
-        System.out.println(MouseInfo.getPointerInfo().getLocation());
-        toto.move(MouseInfo.getPointerInfo().getLocation().x, MouseInfo.getPointerInfo().getLocation().y);
-        System.out.println(toto.getX());
+        // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
+        toto.move(e.getX(), e.getY());
         repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
     }
 

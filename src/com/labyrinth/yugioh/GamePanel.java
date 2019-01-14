@@ -17,7 +17,7 @@ public class GamePanel extends JPanel implements MouseListener {
     int gpH = 720;
 
     Unit blueUnit;
-    Unit toto = new Unit(0,0);
+    Unit toto = new Unit(this,"toto",0,0);
 
     @Override
     public void paintComponent(Graphics g){
@@ -112,13 +112,13 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
             if (grid[i][0]==11){
-                Unit blueUnit = new Unit(unitSize/2,i*tSize+unitSize/2);
+                Unit blueUnit = new Unit(this, "blue",unitSize/2,i*tSize+unitSize/2);
                 g.setColor(Color.blue);
                 g.fillOval(blueUnit.getX(),blueUnit.getY(),blueUnit.getW(),blueUnit.getH());
             }
 
             if (grid[i][13]==11){
-                Unit redUnit = new Unit(gpW-tSize*2,i*tSize+unitSize/2);
+                Unit redUnit = new Unit(this, "red",gpW-tSize*2,i*tSize+unitSize/2);
                 g.setColor(Color.red);
                 g.fillOval(redUnit.getX(),redUnit.getY(),redUnit.getW(),redUnit.getH());
             }
@@ -138,6 +138,10 @@ public class GamePanel extends JPanel implements MouseListener {
         } catch (IOException e) {
             System.out.println("Erreur pour l'affichage de la tile");
         }
+    }
+
+    public void collectUnitData(String name){
+        System.out.println(name);
     }
 
     public void mouseClicked(MouseEvent e) {

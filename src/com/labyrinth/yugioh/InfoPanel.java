@@ -13,6 +13,7 @@ public class InfoPanel extends JPanel implements MouseListener {
     // Va s'occuper d'afficher les unités ennemies encore vivantes
     JLabel enemyLeftUnit = new JLabel("Nombre d'unités ennemies vivantes : 0");
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.gray);

@@ -125,6 +125,8 @@ public class GamePanel extends JPanel implements MouseListener {
         }
         g.setColor(Color.magenta);
         g.fillOval(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+        // Pour enclencher les événements liés à la souris
+        this.addMouseListener(toto);
     }
 
     // Permets de dessiner la tile demandée

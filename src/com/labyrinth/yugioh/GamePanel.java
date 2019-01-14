@@ -18,6 +18,7 @@ public class GamePanel extends JPanel implements MouseListener {
 
     Unit blueUnit;
     Unit toto = new Unit(this,"toto",0,0);
+    Unit tata = new Unit(this,"tata",60,60);
 
     @Override
     public void paintComponent(Graphics g){
@@ -127,6 +128,10 @@ public class GamePanel extends JPanel implements MouseListener {
         g.fillOval(toto.getX(),toto.getY(),toto.getW(),toto.getH());
         // Pour enclencher les événements liés à la souris
         this.addMouseListener(toto);
+
+        g.setColor(Color.green);
+        g.fillOval(tata.getX(),tata.getY(),tata.getW(),tata.getH());
+        this.addMouseListener(tata);
     }
 
     // Permets de dessiner la tile demandée
@@ -140,7 +145,11 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
-    public void collectUnitData(String name){
+    // Ceci correspond à l'unité qui va agir
+    Unit choosedUnit;
+    // Récupère ce que la class Unit envoie
+    public void collectUnitData(Unit unit, String name){
+        choosedUnit = unit;
         System.out.println(name);
     }
 
@@ -148,10 +157,14 @@ public class GamePanel extends JPanel implements MouseListener {
 //        System.out.println(e.getSource().getClass());
         // Si le bouton cliqué est celui de droite
         if (e.getButton() == 3) {
-            // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
-            toto.move(e.getX(), e.getY());
-            // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
-            repaint();
+            // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
+            if (choosedUnit != null) {
+                // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
+                choosedUnit.move(e.getX(), e.getY());
+                // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+                repaint();
+//            System.out.println(choosedUnit);
+            }
         }
     }
 

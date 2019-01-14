@@ -59,9 +59,9 @@ public class Unit implements MouseListener {
         if (e.getButton() == 1) {
             // On test si le clic est dans la zone de notre pion en tenant compte de x et y ainsi que x + largeur et y + hauteur
             if (((e.getX() >= posX) && (e.getX() <= testX)) && ((e.getY() >= posY) && (e.getY() <= testY))) {
-                System.out.println("~~~~ CLIC ~~~~");
+                System.out.println("CLIC sur "+name);
                 // On envoie toutes les datas de l'unitée cliquée
-                pCont.collectUnitData(name);
+                pCont.collectUnitData(this,name);
             }
         }
     }

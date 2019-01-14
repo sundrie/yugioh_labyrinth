@@ -19,6 +19,7 @@ public class GamePanel extends JPanel implements MouseListener {
     Unit blueUnit;
     Unit toto = new Unit(0,0);
 
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.black);
@@ -141,7 +142,8 @@ public class GamePanel extends JPanel implements MouseListener {
 //        System.out.println(e.getSource().getClass());
         // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
         toto.move(e.getX(), e.getY());
-        repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+        // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+        repaint();
     }
 
     public void mousePressed(MouseEvent e) {

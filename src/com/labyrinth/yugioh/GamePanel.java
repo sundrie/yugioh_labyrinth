@@ -1,5 +1,6 @@
 package com.labyrinth.yugioh;
 
+import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -147,10 +148,16 @@ public class GamePanel extends JPanel implements MouseListener {
 
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
-    // Récupère ce que la class Unit envoie
+    // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit, String name){
         choosedUnit = unit;
         System.out.println(name);
+        iPan.displayUnitInfo(choosedUnit,name);
+    }
+
+    InfoPanel iPan;
+    public void getInfoPanel(InfoPanel infoPanel){
+        iPan = infoPanel;
     }
 
     public void mouseClicked(MouseEvent e) {

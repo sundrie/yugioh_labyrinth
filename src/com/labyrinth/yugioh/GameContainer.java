@@ -15,5 +15,7 @@ public class GameContainer extends JPanel {
         InfoPanel infoContainer = new InfoPanel();
         infoContainer.setPreferredSize(new Dimension(360,720));
         add(infoContainer);
+
+        gameScreen.getInfoPanel(infoContainer);
     }
 }

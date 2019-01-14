@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0fa5713-da4a-481f-8185-c7f015aa0b5b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="307">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="223">
+              <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1335#1336#0" expanded="true" />
@@ -61,16 +62,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="164" column="26" lean-forward="true" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+            <state relative-caret-position="160">
+              <caret line="154" column="44" lean-forward="true" selection-start-line="154" selection-start-column="44" selection-end-line="154" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#generateLabyrinth#0;class#GamePanel#0" />
                 <element signature="e#2150#3796#1" />
                 <element signature="method#drawTile#0;class#GamePanel#0" />
+                <element signature="e#6135#6136#0" expanded="true" />
+                <element signature="e#6167#6168#0" expanded="true" />
                 <element signature="method#mousePressed#0;class#GamePanel#0" />
                 <element signature="method#mouseReleased#0;class#GamePanel#0" />
                 <element signature="method#mouseEntered#0;class#GamePanel#0" />
@@ -83,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="651">
               <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -125,10 +128,10 @@
         <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/Window.java" />
         <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/Tile.java" />
         <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/Units.java" />
-        <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java" />
         <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/Unit.java" />
+        <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java" />
         <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java" />
+        <option value="$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java" />
       </list>
     </option>
   </component>
@@ -277,7 +280,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.16644295" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.16577181" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -396,29 +399,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GameContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="307">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1335#1336#0" expanded="true" />
-            <element signature="e#1384#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/Unit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="651">
           <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -428,17 +419,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/GamePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="164" column="26" lean-forward="true" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+        <state relative-caret-position="160">
+          <caret line="154" column="44" lean-forward="true" selection-start-line="154" selection-start-column="44" selection-end-line="154" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#generateLabyrinth#0;class#GamePanel#0" />
             <element signature="e#2150#3796#1" />
             <element signature="method#drawTile#0;class#GamePanel#0" />
+            <element signature="e#6135#6136#0" expanded="true" />
+            <element signature="e#6167#6168#0" expanded="true" />
             <element signature="method#mousePressed#0;class#GamePanel#0" />
             <element signature="method#mouseReleased#0;class#GamePanel#0" />
             <element signature="method#mouseEntered#0;class#GamePanel#0" />
             <element signature="method#mouseExited#0;class#GamePanel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/labyrinth/yugioh/InfoPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1384#1385#0" expanded="true" />
           </folding>
         </state>
       </provider>

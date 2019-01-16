@@ -29,12 +29,13 @@ public class InfoPanel extends JPanel implements MouseListener {
         // Permets de capter les actions de la souris sur le label
         enemyLeftUnit.addMouseListener(this);
 
-        // Pour capter les actions de la souris sur le panel
-        this.addMouseListener(this);
+        // setForeground() défini la couleur de la police utilisée par le JLabel
+        unitInfo.setForeground(Color.BLUE);
+        unitInfo.setFont(new Font("Arial",Font.ITALIC,24));
+        add(unitInfo);
+
         // Validate est obligatoire pour que les JLabel s'affiche
         validate();
-
-        add(unitInfo);
     }
 
 
@@ -42,7 +43,6 @@ public class InfoPanel extends JPanel implements MouseListener {
     public void displayUnitInfo(Unit unit,String name){
         // On écrase la valeur précédente du JLabel soit "" ou le nom de la précédente unité sélectionnée
         unitInfo.setText(name);
-
 
         System.out.println("from InfoPanel :"+ unit);
         System.out.println("from InfoPanel :"+ unit.getX());

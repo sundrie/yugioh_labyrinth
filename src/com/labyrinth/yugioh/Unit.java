@@ -1,5 +1,6 @@
 package com.labyrinth.yugioh;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -75,7 +76,6 @@ public class Unit implements MouseListener {
     }
 
     public void mouseEntered(MouseEvent e) {
-
     }
 
     public void mouseExited(MouseEvent e) {

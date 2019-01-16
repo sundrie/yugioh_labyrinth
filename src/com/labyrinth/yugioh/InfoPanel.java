@@ -12,7 +12,8 @@ public class InfoPanel extends JPanel implements MouseListener {
     JLabel alliedLeftUnit = new JLabel("Nombre d'unités alliées vivantes : 0");
     // Va s'occuper d'afficher les unités ennemies encore vivantes
     JLabel enemyLeftUnit = new JLabel("Nombre d'unités ennemies vivantes : 0");
-
+    // Va s'occuper d'afficher le nom de l'unité sélectionnée
+    JLabel unitInfo= new JLabel("");
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -32,16 +33,20 @@ public class InfoPanel extends JPanel implements MouseListener {
         this.addMouseListener(this);
         // Validate est obligatoire pour que les JLabel s'affiche
         validate();
+
+        add(unitInfo);
     }
+
 
     // Permets d'afficher les infos envoyés par Unit via GamePanel
     public void displayUnitInfo(Unit unit,String name){
-        // On ajoute un JLabel qui va afficher le nom de l'unité
-        JLabel unitInfo = new JLabel(name);
+        // On écrase la valeur précédente du JLabel soit "" ou le nom de la précédente unité sélectionnée
+        unitInfo.setText(name);
+
+
         System.out.println("from InfoPanel :"+ unit);
         System.out.println("from InfoPanel :"+ unit.getX());
         System.out.println("from InfoPanel :"+ name);
-        add(unitInfo);
     }
 
     public void mouseClicked(MouseEvent e) {

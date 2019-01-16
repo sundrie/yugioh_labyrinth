@@ -36,9 +36,12 @@ public class InfoPanel extends JPanel implements MouseListener {
 
     // Permets d'afficher les infos envoyés par Unit via GamePanel
     public void displayUnitInfo(Unit unit,String name){
+        // On ajoute un JLabel qui va afficher le nom de l'unité
+        JLabel unitInfo = new JLabel(name);
         System.out.println("from InfoPanel :"+ unit);
         System.out.println("from InfoPanel :"+ unit.getX());
         System.out.println("from InfoPanel :"+ name);
+        add(unitInfo);
     }
 
     public void mouseClicked(MouseEvent e) {

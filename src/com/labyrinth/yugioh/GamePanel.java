@@ -154,6 +154,13 @@ public class GamePanel extends JPanel implements MouseListener {
         iPan.displayUnitInfo(choosedUnit,name);
     }
 
+    // On transmets les coordonnées de la souris
+    // Retourne les coordonnées de la tile sa position x, y et son id entrée dans la grid
+    public int[] getTileInfo(int x,int y){
+        int[] data = {x,y,10};
+        return data;
+    }
+
     InfoPanel iPan;
     public void getInfoPanel(InfoPanel infoPanel){
         iPan = infoPanel;
@@ -172,6 +179,7 @@ public class GamePanel extends JPanel implements MouseListener {
 //            System.out.println(choosedUnit);
             }
         }
+        System.out.println(getTileInfo(e.getX(),e.getY())[1]);
     }
 
     public void mousePressed(MouseEvent e) {

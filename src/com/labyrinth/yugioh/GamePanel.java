@@ -157,6 +157,12 @@ public class GamePanel extends JPanel implements MouseListener {
     // On transmets les coordonnées de la souris
     // Retourne les coordonnées de la tile sa position x, y et son id entrée dans la grid
     public int[] getTileInfo(int x,int y){
+        // En divisant par la tSize on obtient de quoi parcourir la variable grid[gridY][gridX]
+        int gridX = x/tSize;
+        int gridY = y/tSize;
+        System.out.println(gridX);
+        System.out.println(gridY);
+
         int[] data = {x,y,10};
         return data;
     }

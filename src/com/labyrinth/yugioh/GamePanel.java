@@ -14,6 +14,8 @@ public class GamePanel extends JPanel implements MouseListener {
     //InfoPanel infoPanelContainer = new InfoPanel();
     // tSize correspond à la taille de nos tiles
     int tSize = 60;
+    // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
+    int unitSize = 30;
     int gpW = 920;
     int gpH = 720;
     int grid[][] = {
@@ -107,8 +109,7 @@ public class GamePanel extends JPanel implements MouseListener {
     // Ajoute les unités sur le labyrinthe
     // Pour l'instant et pour les tests ce sera 7 pions sur chaque spawn
     public void generateUnits(Graphics g){
-        // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
-        int unitSize = 30;
+
         // Puisque les points de spawn sur ce labyrinth sont fixés il suffit d'une seule boucle pour la colonne 0 et 13
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
@@ -157,13 +158,14 @@ public class GamePanel extends JPanel implements MouseListener {
     // On transmets les coordonnées de la souris
     // Retourne les coordonnées de la tile sa position x, y et son id entrée dans la grid
     public int[] getTileInfo(int x,int y){
-        // En divisant par la tSize on obtient de quoi parcourir la variable grid[gridY][gridX]
+        // En divisant par la tSize on obtient de quoi parcourir la variable grid[gridY][gridX] et puisque la variable est un entier java s'occuper d'enlever les nombreux chiffres après la virgule
         int gridX = x/tSize;
         int gridY = y/tSize;
         System.out.println(gridX);
         System.out.println(gridY);
-
-        int[] data = {x,y,10};
+        System.out.println(grid[gridY][gridX]);
+        int tileID = grid[gridY][gridX];
+        int[] data = {gridX,gridY,tileID};
         return data;
     }
 
@@ -185,7 +187,8 @@ public class GamePanel extends JPanel implements MouseListener {
 //            System.out.println(choosedUnit);
             }
         }
-        System.out.println(getTileInfo(e.getX(),e.getY())[1]);
+        getTileInfo(e.getX(),e.getY());
+        // System.out.println(getTileInfo(e.getX(),e.getY()));
     }
 
     public void mousePressed(MouseEvent e) {

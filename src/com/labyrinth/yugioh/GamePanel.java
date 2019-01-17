@@ -16,6 +16,19 @@ public class GamePanel extends JPanel implements MouseListener {
     int tSize = 60;
     int gpW = 920;
     int gpH = 720;
+    int grid[][] = {
+            {1,8,8,10,4,1,4,1,4,1,8,8,8,4},
+            {2,7,5,10,0,7,5,7,9,5,3,5,0,3},
+            {11,5,6,4,5,3,5,7,2,3,1,3,9,11},
+            {11,2,4,5,0,10,3,2,4,1,7,1,3,11},
+            {11,8,3,2,0,8,4,1,7,9,5,3,1,11},
+            {11,5,10,4,9,5,0,0,7,9,2,10,7,11},
+            {11,3,1,7,9,5,3,2,6,0,4,1,6,11},
+            {11,1,3,5,3,2,4,1,10,0,7,2,4,11},
+            {11,9,1,3,1,4,5,7,1,7,2,8,7,11},
+            {1,0,7,1,7,9,5,7,5,0,10,7,5,4},
+            {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
+    };
 
     Unit blueUnit;
     Unit toto = new Unit(this,"toto",0,0);
@@ -39,19 +52,6 @@ public class GamePanel extends JPanel implements MouseListener {
         // Pour illustration j'ajoute le plateau de jeu de base
         //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
         //gamePanelContainer.add(lab);
-        int grid[][] = {
-                {1,8,8,10,4,1,4,1,4,1,8,8,8,4},
-                {2,7,5,10,0,7,5,7,9,5,3,5,0,3},
-                {11,5,6,4,5,3,5,7,2,3,1,3,9,11},
-                {11,2,4,5,0,10,3,2,4,1,7,1,3,11},
-                {11,8,3,2,0,8,4,1,7,9,5,3,1,11},
-                {11,5,10,4,9,5,0,0,7,9,2,10,7,11},
-                {11,3,1,7,9,5,3,2,6,0,4,1,6,11},
-                {11,1,3,5,3,2,4,1,10,0,7,2,4,11},
-                {11,9,1,3,1,4,5,7,1,7,2,8,7,11},
-                {1,0,7,1,7,9,5,7,5,0,10,7,5,4},
-                {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
-        };
 
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
@@ -101,13 +101,12 @@ public class GamePanel extends JPanel implements MouseListener {
                 }
             }
         }
-
-        generateUnits(grid,g);
+        generateUnits(g);
     }
 
     // Ajoute les unités sur le labyrinthe
     // Pour l'instant et pour les tests ce sera 7 pions sur chaque spawn
-    public void generateUnits(int grid[][],Graphics g){
+    public void generateUnits(Graphics g){
         // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
         int unitSize = 30;
         // Puisque les points de spawn sur ce labyrinth sont fixés il suffit d'une seule boucle pour la colonne 0 et 13

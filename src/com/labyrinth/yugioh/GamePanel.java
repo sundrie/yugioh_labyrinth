@@ -165,6 +165,7 @@ public class GamePanel extends JPanel implements MouseListener {
         System.out.println(gridY);
         System.out.println(grid[gridY][gridX]);
         int tileID = grid[gridY][gridX];
+
         int[] data = {gridX,gridY,tileID};
         return data;
     }
@@ -180,15 +181,17 @@ public class GamePanel extends JPanel implements MouseListener {
         if (e.getButton() == 3) {
             // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
             if (choosedUnit != null) {
+                // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
                 // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
-                choosedUnit.move(e.getX(), e.getY());
+                int tilePos[] = getTileInfo(e.getX(),e.getY());
+                // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
+                choosedUnit.move(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
                 repaint();
 //            System.out.println(choosedUnit);
             }
         }
-        getTileInfo(e.getX(),e.getY());
-        // System.out.println(getTileInfo(e.getX(),e.getY()));
+
     }
 
     public void mousePressed(MouseEvent e) {

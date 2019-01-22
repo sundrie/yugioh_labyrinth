@@ -14,8 +14,23 @@ public class GamePanel extends JPanel implements MouseListener {
     //InfoPanel infoPanelContainer = new InfoPanel();
     // tSize correspond à la taille de nos tiles
     int tSize = 60;
+    // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
+    int unitSize = 30;
     int gpW = 920;
     int gpH = 720;
+    int grid[][] = {
+            {1,8,8,10,4,1,4,1,4,1,8,8,8,4},
+            {2,7,5,10,0,7,5,7,9,5,3,5,0,3},
+            {11,5,6,4,5,3,5,7,2,3,1,3,9,11},
+            {11,2,4,5,0,10,3,2,4,1,7,1,3,11},
+            {11,8,3,2,0,8,4,1,7,9,5,3,1,11},
+            {11,5,10,4,9,5,0,0,7,9,2,10,7,11},
+            {11,3,1,7,9,5,3,2,6,0,4,1,6,11},
+            {11,1,3,5,3,2,4,1,10,0,7,2,4,11},
+            {11,9,1,3,1,4,5,7,1,7,2,8,7,11},
+            {1,0,7,1,7,9,5,7,5,0,10,7,5,4},
+            {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
+    };
 
     Unit blueUnit;
     Unit toto = new Unit(this,"toto",0,0);
@@ -39,19 +54,6 @@ public class GamePanel extends JPanel implements MouseListener {
         // Pour illustration j'ajoute le plateau de jeu de base
         //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
         //gamePanelContainer.add(lab);
-        int grid[][] = {
-                {1,8,8,10,4,1,4,1,4,1,8,8,8,4},
-                {2,7,5,10,0,7,5,7,9,5,3,5,0,3},
-                {11,5,6,4,5,3,5,7,2,3,1,3,9,11},
-                {11,2,4,5,0,10,3,2,4,1,7,1,3,11},
-                {11,8,3,2,0,8,4,1,7,9,5,3,1,11},
-                {11,5,10,4,9,5,0,0,7,9,2,10,7,11},
-                {11,3,1,7,9,5,3,2,6,0,4,1,6,11},
-                {11,1,3,5,3,2,4,1,10,0,7,2,4,11},
-                {11,9,1,3,1,4,5,7,1,7,2,8,7,11},
-                {1,0,7,1,7,9,5,7,5,0,10,7,5,4},
-                {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
-        };
 
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
@@ -101,15 +103,13 @@ public class GamePanel extends JPanel implements MouseListener {
                 }
             }
         }
-
-        generateUnits(grid,g);
+        generateUnits(g);
     }
 
     // Ajoute les unités sur le labyrinthe
     // Pour l'instant et pour les tests ce sera 7 pions sur chaque spawn
-    public void generateUnits(int grid[][],Graphics g){
-        // Même valeur pour notre taille et width qui seront identiques on stocke dans cette variable par simplicité
-        int unitSize = 30;
+    public void generateUnits(Graphics g){
+
         // Puisque les points de spawn sur ce labyrinth sont fixés il suffit d'une seule boucle pour la colonne 0 et 13
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
@@ -155,6 +155,21 @@ public class GamePanel extends JPanel implements MouseListener {
         iPan.displayUnitInfo(choosedUnit,name);
     }
 
+    // On transmets les coordonnées de la souris
+    // Retourne les coordonnées de la tile sa position x, y et son id entrée dans la grid
+    public int[] getTileInfo(int x,int y){
+        // En divisant par la tSize on obtient de quoi parcourir la variable grid[gridY][gridX] et puisque la variable est un entier java s'occuper d'enlever les nombreux chiffres après la virgule
+        int gridX = x/tSize;
+        int gridY = y/tSize;
+        System.out.println(gridX);
+        System.out.println(gridY);
+        System.out.println(grid[gridY][gridX]);
+        int tileID = grid[gridY][gridX];
+
+        int[] data = {gridX,gridY,tileID};
+        return data;
+    }
+
     InfoPanel iPan;
     public void getInfoPanel(InfoPanel infoPanel){
         iPan = infoPanel;
@@ -166,13 +181,17 @@ public class GamePanel extends JPanel implements MouseListener {
         if (e.getButton() == 3) {
             // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
             if (choosedUnit != null) {
+                // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
                 // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
-                choosedUnit.move(e.getX(), e.getY());
+                int tilePos[] = getTileInfo(e.getX(),e.getY());
+                // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
+                choosedUnit.move(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
                 repaint();
 //            System.out.println(choosedUnit);
             }
         }
+
     }
 
     public void mousePressed(MouseEvent e) {

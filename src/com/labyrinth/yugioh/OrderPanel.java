@@ -10,7 +10,6 @@ public class OrderPanel extends JPanel implements MouseListener {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-//        g.setColor(Color.GREEN);
         setBackground(Color.CYAN);
     }
 

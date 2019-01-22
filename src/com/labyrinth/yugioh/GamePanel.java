@@ -189,9 +189,14 @@ public class GamePanel extends JPanel implements MouseListener {
                 // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
 
 //            System.out.println(choosedUnit);
+                // On ajoute le JPanel qui donnera les ordres que l'unité doit exécuter
                 OrderPanel orderP = new OrderPanel();
                 add(orderP);
-                orderP.setPreferredSize(new Dimension(200,200));
+                // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
+                setLayout(null);
+                orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30, 200,200);
+
+                // Toujours mettre repaint à la fin lorsqu'on ajoute quelque chose à afficher dynamiquement
                 repaint();
             }
         }

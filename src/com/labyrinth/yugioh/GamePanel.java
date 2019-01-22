@@ -1,6 +1,5 @@
 package com.labyrinth.yugioh;
 
-import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -175,6 +174,7 @@ public class GamePanel extends JPanel implements MouseListener {
         iPan = infoPanel;
     }
 
+    @Override
     public void mouseClicked(MouseEvent e) {
 //        System.out.println(e.getSource().getClass());
         // Si le bouton cliqué est celui de droite
@@ -187,25 +187,33 @@ public class GamePanel extends JPanel implements MouseListener {
                 // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                 choosedUnit.move(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
-                repaint();
+
 //            System.out.println(choosedUnit);
+                OrderPanel orderP = new OrderPanel();
+                add(orderP);
+                orderP.setPreferredSize(new Dimension(200,200));
+                repaint();
             }
         }
 
     }
 
+    @Override
     public void mousePressed(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseEntered(MouseEvent e) {
 
     }
 
+    @Override
     public void mouseExited(MouseEvent e) {
 
     }

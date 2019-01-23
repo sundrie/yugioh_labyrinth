@@ -9,6 +9,7 @@ public class OrderPanel extends JPanel implements MouseListener {
 
     int w;
     int h;
+    Unit myUnit;
 
     @Override
     public void paintComponent(Graphics g){
@@ -18,10 +19,12 @@ public class OrderPanel extends JPanel implements MouseListener {
         setBackground(Color.CYAN);
     }
 
-    public OrderPanel (int width,int height) {
+    public OrderPanel (int width,int height,Unit unit) {
         // On récupère les valeurs initialisés dans GamePanel au moment de la création de OrderPanel
         w = width;
         h = height;
+        // myUnit ici correspond à l'unité auquel est liée l'OrderPanel
+        myUnit = unit;
         JButton wait = new JButton("Attendre");
         wait.setPreferredSize(new Dimension(w,h/2));
         add(wait);
@@ -35,6 +38,10 @@ public class OrderPanel extends JPanel implements MouseListener {
         JButton source = (JButton) e.getSource();
         String sourcename = source.getText();
         System.out.println(sourcename);
+
+        if (sourcename == "Attendre"){
+            System.out.println(myUnit.name+" va attendre");
+        }
     }
 
     @Override

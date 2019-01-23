@@ -192,7 +192,7 @@ public class GamePanel extends JPanel implements MouseListener {
                 int orderPW = 100;
                 int orderPH = 100;
                 // On ajoute le JPanel qui donnera les ordres que l'unité doit exécuter
-                OrderPanel orderP = new OrderPanel(orderPW,orderPH);
+                OrderPanel orderP = new OrderPanel(orderPW,orderPH,choosedUnit);
 
                 add(orderP);
                 // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css

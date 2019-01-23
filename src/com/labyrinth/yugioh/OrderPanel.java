@@ -12,6 +12,8 @@ public class OrderPanel extends JPanel implements MouseListener {
 
     @Override
     public void paintComponent(Graphics g){
+        // Par défaut il y a un margin à 5. On écrase ce 5 par 0 ainsi il n'y a plus de margins gênants
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         super.paintComponent(g);
         setBackground(Color.CYAN);
     }

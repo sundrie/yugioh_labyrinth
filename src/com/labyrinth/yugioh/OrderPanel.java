@@ -41,6 +41,7 @@ public class OrderPanel extends JPanel implements MouseListener {
 
         if (sourcename == "Attendre"){
             System.out.println(myUnit.name+" va attendre");
+            myUnit.waitingTime();
         }
     }
 

@@ -49,6 +49,11 @@ public class Unit implements MouseListener {
         posY = newY;
     }
 
+    // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Attendre a été effectué
+    public void waitingTime(){
+        System.out.println("Moi le noble "+ name + " a entendu ton souhait et va attendre sagement");
+    }
+
     public void mouseClicked(MouseEvent e) {
 
 //        System.out.println("position souris : x :"+ e.getX() + " y :" + e.getY());

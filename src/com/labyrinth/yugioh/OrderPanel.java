@@ -7,15 +7,19 @@ import java.awt.event.MouseListener;
 
 public class OrderPanel extends JPanel implements MouseListener {
 
+    int w;
+    int h;
+
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         setBackground(Color.CYAN);
     }
 
-    public OrderPanel () {
-        // On écoute la souris pour savoir quelle action à été cliquée
-        this.addMouseListener(this);
+    public OrderPanel (int width,int height) {
+        // On récupère les valeurs initialisés dans GamePanel au moment de la création de OrderPanel
+        w = width;
+        h = height;
         JButton wait = new JButton("Attendre");
         add(wait);
         wait.addMouseListener(this);

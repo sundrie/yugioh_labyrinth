@@ -21,6 +21,7 @@ public class OrderPanel extends JPanel implements MouseListener {
         w = width;
         h = height;
         JButton wait = new JButton("Attendre");
+        wait.setPreferredSize(new Dimension(w,h/2));
         add(wait);
         wait.addMouseListener(this);
     }

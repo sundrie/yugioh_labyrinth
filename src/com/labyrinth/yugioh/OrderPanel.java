@@ -19,12 +19,10 @@ public class OrderPanel extends JPanel implements MouseListener {
         setBackground(Color.CYAN);
     }
 
-    public OrderPanel (int width,int height,Unit unit) {
+    public OrderPanel (int width,int height) {
         // On récupère les valeurs initialisés dans GamePanel au moment de la création de OrderPanel
         w = width;
         h = height;
-        // myUnit ici correspond à l'unité auquel est liée l'OrderPanel
-        myUnit = unit;
 
         JButton wait = new JButton("Attendre");
         wait.setPreferredSize(new Dimension(w,h/2));
@@ -35,6 +33,19 @@ public class OrderPanel extends JPanel implements MouseListener {
         cancel.setPreferredSize(new Dimension(w,h/2));
         add(cancel);
         cancel.addMouseListener(this);
+    }
+
+    public int getW(){
+        return w;
+    }
+
+    public int getH(){
+        return h;
+    }
+
+    // Cette méthode nous permets de récupèrer l'unité auquel est liée l'OrderPanel
+    public void setUnit(Unit unit){
+        myUnit = unit;
     }
 
     @Override

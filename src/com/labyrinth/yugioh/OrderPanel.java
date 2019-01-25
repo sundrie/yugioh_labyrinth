@@ -25,7 +25,7 @@ public class OrderPanel extends JPanel implements MouseListener {
         h = height;
         // myUnit ici correspond à l'unité auquel est liée l'OrderPanel
         myUnit = unit;
-        
+
         JButton wait = new JButton("Attendre");
         wait.setPreferredSize(new Dimension(w,h/2));
         add(wait);
@@ -48,6 +48,10 @@ public class OrderPanel extends JPanel implements MouseListener {
         if (sourcename == "Attendre"){
             System.out.println(myUnit.name+" va attendre");
             myUnit.waitingTime();
+        }
+        if (sourcename == "Annuler"){
+            System.out.println(myUnit.name+" annule ton mouvement !");
+            myUnit.cancelMove();
         }
     }
 

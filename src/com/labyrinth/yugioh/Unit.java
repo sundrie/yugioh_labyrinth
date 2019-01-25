@@ -49,6 +49,11 @@ public class Unit implements MouseListener {
         posY = newY;
     }
 
+    // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Annulé a été effectué
+    public void cancelMove(){
+        System.out.println("Bien reçu je retourne à ma précédente position");
+    }
+
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Attendre a été effectué
     public void waitingTime(){
         System.out.println("Moi le noble "+ name + " a entendu ton souhait et va attendre sagement");

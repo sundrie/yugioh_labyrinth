@@ -25,10 +25,16 @@ public class OrderPanel extends JPanel implements MouseListener {
         h = height;
         // myUnit ici correspond à l'unité auquel est liée l'OrderPanel
         myUnit = unit;
+        
         JButton wait = new JButton("Attendre");
         wait.setPreferredSize(new Dimension(w,h/2));
         add(wait);
         wait.addMouseListener(this);
+
+        JButton cancel = new JButton("Annuler");
+        cancel.setPreferredSize(new Dimension(w,h/2));
+        add(cancel);
+        cancel.addMouseListener(this);
     }
 
     @Override

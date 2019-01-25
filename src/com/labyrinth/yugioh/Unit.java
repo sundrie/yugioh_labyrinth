@@ -60,6 +60,7 @@ public class Unit implements MouseListener {
 
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Annulé a été effectué
     public void cancelMove(){
+        pCont.moveAndPaintUnit(prevposX,prevposY);
         System.out.println("Bien reçu je retourne à ma précédente position");
     }
 

@@ -31,9 +31,18 @@ public class GamePanel extends JPanel implements MouseListener {
             {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
     };
 
+    InfoPanel iPan;
+    // Ceci correspond à l'unité qui va agir
+    Unit choosedUnit;
+
     Unit blueUnit;
     Unit toto = new Unit(this,"toto",0,0);
     Unit tata = new Unit(this,"tata",60,60);
+
+    // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
+    public GamePanel(){
+        this.addMouseListener(this);
+    }
 
     @Override
     public void paintComponent(Graphics g){
@@ -48,10 +57,6 @@ public class GamePanel extends JPanel implements MouseListener {
         generateLabyrinth(g);
     }
 
-    // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
-    public GamePanel(){
-        this.addMouseListener(this);
-    }
 
     // Cette méthode va générer le labyrinthe
     public void generateLabyrinth(Graphics g){
@@ -150,8 +155,7 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
-    // Ceci correspond à l'unité qui va agir
-    Unit choosedUnit;
+
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit, String name){
         choosedUnit = unit;
@@ -174,9 +178,15 @@ public class GamePanel extends JPanel implements MouseListener {
         return data;
     }
 
-    InfoPanel iPan;
+
     public void getInfoPanel(InfoPanel infoPanel){
         iPan = infoPanel;
+    }
+
+
+    public void moveAndPaintUnit(int newX,int newY){
+        choosedUnit.move(newX,newY);
+        repaint();
     }
 
     @Override
@@ -189,9 +199,12 @@ public class GamePanel extends JPanel implements MouseListener {
                 // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
                 // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
                 int tilePos[] = getTileInfo(e.getX(),e.getY());
+
+
                 // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
-                choosedUnit.move(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
-                // repaint(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+                moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
+
+//                choosedUnit.move(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
 
 //            System.out.println(choosedUnit);
                 int orderPW = 100;

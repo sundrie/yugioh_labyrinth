@@ -32,12 +32,13 @@ public class GamePanel extends JPanel implements MouseListener {
     };
 
     InfoPanel iPan;
+    OrderPanel orderP = new OrderPanel(100,100);
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
 
     Unit blueUnit;
-    Unit toto = new Unit(this,"toto",0,0);
-    Unit tata = new Unit(this,"tata",60,60);
+    Unit toto = new Unit(this,orderP,"toto",0,0);
+    Unit tata = new Unit(this,orderP,"tata",60,60);
 
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
@@ -123,13 +124,13 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
             if (grid[i][0]==11){
-                Unit blueUnit = new Unit(this, "blue",unitSize/2,i*tSize+unitSize/2);
+                Unit blueUnit = new Unit(this, orderP, "blue",unitSize/2,i*tSize+unitSize/2);
                 g.setColor(Color.blue);
                 g.fillOval(blueUnit.getX(),blueUnit.getY(),blueUnit.getW(),blueUnit.getH());
             }
 
             if (grid[i][13]==11){
-                Unit redUnit = new Unit(this, "red",gpW-tSize*2,i*tSize+unitSize/2);
+                Unit redUnit = new Unit(this, orderP,"red",gpW-tSize*2,i*tSize+unitSize/2);
                 g.setColor(Color.red);
                 g.fillOval(redUnit.getX(),redUnit.getY(),redUnit.getW(),redUnit.getH());
             }
@@ -189,7 +190,6 @@ public class GamePanel extends JPanel implements MouseListener {
         repaint();
     }
 
-    OrderPanel orderP = new OrderPanel(100,100);
     @Override
     public void mouseClicked(MouseEvent e) {
 //        System.out.println(e.getSource().getClass());

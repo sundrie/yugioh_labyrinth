@@ -43,6 +43,11 @@ public class OrderPanel extends JPanel implements MouseListener {
         return h;
     }
 
+    // méthode permettant de masquer le Panel
+    public void conceal(){
+        setVisible(false);
+    }
+
     // Cette méthode nous permets de récupèrer l'unité auquel est liée l'OrderPanel
     public void setUnit(Unit unit){
         myUnit = unit;
@@ -54,7 +59,7 @@ public class OrderPanel extends JPanel implements MouseListener {
         // sourcename renvoie le texte entré dans un JButton puisque source récuàère les événements des JButton uniquement
         JButton source = (JButton) e.getSource();
         String sourcename = source.getText();
-        System.out.println(sourcename);
+//        System.out.println(sourcename);
 
         if (sourcename == "Attendre"){
 //            System.out.println(myUnit.name+" va attendre");

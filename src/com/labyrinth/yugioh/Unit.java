@@ -14,8 +14,9 @@ public class Unit implements MouseListener {
     int w = 30;
     int h = 30;
     GamePanel pCont;
+    OrderPanel ordP;
 
-    public Unit(GamePanel gamePanel, String uName, int x, int y){
+    public Unit(GamePanel gamePanel, OrderPanel op, String uName, int x, int y){
         // On enregistre aussi son nom
         name = uName;
         // On enregistre la position de notre unité
@@ -23,6 +24,7 @@ public class Unit implements MouseListener {
         posY = y;
         // On enregistre le panel parent qui contient tout le contenu du jeu
         pCont = gamePanel;
+        ordP = op;
     }
 
     // retourne la position X
@@ -67,6 +69,7 @@ public class Unit implements MouseListener {
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Attendre a été effectué
     public void waitingTime(){
         System.out.println("Moi le noble "+ name + " a entendu ton souhait et va attendre sagement");
+        ordP.conceal();
     }
 
     public void mouseClicked(MouseEvent e) {

@@ -9,6 +9,8 @@ public class Unit implements MouseListener {
     String name;
     int posX;
     int posY;
+    int prevposX;
+    int prevposY;
     int w = 30;
     int h = 30;
     GamePanel pCont;
@@ -45,8 +47,15 @@ public class Unit implements MouseListener {
 
     // Permets de changer la position de notre unité en écrasant les valeurs par les nouvelles
     public void move(int newX, int newY){
+        // Avant d'écraser les valeurs de posX et posY elles seront conservées dans d'autres variables pour permettre d'annuler son mouvement
+        prevposX = posX;
+        prevposY = posY;
+
         posX = newX;
         posY = newY;
+
+        System.out.println("previous pos : "+prevposX +" "+ prevposY);
+        System.out.println("nouvelle pos : "+posX+" "+posY);
     }
 
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Annulé a été effectué

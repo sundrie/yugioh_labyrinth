@@ -44,9 +44,9 @@ public class InfoPanel extends JPanel implements MouseListener {
         // On écrase la valeur précédente du JLabel soit "" ou le nom de la précédente unité sélectionnée
         unitInfo.setText(name);
 
-        System.out.println("from InfoPanel :"+ unit);
-        System.out.println("from InfoPanel :"+ unit.getX());
-        System.out.println("from InfoPanel :"+ name);
+//        System.out.println("from InfoPanel :"+ unit);
+//        System.out.println("from InfoPanel :"+ unit.getX());
+//        System.out.println("from InfoPanel :"+ name);
     }
 
     public void mouseClicked(MouseEvent e) {

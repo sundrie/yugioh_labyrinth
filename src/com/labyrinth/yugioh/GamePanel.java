@@ -43,9 +43,14 @@ public class GamePanel extends JPanel implements MouseListener {
 //        infoPanelContainer.setPreferredSize(new Dimension(360,720));
 //        this.add(infoPanelContainer);
 //        System.out.println(infoPanelContainer);
-        this.addMouseListener(this);
+
         // Une fois nos 2 conteneurs créés on génère le labyrinthe
         generateLabyrinth(g);
+    }
+
+    // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
+    public GamePanel(){
+        this.addMouseListener(this);
     }
 
     // Cette méthode va générer le labyrinthe
@@ -150,7 +155,7 @@ public class GamePanel extends JPanel implements MouseListener {
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit, String name){
         choosedUnit = unit;
-        System.out.println(name);
+//        System.out.println(name);
         iPan.displayUnitInfo(choosedUnit,name);
     }
 
@@ -160,9 +165,9 @@ public class GamePanel extends JPanel implements MouseListener {
         // En divisant par la tSize on obtient de quoi parcourir la variable grid[gridY][gridX] et puisque la variable est un entier java s'occuper d'enlever les nombreux chiffres après la virgule
         int gridX = x/tSize;
         int gridY = y/tSize;
-        System.out.println(gridX);
-        System.out.println(gridY);
-        System.out.println(grid[gridY][gridX]);
+//        System.out.println(gridX);
+//        System.out.println(gridY);
+//        System.out.println(grid[gridY][gridX]);
         int tileID = grid[gridY][gridX];
 
         int[] data = {gridX,gridY,tileID};
@@ -199,7 +204,7 @@ public class GamePanel extends JPanel implements MouseListener {
                 setLayout(null);
                 orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30, orderPW,orderPH);
 
-                // Toujours mettre repaint à la fin lorsqu'on ajoute quelque chose à afficher dynamiquement
+//                // Toujours mettre repaint à la fin lorsqu'on ajoute quelque chose à afficher dynamiquement
                 repaint();
             }
         }

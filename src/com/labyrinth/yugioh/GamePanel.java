@@ -187,6 +187,15 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public void moveAndPaintUnit(int newX,int newY){
         choosedUnit.move(newX,newY);
+
+        // On envoie à orderP l'unité auquel elle est liée
+        orderP.setUnit(choosedUnit);
+        add(orderP);
+        orderP.reveal();
+        // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
+        setLayout(null);
+        orderP.setBounds(newX + 30, newY + 30,orderP.getW(),orderP.getH());
+
         repaint();
     }
 
@@ -205,18 +214,6 @@ public class GamePanel extends JPanel implements MouseListener {
 
                     // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                     moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
-
-                    // On envoie à orderP l'unité auquel elle est liée
-                    orderP.setUnit(choosedUnit);
-
-                    add(orderP);
-                    orderP.reveal();
-                    // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
-                    setLayout(null);
-                    orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30,orderP.getW(),orderP.getH());
-
-//                // Toujours mettre repaint à la fin lorsqu'on ajoute quelque chose à afficher dynamiquement
-                    repaint();
                 }
 
 

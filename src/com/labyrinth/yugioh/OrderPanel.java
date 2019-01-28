@@ -48,6 +48,11 @@ public class OrderPanel extends JPanel implements MouseListener {
         setVisible(false);
     }
 
+    // méthode permettant d'afficher le Panel si celui ci a été masqué par conceal() notamment
+    public void reveal(){
+        setVisible(true);
+    }
+
     // Cette méthode nous permets de récupèrer l'unité auquel est liée l'OrderPanel
     public void setUnit(Unit unit){
         myUnit = unit;

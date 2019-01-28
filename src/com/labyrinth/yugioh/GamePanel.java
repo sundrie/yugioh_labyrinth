@@ -208,6 +208,7 @@ public class GamePanel extends JPanel implements MouseListener {
                 orderP.setUnit(choosedUnit);
 
                 add(orderP);
+                orderP.reveal();
                 // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
                 setLayout(null);
                 orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30,orderP.getW(),orderP.getH());

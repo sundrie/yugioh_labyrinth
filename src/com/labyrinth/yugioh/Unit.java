@@ -15,6 +15,9 @@ public class Unit implements MouseListener {
     int h = 30;
     GamePanel pCont;
     OrderPanel ordP;
+    // Ce booléen indiquera si l'unité a agit ou non
+    // Il est initialisé a vrai car à sa création une unité ne peut avoir agit avant
+    boolean canAct = true;
 
     public Unit(GamePanel gamePanel, OrderPanel op, String uName, int x, int y){
         // On enregistre aussi son nom
@@ -70,6 +73,8 @@ public class Unit implements MouseListener {
     public void waitingTime(){
         System.out.println("Moi le noble "+ name + " a entendu ton souhait et va attendre sagement");
         ordP.conceal();
+        // On passe la possibilité de l'unité a agir a faux car elle attends jusqu'a la fin du tour
+        canAct = false;
     }
 
     public void mouseClicked(MouseEvent e) {

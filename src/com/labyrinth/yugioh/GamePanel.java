@@ -197,24 +197,29 @@ public class GamePanel extends JPanel implements MouseListener {
         if (e.getButton() == 3) {
             // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
             if (choosedUnit != null) {
-                // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
-                // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
-                int tilePos[] = getTileInfo(e.getX(),e.getY());
+                // Si l'unité peut agir alors elle est autorisée a se déplacer
+                if (choosedUnit.canAct == true){
+                    // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
+                    // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
+                    int tilePos[] = getTileInfo(e.getX(),e.getY());
 
-                // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
-                moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
+                    // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
+                    moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
 
-                // On envoie à orderP l'unité auquel elle est liée
-                orderP.setUnit(choosedUnit);
+                    // On envoie à orderP l'unité auquel elle est liée
+                    orderP.setUnit(choosedUnit);
 
-                add(orderP);
-                orderP.reveal();
-                // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
-                setLayout(null);
-                orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30,orderP.getW(),orderP.getH());
+                    add(orderP);
+                    orderP.reveal();
+                    // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
+                    setLayout(null);
+                    orderP.setBounds(tilePos[0]*tSize+unitSize/2 + 30, tilePos[1]*tSize+unitSize/2 + 30,orderP.getW(),orderP.getH());
 
 //                // Toujours mettre repaint à la fin lorsqu'on ajoute quelque chose à afficher dynamiquement
-                repaint();
+                    repaint();
+                }
+
+
             }
         }
 

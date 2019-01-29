@@ -33,6 +33,7 @@ public class GamePanel extends JPanel implements MouseListener {
 
     InfoPanel iPan;
     OrderPanel orderP = new OrderPanel(100,100);
+    AlertPanel alertP = new AlertPanel();
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
 
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements MouseListener {
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
         this.addMouseListener(this);
+        add(alertP);
     }
 
     @Override
@@ -214,6 +216,8 @@ public class GamePanel extends JPanel implements MouseListener {
 
                     // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                     moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
+                }else{
+
                 }
 
 

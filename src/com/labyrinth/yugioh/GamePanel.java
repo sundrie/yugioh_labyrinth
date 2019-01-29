@@ -33,7 +33,6 @@ public class GamePanel extends JPanel implements MouseListener {
 
     InfoPanel iPan;
     OrderPanel orderP = new OrderPanel(100,100);
-    AlertPanel alertP = new AlertPanel();
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
 
@@ -44,7 +43,6 @@ public class GamePanel extends JPanel implements MouseListener {
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
         this.addMouseListener(this);
-        add(alertP);
     }
 
     @Override
@@ -52,9 +50,6 @@ public class GamePanel extends JPanel implements MouseListener {
         super.paintComponent(g);
         g.setColor(Color.black);
         g.fillRect(0,0,gpW,gpH);
-//        infoPanelContainer.setPreferredSize(new Dimension(360,720));
-//        this.add(infoPanelContainer);
-//        System.out.println(infoPanelContainer);
 
         // Une fois nos 2 conteneurs créés on génère le labyrinthe
         generateLabyrinth(g);
@@ -197,9 +192,9 @@ public class GamePanel extends JPanel implements MouseListener {
         // On mets le Layout à null pour pouvoir avec setBounds le placer n'importe où (Si la fenêtre est redimensionnée il y aura des soucis, ça fonctionne comme le position absolute en css
         setLayout(null);
         orderP.setBounds(newX + 30, newY + 30,orderP.getW(),orderP.getH());
-
         repaint();
     }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -217,7 +212,10 @@ public class GamePanel extends JPanel implements MouseListener {
                     // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                     moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 }else{
-
+                    // Le code suivant permets de faire une fenêtre popup 
+                    JOptionPane msgCantMove;
+                    msgCantMove = new JOptionPane();
+                    msgCantMove.showMessageDialog(null, "Cette unité a déjà bougé durant ce tour", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
 
 

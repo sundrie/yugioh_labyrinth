@@ -70,7 +70,7 @@ public class InfoPanel extends JPanel implements MouseListener {
 
     public void getGameMaster(GameMaster gm){
         gameMaster = gm;
-        System.out.println(gameMaster);
+//        System.out.println(gameMaster);
     }
 
     public void mouseClicked(MouseEvent e) {

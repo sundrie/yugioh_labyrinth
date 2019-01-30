@@ -6,9 +6,16 @@ public class GameMaster {
 
     GamePanel gPan;
     InfoPanel iPan;
+    Unit[] unitList;
     public GameMaster(GamePanel gp, InfoPanel ip){
         gPan = gp;
         iPan = ip;
+    }
+
+    public void getUnit(Unit[] unitArray){
+        unitList = unitArray;
+        System.out.println(unitList[0].name);
+        System.out.println(unitList[1].name);
     }
 
 }

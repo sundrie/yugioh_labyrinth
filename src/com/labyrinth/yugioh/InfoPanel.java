@@ -13,7 +13,11 @@ public class InfoPanel extends JPanel implements MouseListener {
     // Va s'occuper d'afficher les unités ennemies encore vivantes
     JLabel enemyLeftUnit = new JLabel("Nombre d'unités ennemies vivantes : 0");
     // Va s'occuper d'afficher le nom de l'unité sélectionnée
-    JLabel unitInfo= new JLabel("");
+    JLabel unitName = new JLabel("");
+    JLabel unitLevel = new JLabel("");
+    JLabel unitAtk = new JLabel("");
+    JLabel unitDef = new JLabel("");
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -30,9 +34,12 @@ public class InfoPanel extends JPanel implements MouseListener {
         enemyLeftUnit.addMouseListener(this);
 
         // setForeground() défini la couleur de la police utilisée par le JLabel
-        unitInfo.setForeground(Color.BLUE);
-        unitInfo.setFont(new Font("Arial",Font.ITALIC,24));
-        add(unitInfo);
+        unitName.setForeground(Color.BLUE);
+        unitName.setFont(new Font("Arial",Font.ITALIC,24));
+        add(unitName);
+        add(unitLevel);
+        add(unitAtk);
+        add(unitDef);
 
         // Validate est obligatoire pour que les JLabel s'affiche
         validate();
@@ -40,10 +47,12 @@ public class InfoPanel extends JPanel implements MouseListener {
 
 
     // Permets d'afficher les infos envoyés par Unit via GamePanel
-    public void displayUnitInfo(Unit unit,String name){
+    public void displayUnitInfo(Unit unit){
         // On écrase la valeur précédente du JLabel soit "" ou le nom de la précédente unité sélectionnée
-        unitInfo.setText(name);
-
+        unitName.setText(unit.name);
+        unitLevel.setText(""+unit.level);       // Petit hack car setText ne fonctionne pas avec les int
+        unitAtk.setText(""+unit.atk);
+        unitDef.setText(""+unit.def);
 //        System.out.println("from InfoPanel :"+ unit);
 //        System.out.println("from InfoPanel :"+ unit.getX());
 //        System.out.println("from InfoPanel :"+ name);

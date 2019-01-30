@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 // Ceci est une classe interne
 public class InfoPanel extends JPanel implements MouseListener {
 
+    GameMaster gameMaster;
+
     // Va s'occuper d'afficher nos unités encore vivantes
     JLabel alliedLeftUnit = new JLabel("Nombre d'unités alliées vivantes : 0");
     // Va s'occuper d'afficher les unités ennemies encore vivantes
@@ -39,12 +41,15 @@ public class InfoPanel extends JPanel implements MouseListener {
         unitName.setForeground(Color.BLUE);
         unitName.setFont(new Font("Arial",Font.ITALIC,24));
         add(unitName);
+
         unitLevel.setForeground(Color.black);
         unitLevel.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitLevel);
+
         unitAtk.setForeground(Color.black);
         unitAtk.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitAtk);
+
         unitDef.setForeground(Color.black);
         unitDef.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitDef);
@@ -61,6 +66,11 @@ public class InfoPanel extends JPanel implements MouseListener {
         unitLevel.setText("Niveau : "+unit.level);       // Petit hack car setText ne fonctionne pas avec les int
         unitAtk.setText("Attaque : "+unit.atk);
         unitDef.setText("Défense : "+unit.def);
+    }
+
+    public void getGameMaster(GameMaster gm){
+        gameMaster = gm;
+        System.out.println(gameMaster);
     }
 
     public void mouseClicked(MouseEvent e) {

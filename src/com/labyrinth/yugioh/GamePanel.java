@@ -32,6 +32,7 @@ public class GamePanel extends JPanel implements MouseListener {
     };
 
     InfoPanel iPan;
+    GameMaster gameMaster;
     OrderPanel orderP = new OrderPanel(100,100);
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
@@ -183,6 +184,10 @@ public class GamePanel extends JPanel implements MouseListener {
         iPan = infoPanel;
     }
 
+    public void getGameMaster(GameMaster gm){
+        gameMaster = gm;
+        System.out.println(gameMaster);
+    }
 
     public void moveAndPaintUnit(int newX,int newY){
         choosedUnit.move(newX,newY);

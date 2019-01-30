@@ -17,5 +17,9 @@ public class GameContainer extends JPanel {
         add(infoContainer);
 
         gameScreen.getInfoPanel(infoContainer);
+
+        GameMaster gm = new GameMaster(gameScreen, infoContainer);
+        gameScreen.getGameMaster(gm);
+        infoContainer.getGameMaster(gm);
     }
 }

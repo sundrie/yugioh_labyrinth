@@ -27,15 +27,21 @@ public class Unit implements MouseListener {
     // Il est initialisé a vrai car à sa création une unité ne peut avoir agit avant
     boolean canAct = true;
 
-    public Unit(GamePanel gamePanel, OrderPanel op, String uName, int x, int y){
+    public Unit(GamePanel gamePanel, OrderPanel op, int x, int y, String uName, int lvl, int attaque, int defense){
         // On enregistre aussi son nom
         name = uName;
+        level = lvl;
+        atk = attaque;
+        def = defense;
+
         // On enregistre la position de notre unité
         posX = x;
         posY = y;
         // On enregistre le panel parent qui contient tout le contenu du jeu
         pCont = gamePanel;
         ordP = op;
+
+        System.out.println(name+level+atk+def);
     }
 
     // retourne la position X
@@ -67,19 +73,17 @@ public class Unit implements MouseListener {
         posX = newX;
         posY = newY;
 
-        System.out.println("previous pos : "+prevposX +" "+ prevposY);
-        System.out.println("nouvelle pos : "+posX+" "+posY);
+//        System.out.println("previous pos : "+prevposX +" "+ prevposY);
+//        System.out.println("nouvelle pos : "+posX+" "+posY);
     }
 
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Annulé a été effectué
     public void cancelMove(){
         pCont.moveAndPaintUnit(prevposX,prevposY);
-        System.out.println("Bien reçu je retourne à ma précédente position");
     }
 
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Attendre a été effectué
     public void waitingTime(){
-        System.out.println("Moi le noble "+ name + " a entendu ton souhait et va attendre sagement");
         ordP.conceal();
         // On passe la possibilité de l'unité a agir a faux car elle attends jusqu'a la fin du tour
         canAct = false;
@@ -96,7 +100,6 @@ public class Unit implements MouseListener {
         if (e.getButton() == 1) {
             // On test si le clic est dans la zone de notre pion en tenant compte de x et y ainsi que x + largeur et y + hauteur
             if (((e.getX() >= posX) && (e.getX() <= testX)) && ((e.getY() >= posY) && (e.getY() <= testY))) {
-                System.out.println("CLIC sur "+name);
                 // On envoie toutes les datas de l'unitée cliquée
                 pCont.collectUnitData(this,name);
             }

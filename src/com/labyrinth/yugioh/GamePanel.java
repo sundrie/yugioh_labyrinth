@@ -37,8 +37,8 @@ public class GamePanel extends JPanel implements MouseListener {
     Unit choosedUnit;
 
     Unit blueUnit;
-    Unit unit1 = new Unit(this,orderP,"Blackland Fire Dragon",unitSize/2,60+unitSize/2);
-    Unit unit2 = new Unit(this,orderP,"Curse of Dragon",790,60+unitSize/2);
+    Unit unit1 = new Unit(this,orderP,unitSize/2,60+unitSize/2,"Blackland Fire Dragon",4,2200,2000);
+    Unit unit2 = new Unit(this,orderP,790,60+unitSize/2,"Curse of Dragon",5,2200,1900);
 
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
@@ -121,17 +121,19 @@ public class GamePanel extends JPanel implements MouseListener {
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
             if (grid[i][0]==11){
-                Unit blueUnit = new Unit(this, orderP, "blue",unitSize/2,i*tSize+unitSize/2);
+                Unit blueUnit = new Unit(this, orderP,unitSize/2,i*tSize+unitSize/2, "blue",7,3000,2500);
                 g.setColor(Color.blue);
                 g.fillOval(blueUnit.getX(),blueUnit.getY(),blueUnit.getW(),blueUnit.getH());
             }
 
             if (grid[i][13]==11){
-                Unit redUnit = new Unit(this, orderP,"red",gpW-tSize*2,i*tSize+unitSize/2);
+                Unit redUnit = new Unit(this, orderP,gpW-tSize*2,i*tSize+unitSize/2,"red",7,3000,2500);
                 g.setColor(Color.red);
                 g.fillOval(redUnit.getX(),redUnit.getY(),redUnit.getW(),redUnit.getH());
             }
         }
+
+
         g.setColor(Color.magenta);
         g.fillOval(unit1.getX(),unit1.getY(),unit1.getW(),unit1.getH());
         // Pour enclencher les événements liés à la souris

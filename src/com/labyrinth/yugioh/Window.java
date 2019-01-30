@@ -8,7 +8,6 @@ public class Window extends JFrame {
     int height = 720;
     String title = "Yu-Gi-Oh! Labyrinth";
     private ContentPanel panel = new ContentPanel();
-    private GamePanel gpanel = new GamePanel();
     private Window theWindow = this;
     // La méthode pour créer notre fenêtre
     public void createWindow(){

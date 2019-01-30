@@ -37,8 +37,8 @@ public class GamePanel extends JPanel implements MouseListener {
     Unit choosedUnit;
 
     Unit blueUnit;
-    Unit toto = new Unit(this,orderP,"toto",0,0);
-    Unit tata = new Unit(this,orderP,"tata",60,60);
+    Unit unit1 = new Unit(this,orderP,"Blackland Fire Dragon",unitSize/2,60+unitSize/2);
+    Unit unit2 = new Unit(this,orderP,"Curse of Dragon",790,60+unitSize/2);
 
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
@@ -133,13 +133,13 @@ public class GamePanel extends JPanel implements MouseListener {
             }
         }
         g.setColor(Color.magenta);
-        g.fillOval(toto.getX(),toto.getY(),toto.getW(),toto.getH());
+        g.fillOval(unit1.getX(),unit1.getY(),unit1.getW(),unit1.getH());
         // Pour enclencher les événements liés à la souris
-        this.addMouseListener(toto);
+        this.addMouseListener(unit1);
 
         g.setColor(Color.green);
-        g.fillOval(tata.getX(),tata.getY(),tata.getW(),tata.getH());
-        this.addMouseListener(tata);
+        g.fillOval(unit2.getX(),unit2.getY(),unit2.getW(),unit2.getH());
+        this.addMouseListener(unit2);
     }
 
     // Permets de dessiner la tile demandée
@@ -212,7 +212,7 @@ public class GamePanel extends JPanel implements MouseListener {
                     // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                     moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 }else{
-                    // Le code suivant permets de faire une fenêtre popup 
+                    // Le code suivant permets de faire une fenêtre popup
                     JOptionPane msgCantMove;
                     msgCantMove = new JOptionPane();
                     msgCantMove.showMessageDialog(null, "Cette unité a déjà bougé durant ce tour", "Erreur", JOptionPane.ERROR_MESSAGE);

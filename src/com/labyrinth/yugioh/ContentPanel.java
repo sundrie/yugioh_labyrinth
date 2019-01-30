@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 public class ContentPanel extends JPanel {
     // Cette méthode est fournie de base par jpanel grâce à extends JPanel on peut y accéder
+    @Override
     public void paintComponent(Graphics g){
         try {
             // On créé notre variable de type Image
@@ -36,6 +37,7 @@ public class ContentPanel extends JPanel {
 
         // On ajoute notre panel de boutons à celui global
         this.add(btncontainer);
+
     }
 
 }

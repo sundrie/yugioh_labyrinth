@@ -6,13 +6,21 @@ import java.awt.event.MouseListener;
 
 
 public class Unit implements MouseListener {
+
+    // Les caractérisrtiques des unités
     String name;
+    int level;
+    int atk;
+    int def;
+
+    // Tout ce qui concerne la position de l'unité
     int posX;
     int posY;
     int prevposX;
     int prevposY;
     int w = 30;
     int h = 30;
+
     GamePanel pCont;
     OrderPanel ordP;
     // Ce booléen indiquera si l'unité a agit ou non

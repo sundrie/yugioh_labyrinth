@@ -21,6 +21,8 @@ public class InfoPanel extends JPanel implements MouseListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+
         g.setColor(Color.gray);
         g.fillRect(920,0,360,720);
         alliedLeftUnit.setFont(new Font("Arial",Font.PLAIN,18));
@@ -37,8 +39,14 @@ public class InfoPanel extends JPanel implements MouseListener {
         unitName.setForeground(Color.BLUE);
         unitName.setFont(new Font("Arial",Font.ITALIC,24));
         add(unitName);
+        unitLevel.setForeground(Color.black);
+        unitLevel.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitLevel);
+        unitAtk.setForeground(Color.black);
+        unitAtk.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitAtk);
+        unitDef.setForeground(Color.black);
+        unitDef.setFont(new Font("Arial",Font.PLAIN,22));
         add(unitDef);
 
         // Validate est obligatoire pour que les JLabel s'affiche
@@ -50,12 +58,9 @@ public class InfoPanel extends JPanel implements MouseListener {
     public void displayUnitInfo(Unit unit){
         // On écrase la valeur précédente du JLabel soit "" ou le nom de la précédente unité sélectionnée
         unitName.setText(unit.name);
-        unitLevel.setText(""+unit.level);       // Petit hack car setText ne fonctionne pas avec les int
-        unitAtk.setText(""+unit.atk);
-        unitDef.setText(""+unit.def);
-//        System.out.println("from InfoPanel :"+ unit);
-//        System.out.println("from InfoPanel :"+ unit.getX());
-//        System.out.println("from InfoPanel :"+ name);
+        unitLevel.setText("Niveau : "+unit.level);       // Petit hack car setText ne fonctionne pas avec les int
+        unitAtk.setText("Attaque : "+unit.atk);
+        unitDef.setText("Défense : "+unit.def);
     }
 
     public void mouseClicked(MouseEvent e) {

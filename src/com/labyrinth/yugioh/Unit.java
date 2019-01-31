@@ -41,7 +41,7 @@ public class Unit implements MouseListener {
         pCont = gamePanel;
         ordP = op;
 
-        System.out.println(name+level+atk+def);
+//        System.out.println(name+level+atk+def);
     }
 
     // retourne la position X
@@ -97,11 +97,13 @@ public class Unit implements MouseListener {
         int testY = posY + h;
 //        System.out.println("position pion + w ou h : x :"+ testX + " y: " + testY);
         // Si le bouton cliqué est celui de gauche
-        if (e.getButton() == 1) {
+        if (e.getButton() == 1){
+
             // On test si le clic est dans la zone de notre pion en tenant compte de x et y ainsi que x + largeur et y + hauteur
             if (((e.getX() >= posX) && (e.getX() <= testX)) && ((e.getY() >= posY) && (e.getY() <= testY))) {
                 // On envoie toutes les datas de l'unitée cliquée
                 pCont.collectUnitData(this);
+                pCont.drawGuide(this);
             }
         }
     }

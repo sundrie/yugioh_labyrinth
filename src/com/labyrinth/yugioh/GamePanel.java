@@ -59,9 +59,6 @@ public class GamePanel extends JPanel implements MouseListener {
 
     // Cette méthode va générer le labyrinthe
     public void generateLabyrinth(Graphics g){
-        // Pour illustration j'ajoute le plateau de jeu de base
-        //JLabel lab = new JLabel(new ImageIcon("assets/interface/img/labyrinth.png"));
-        //gamePanelContainer.add(lab);
 
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
@@ -162,6 +159,12 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
+    // Permets de dessiner le guide de mouvement et d'attaque
+    public void drawGuide(Unit unitToGuide){
+        gameMaster.drawAttackRange(unitToGuide);
+    }
+
+
 
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit){
@@ -211,11 +214,11 @@ public class GamePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
+        if (choosedUnit != null) {
 //        System.out.println(e.getSource().getClass());
-        // Si le bouton cliqué est celui de droite
-        if (e.getButton() == 3) {
-            // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
-            if (choosedUnit != null) {
+            // Si le bouton cliqué est celui de droite
+            if (e.getButton() == 3) {
                 // Si l'unité peut agir alors elle est autorisée a se déplacer
                 if (choosedUnit.canAct == true){
                     // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.

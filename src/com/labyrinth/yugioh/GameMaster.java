@@ -7,6 +7,8 @@ public class GameMaster {
     GamePanel gPan;
     InfoPanel iPan;
     Unit[] unitList;
+    int[][] grid;
+
     public GameMaster(GamePanel gp, InfoPanel ip){
         gPan = gp;
         iPan = ip;
@@ -16,6 +18,11 @@ public class GameMaster {
         unitList = unitArray;
         System.out.println(unitList[0].name);
         System.out.println(unitList[1].name);
+    }
+
+    public void getGrid(int[][] g){
+        grid = g;
+        System.out.println(grid[0][0]);
     }
 
 }

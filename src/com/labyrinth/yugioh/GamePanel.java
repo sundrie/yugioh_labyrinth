@@ -111,6 +111,8 @@ public class GamePanel extends JPanel implements MouseListener {
                 }
             }
         }
+
+        gameMaster.getGrid(grid);
         generateUnits(g);
     }
 
@@ -143,6 +145,7 @@ public class GamePanel extends JPanel implements MouseListener {
         g.setColor(Color.green);
         g.fillOval(unit2.getX(),unit2.getY(),unit2.getW(),unit2.getH());
         this.addMouseListener(unit2);
+
 
         Unit[] unitArray = {unit1,unit2};
         gameMaster.getUnit(unitArray);

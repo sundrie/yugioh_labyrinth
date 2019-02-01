@@ -7,6 +7,9 @@ public class GameMaster {
     GamePanel gPan;
     InfoPanel iPan;
     Unit[] unitList;
+    // theUnit correspond à l'unité
+    Unit theUnit;
+    GuideUnit theGuide;
     int[][] grid;
 
     public GameMaster(GamePanel gp, InfoPanel ip){
@@ -26,9 +29,15 @@ public class GameMaster {
     }
 
     // montre la portée d'attaque de l'unité sélectionnée pour que GamePanel puisse le dessiner
-    public int[][] drawAttackRange(Unit unit){
-        System.out.println("L'unité a guider "+unit.name);
-        int[][] data ={{},{}};
-        return data;
+    public GuideUnit drawAttackRange(Unit unit){
+
+        theUnit = unit;
+//        System.out.println("L'unité a guider "+unit.name);
+//        System.out.println(unit.getX());
+//        System.out.println(unit.getY());
+        int[][] gridGuide ={{unit.getX()},{unit.getY()}};
+        // on créé un nouveau guide auquel on envoie l'unité qui a besoin d'un guide et les positions où il doit dessiner les rectangles symbolisant la portée d'attaque
+        theGuide = new GuideUnit(theUnit, gridGuide);
+        return theGuide;
     }
 }

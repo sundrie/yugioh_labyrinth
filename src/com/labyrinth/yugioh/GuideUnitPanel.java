@@ -27,8 +27,9 @@ public class GuideUnitPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.fillRect(300,300,200,200);
         g.setColor(Color.red);
+
+        // Peint le rectangle du haut
         g.fillRect(guideGrid[0][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
     }
 }

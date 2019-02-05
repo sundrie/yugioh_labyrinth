@@ -34,13 +34,17 @@ public class GameMaster {
     public GuideUnitPanel drawAttackRange(Unit unit){
 
         theUnit = unit;
-//        System.out.println("L'unité a guider "+unit.name);
-//        System.out.println(unit.getX());
-//        System.out.println(unit.getY());
-        int[][] gridGuide ={
-                {unit.getX(),unit.getY()},
-                {unit.getX()+unit.w,unit.getY()-gPan.tSize} // Pour la case en haut
 
+        int tileInfo[] = gPan.getTileInfo(unit.getX(),unit.getY());
+        System.out.println(tileInfo[0]+" "+tileInfo[1]+" "+tileInfo[2]);
+
+        // Les résultats sont multipliés par la taille de tile afin d'obtenir les x et y de la tile où se trouve l'unité
+        int unitTileX = tileInfo[0]*gPan.tSize;
+        int unitTileY = tileInfo[1]*gPan.tSize;
+
+        int[][] gridGuide ={
+                {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
+                {unitTileX,unitTileY-gPan.tSize} // Pour peindre la case en haut
         };
         theGuide = new GuideUnitPanel(theUnit, gridGuide, gPan, gPan.gpW, gPan.gpH);
         // le guide sera par dessus le labyrinth on lui donne la taille de notre GamePanel

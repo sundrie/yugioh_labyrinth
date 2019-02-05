@@ -1,6 +1,8 @@
 package com.labyrinth.yugioh;
 
 
+import java.awt.*;
+
 public class GameMaster {
     // Cette classe va s'occuper de gérer tous les mécanismes, calculs permettant au jeu de fonctionner
 
@@ -36,8 +38,10 @@ public class GameMaster {
 //        System.out.println(unit.getX());
 //        System.out.println(unit.getY());
         int[][] gridGuide ={{unit.getX()},{unit.getY()}};
-        // on créé un nouveau guide auquel on envoie l'unité qui a besoin d'un guide et les positions où il doit dessiner les rectangles symbolisant la portée d'attaque
-        theGuide = new GuideUnit(theUnit, gridGuide);
-        return theGuide;
+        theGuide = new GuideUnit(theUnit, gridGuide,gPan.gpW, gPan.gpH);
+        // le guide sera par dessus le labyrinth on lui donne la taille de notre GamePanel
+        theGuide.setPreferredSize(new Dimension(gPan.gpW, gPan.gpH));
+        // On renvoie le guide que GamePanel va devoir ajouter
+        return(theGuide);
     }
 }

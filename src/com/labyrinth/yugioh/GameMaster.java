@@ -11,7 +11,7 @@ public class GameMaster {
     Unit[] unitList;
     // theUnit correspond à l'unité
     Unit theUnit;
-    GuideUnit theGuide;
+    GuideUnitPanel theGuide;
     int[][] grid;
 
     public GameMaster(GamePanel gp, InfoPanel ip){
@@ -31,14 +31,18 @@ public class GameMaster {
     }
 
     // montre la portée d'attaque de l'unité sélectionnée pour que GamePanel puisse le dessiner
-    public GuideUnit drawAttackRange(Unit unit){
+    public GuideUnitPanel drawAttackRange(Unit unit){
 
         theUnit = unit;
 //        System.out.println("L'unité a guider "+unit.name);
 //        System.out.println(unit.getX());
 //        System.out.println(unit.getY());
-        int[][] gridGuide ={{unit.getX()},{unit.getY()}};
-        theGuide = new GuideUnit(theUnit, gridGuide,gPan.gpW, gPan.gpH);
+        int[][] gridGuide ={
+                {unit.getX(),unit.getY()},
+                {unit.getX()+unit.w,unit.getY()-gPan.tSize} // Pour la case en haut
+
+        };
+        theGuide = new GuideUnitPanel(theUnit, gridGuide, gPan, gPan.gpW, gPan.gpH);
         // le guide sera par dessus le labyrinth on lui donne la taille de notre GamePanel
         theGuide.setPreferredSize(new Dimension(gPan.gpW, gPan.gpH));
         // On renvoie le guide que GamePanel va devoir ajouter

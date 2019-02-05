@@ -33,6 +33,8 @@ public class GuideUnitPanel extends JPanel {
         g.fillRect(guideGrid[1][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
         // Peint le rectangle du haut
         g.fillRect(guideGrid[2][0],guideGrid[2][1],gPanel.tSize,gPanel.tSize);
+        // Peint le rectangle du haut
+        g.fillRect(guideGrid[3][0],guideGrid[3][1],gPanel.tSize,gPanel.tSize);
 
     }
 }

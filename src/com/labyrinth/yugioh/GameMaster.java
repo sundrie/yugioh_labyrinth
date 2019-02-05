@@ -46,7 +46,8 @@ public class GameMaster {
         int[][] gridGuide ={
                 {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
                 {unitTileX,unitTileY-gPan.tSize}, // La case en haut
-                {unitTileX+gPan.tSize,unitTileY}   // La case de droite
+                {unitTileX+gPan.tSize,unitTileY},   // La case de droite
+                {unitTileX,unitTileY+gPan.tSize}    // La case du bas
         };
         theGuide = new GuideUnitPanel(theUnit, gridGuide, gPan, gPan.gpW, gPan.gpH);
         // le guide sera par dessus le labyrinth on lui donne la taille de notre GamePanel

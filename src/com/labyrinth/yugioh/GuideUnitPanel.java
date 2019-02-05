@@ -20,8 +20,8 @@ public class GuideUnitPanel extends JPanel {
 
         // Permets de mettre le JPanel en transparent
         setOpaque(false);
-        System.out.println(guideGrid[0][0]+" - "+guideGrid[0][1]);
-        System.out.println(guideGrid[1][0]+" - "+guideGrid[1][1]);
+//        System.out.println(guideGrid[0][0]+" - "+guideGrid[0][1]);
+//        System.out.println(guideGrid[1][0]+" - "+guideGrid[1][1]);
     }
 
     @Override
@@ -30,6 +30,9 @@ public class GuideUnitPanel extends JPanel {
         g.setColor(Color.red);
 
         // Peint le rectangle du haut
-        g.fillRect(guideGrid[0][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
+        g.fillRect(guideGrid[1][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
+        // Peint le rectangle du haut
+        g.fillRect(guideGrid[2][0],guideGrid[2][1],gPanel.tSize,gPanel.tSize);
+
     }
 }

@@ -72,13 +72,15 @@ public class GameMaster {
                 {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
                 {unitTileX,unitTileY-gPan.tSize}, // La case en haut
                 {unitTileX+gPan.tSize,unitTileY},   // La case de droite
-                {unitTileX,unitTileY+gPan.tSize}    // La case du bas
+                {unitTileX,unitTileY+gPan.tSize},    // La case du bas
+                {unitTileX-gPan.tSize,unitTileY}    // La case de gauche
         };
         theGuide = guideP;
 
         theGuide.setGrid(gridGuide);
         theGuide.setUnit();
         GuideUnitPanel.GuideTiles guidee = theGuide.new GuideTiles() ;
+        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
         theGuide.test(guidee);
     }
 }

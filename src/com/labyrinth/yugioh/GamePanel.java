@@ -159,9 +159,11 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
+    GuideUnitPanel theGuide = new GuideUnitPanel(this, gpW, gpH);
     // Permets de dessiner le guide de mouvement et d'attaque
     public void drawGuide(Unit unitToGuide){
-        GuideUnitPanel theGuide = gameMaster.drawAttackRange(unitToGuide);
+//        GuideUnitPanel theGuide = gameMaster.drawAttackRange(unitToGuide);
+        gameMaster.newGuidDraw(theGuide, unitToGuide);
         add(theGuide);
     }
 

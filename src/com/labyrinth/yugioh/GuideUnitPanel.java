@@ -11,10 +11,10 @@ public class GuideUnitPanel extends JPanel {
     int h;
 
 
-    public GuideUnitPanel(Unit unit, int[][] guideGridPos, GamePanel gamePanel, int width, int height){
+    public GuideUnitPanel(GamePanel gamePanel, int width, int height){
         gPanel = gamePanel;
-        targetUnit = unit;
-        guideGrid = guideGridPos;
+//        targetUnit = unit;
+//        guideGrid = guideGridPos;
         w = width;
         h = height;
 
@@ -22,6 +22,14 @@ public class GuideUnitPanel extends JPanel {
         setOpaque(false);
 //        System.out.println(guideGrid[0][0]+" - "+guideGrid[0][1]);
 //        System.out.println(guideGrid[1][0]+" - "+guideGrid[1][1]);
+    }
+
+    public void setUnit(){
+
+    }
+
+    public void setGrid(int[][] grid){
+        guideGrid = grid;
     }
 
     @Override
@@ -39,4 +47,16 @@ public class GuideUnitPanel extends JPanel {
         // Peint le rectangle de gauche
         g.fillRect(guideGrid[4][0],guideGrid[4][1],gPanel.tSize,gPanel.tSize);
     }
+
+    public void test(GuideTiles guidee){
+        add(guidee);
+    }
+
+    public class GuideTiles extends JPanel{
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            System.out.println("toto");
+        }
+    }
+
 }

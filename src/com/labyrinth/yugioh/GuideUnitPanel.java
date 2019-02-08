@@ -27,16 +27,14 @@ public class GuideUnitPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        // Pour avoir un rouge transparent
-        g.setColor(new Color(255,0,0, 80));
+        g.setColor(Color.red);
 
         // Peint le rectangle du haut
         g.fillRect(guideGrid[1][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
-        // Peint le rectangle de droite
+        // Peint le rectangle du haut
         g.fillRect(guideGrid[2][0],guideGrid[2][1],gPanel.tSize,gPanel.tSize);
-        // Peint le rectangle du bas
+        // Peint le rectangle du haut
         g.fillRect(guideGrid[3][0],guideGrid[3][1],gPanel.tSize,gPanel.tSize);
-        // Peint le rectangle de gauche
-        g.fillRect(guideGrid[4][0],guideGrid[4][1],gPanel.tSize,gPanel.tSize);
+
     }
 }

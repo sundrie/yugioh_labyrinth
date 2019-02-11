@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements MouseListener {
             {1,0,7,1,7,9,5,7,5,0,10,7,5,4},
             {2,6,6,6,3,2,3,2,3,2,10,6,6,3}
     };
+    // Indique la width du labyrinthe
+    int LabW = grid[0].length*60;
 
     InfoPanel iPan;
     GameMaster gameMaster;

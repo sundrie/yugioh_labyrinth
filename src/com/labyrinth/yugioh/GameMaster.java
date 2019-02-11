@@ -94,7 +94,10 @@ public class GameMaster {
     public int[][] isOOB(int[][] array){
         for (int i=0;i<array.length;i++){
             for (int j=0;j<array[i].length;j++){
-                System.out.println("i: "+i+"/ j: "+j+" - "+array[i][j]);
+                // Si la valeur est inférieure à 0 ou supérieure à la width du labyrinthe
+                if (array[i][j]<0 || array[i][j] > gPan.LabW){
+                    System.out.println("i: "+i+"/ j: "+j+" - "+array[i][j]);
+                }
             }
         }
         int[][] goodArray = null;

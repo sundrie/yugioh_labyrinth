@@ -22,6 +22,8 @@ public class GuideUnitPanel extends JPanel {
         setOpaque(false);
 //        System.out.println(guideGrid[0][0]+" - "+guideGrid[0][1]);
 //        System.out.println(guideGrid[1][0]+" - "+guideGrid[1][1]);
+        // Par défaut il y a un margin à 5. On écrase ce 5 par 0 ainsi il n'y a plus de margins gênants
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
     }
 
     public void setUnit(){

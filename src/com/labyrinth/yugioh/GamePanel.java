@@ -46,6 +46,8 @@ public class GamePanel extends JPanel implements MouseListener {
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
         this.addMouseListener(this);
+        // Par défaut il y a un margin à 5. On écrase ce 5 par 0 ainsi il n'y a plus de margins gênants
+        setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
     }
 
     @Override

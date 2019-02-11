@@ -91,16 +91,17 @@ public class GameMaster {
     }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe
-    public int[][] isOOB(int[][] array){
+    public void isOOB(int[][] array){
         for (int i=0;i<array.length;i++){
             for (int j=0;j<array[i].length;j++){
-                // Si la valeur est inférieure à 0 ou supérieure à la width du labyrinthe
-                if (array[i][j]<0 || array[i][j] > gPan.LabW){
-                    System.out.println("i: "+i+"/ j: "+j+" - "+array[i][j]);
+                // Si la valeur est inférieure à 0 ou supérieure à la width du labyrinthe c'est donc qu'elle est OOB
+                if (array[i][j]<0 || array[i][j] >= gPan.LabW){
+                    System.out.println("Valeurs OOB ! i: "+i+"/ j: "+j+" | "+array[i][j]);
+                    // On écrase la valeur OOB par une nouvelle incorrecte
+                    array[i][j] = 713705;
                 }
+                System.out.println("i: "+i+"/ j: "+j+" | "+array[i][j]);
             }
         }
-        int[][] goodArray = null;
-        return goodArray;
     }
 }

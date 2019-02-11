@@ -75,12 +75,29 @@ public class GameMaster {
                 {unitTileX,unitTileY+gPan.tSize},    // La case du bas
                 {unitTileX-gPan.tSize,unitTileY}    // La case de gauche
         };
+
+        isOOB(gridGuide);
+
         theGuide = guideP;
 
+        // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(gridGuide);
+
         theGuide.setUnit();
-        GuideUnitPanel.GuideTiles guidee = theGuide.new GuideTiles() ;
-        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
-        theGuide.test(guidee);
+        // On créé une nouvelle classe cette fois interne à GuideUnitPanel
+        GuideUnitPanel.GuideTiles guideTiles = theGuide.new GuideTiles() ;
+//        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
+        theGuide.paintTiles(guideTiles);
+    }
+
+    // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe
+    public int[][] isOOB(int[][] array){
+        for (int i=0;i<array.length;i++){
+            for (int j=0;j<array[i].length;j++){
+                System.out.println("i: "+i+"/ j: "+j+" - "+array[i][j]);
+            }
+        }
+        int[][] goodArray = null;
+        return goodArray;
     }
 }

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GuideUnitPanel extends JPanel {
-    Unit targetUnit;
     GamePanel gPanel;
     int[][] guideGrid;
     int w;
@@ -26,9 +25,6 @@ public class GuideUnitPanel extends JPanel {
         setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
     }
 
-    public void setUnit(){
-
-    }
 
     public void setGrid(int[][] grid){
         guideGrid = grid;
@@ -54,16 +50,19 @@ public class GuideUnitPanel extends JPanel {
         public void paintComponent(Graphics g){
             super.paintComponent(g);
 //            System.out.println("GuideTiles : "+guideGrid[2][0]+" "+guideGrid[2][1]);
+
             // Pour avoir un rouge transparent
-            g.setColor(new Color(255,0,0, 80));
-            // Peint le rectangle du haut
-            g.fillRect(guideGrid[1][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
-            // Peint le rectangle du haut
-            g.fillRect(guideGrid[2][0],guideGrid[2][1],gPanel.tSize,gPanel.tSize);
-            // Peint le rectangle du haut
-            g.fillRect(guideGrid[3][0],guideGrid[3][1],gPanel.tSize,gPanel.tSize);
-            // Peint le rectangle de gauche
-            g.fillRect(guideGrid[4][0],guideGrid[4][1],gPanel.tSize,gPanel.tSize);
+//            g.setColor(new Color(255,0,0, 80));
+//            // Peint le rectangle du haut
+//            g.fillRect(guideGrid[1][0],guideGrid[1][1],gPanel.tSize,gPanel.tSize);
+//            // Peint le rectangle de droite
+//            g.fillRect(guideGrid[2][0],guideGrid[2][1],gPanel.tSize,gPanel.tSize);
+//            // Peint le rectangle du bas
+//            g.fillRect(guideGrid[3][0],guideGrid[3][1],gPanel.tSize,gPanel.tSize);
+//            // Peint le rectangle de gauche
+//            g.fillRect(guideGrid[4][0],guideGrid[4][1],gPanel.tSize,gPanel.tSize);
+
+            g.fillRect(guideGrid[5][0],guideGrid[5][1],gPanel.tSize,gPanel.tSize);
         }
     }
 

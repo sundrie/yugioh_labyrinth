@@ -60,6 +60,8 @@ public class GameMaster {
 
     public void newGuidDraw(GuideUnitPanel guideP,Unit unit){
 
+        theUnit = unit;
+
         int tileInfo[] = gPan.getTileInfo(unit.getX(),unit.getY());
 //        System.out.println(tileInfo[0]+" "+tileInfo[1]+" "+tileInfo[2]);
 
@@ -67,14 +69,28 @@ public class GameMaster {
         int unitTileX = tileInfo[0]*gPan.tSize;
         int unitTileY = tileInfo[1]*gPan.tSize;
         int tileId = tileInfo[2];
+        // Ces 2 variables nous donnent les coordonnées d'où se trouve l'unité
+        int tilePosX = tileInfo[0];
+        int tilePosY = tileInfo[1];
+
+        // C'est la distance max que peut parcourir l'unité
+        int unitMaxMvt = theUnit.level;
+
+        System.out.println();
+
+        // Droite
+        System.out.println("ID de la tile la plus à droite : "+grid[tilePosY][tilePosX+unitMaxMvt]);
 
         int[][] gridGuide ={
                 {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
                 {unitTileX,unitTileY-gPan.tSize}, // La case en haut
                 {unitTileX+gPan.tSize,unitTileY},   // La case de droite
                 {unitTileX,unitTileY+gPan.tSize},    // La case du bas
-                {unitTileX-gPan.tSize,unitTileY}    // La case de gauche
+                {unitTileX-gPan.tSize,unitTileY},    // La case de gauche
+                {0,unitTileY}
         };
+
+        System.out.println(gridGuide[5][0]+" - "+gridGuide[5][1]);
 
         isOOB(gridGuide);
 
@@ -83,7 +99,6 @@ public class GameMaster {
         // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(gridGuide);
 
-        theGuide.setUnit();
         // On créé une nouvelle classe cette fois interne à GuideUnitPanel
         GuideUnitPanel.GuideTiles guideTiles = theGuide.new GuideTiles() ;
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);

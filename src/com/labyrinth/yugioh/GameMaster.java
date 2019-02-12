@@ -13,6 +13,23 @@ public class GameMaster {
     Unit theUnit;
     GuideUnitPanel theGuide;
     int[][] grid;
+    // Comme son nom l'indique ça sera utilisé pour gérer les collisions (murs, limites de terrains)
+    // Dans l'ordre ID et le sens des aiguilles d'une montre H,D,B,G
+    int[][][] collisionGrid = {
+            {{1},{8},{8},{10},{4},{1},{4},{1},{4},{1},{8},{8},{8},{4}},
+            {{2},{7},{5},{10},{0},{7},{5},{7},{9},{5},{3},{5},{0},{3}},
+            {{11},{5},{6},{4},{5},{3},{5},{7},{2},{3},{1},{3},{9},{11}},
+            {{11},{2},{4},{5},{0},{10},{3},{2},{4},{1},{7},{1},{3},{11}},
+            {{11},{8},{3},{2},{0},{8},{4},{1},{7},{9},{5},{3},{1},{11}},
+            {{11},{5},{10},{4},{9},{5},{0},{0},{7},{9},{2},{10},{7},{11}},
+            {{11},{3},{1},{7},{9},{5},{3},{2},{6},{0},{4},{1},{6},{11}},
+            {{11},{1},{3},{5},{3},{2},{4},{1},{10},{0},{7},{2},{4},{11}},
+            {{11},{9},{1},{3},{1},{4},{5},{7},{1},{7},{2},{8},{7},{11}},
+            {{1},{0},{7},{1},{7},{9},{5},{7},{5},{0},{10},{7},{5},{4}},
+            {{2},{6},{6},{6},{3},{2},{3},{2},{3},{2},{10},{6},{6},{3}}
+
+    };
+
 
     public GameMaster(GamePanel gp, InfoPanel ip){
         gPan = gp;
@@ -76,21 +93,18 @@ public class GameMaster {
         // C'est la distance max que peut parcourir l'unité
         int unitMaxMvt = theUnit.level;
 
-        System.out.println();
-
         // Droite
-        System.out.println("ID de la tile la plus à droite : "+grid[tilePosY][tilePosX+unitMaxMvt]);
+//        System.out.println("ID de la tile la plus à droite : "+grid[tilePosY][tilePosX+unitMaxMvt]);
+//        System.out.println(tilePosX+unitMaxMvt);
 
         int[][] gridGuide ={
                 {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
                 {unitTileX,unitTileY-gPan.tSize}, // La case en haut
-                {unitTileX+gPan.tSize,unitTileY},   // La case de droite
+                {tilePosX+unitMaxMvt*gPan.tSize+gPan.tSize,unitTileY},   // La case de droite
                 {unitTileX,unitTileY+gPan.tSize},    // La case du bas
                 {unitTileX-gPan.tSize,unitTileY},    // La case de gauche
-                {0,unitTileY}
+                {tilePosX+unitMaxMvt*gPan.tSize,unitTileY}  // La case de mouvement la plus à droite
         };
-
-        System.out.println(gridGuide[5][0]+" - "+gridGuide[5][1]);
 
         isOOB(gridGuide);
 
@@ -119,4 +133,5 @@ public class GameMaster {
             }
         }
     }
+
 }

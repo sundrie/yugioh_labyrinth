@@ -3,6 +3,9 @@ package com.labyrinth.yugioh;
 
 import java.awt.*;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+
 public class GameMaster {
     // Cette classe va s'occuper de gérer tous les mécanismes, calculs permettant au jeu de fonctionner
 
@@ -127,40 +130,60 @@ public class GameMaster {
 //            }
 //        }
 
+
+        // ArrayList permets de push dans un Array car les array de base en java ont une taille fixe
+        // On précise que ArrayList contiendra des arrays d'entiers
+        ArrayList<int[]> guideMvt = new ArrayList<int[]>();
+        // tmp comme son nom l'indique servira pour add() car mettre add({tilePosY - 1, tilePosX}) ne fonctionne pas
+        int[] tmp ={};
+
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
             System.out.println(collisionGrid[tilePosY][tilePosX][i]);
-
-
             //  Haut
             // Si c'est bloqué 0 ou non 1
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est inaccesible");
+                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est inaccessible");
             } else if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accesible");
+                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accessible");
+                tmp = new int[]{tilePosY-1,tilePosX};
+                // On "push" à la fin du array le tableau
+                guideMvt.add(tmp);
             }
             // Droite
             if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est inaccesible");
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est inaccessible");
             } else if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est accesible");
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est accessible");
+                tmp = new int[]{tilePosY,tilePosX+1};
+                guideMvt.add(tmp);
             }
             // Bas
             if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccesible");
+                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccessible");
             } else if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accesible");
+                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accessible");
+                tmp = new int[]{tilePosY+1,tilePosX};
+                guideMvt.add(tmp);
             }
             // Gauche
             if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est inaccesible");
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est inaccessible");
             } else if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est accesible");
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est accessible");
+                tmp = new int[]{tilePosY,tilePosX-1};
+                guideMvt.add(tmp);
             }
 
 
         }
 
+
+            // Renvoie la taille du array
+            System.out.println(guideMvt.size());
+            for (int i=0;i<guideMvt.size();i++) {
+                System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" "+guideMvt.get(i)[1]);
+            }
 
 
 

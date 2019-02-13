@@ -14,7 +14,8 @@ public class GameMaster {
     GuideUnitPanel theGuide;
     int[][] grid;
     // Comme son nom l'indique ça sera utilisé pour gérer les collisions (murs, limites de terrains)
-    // Dans l'ordre ID et le sens des aiguilles d'une montre H,D,B,G
+    // La première valeur [] est le Y, la seconde [] le X et enfin la troisième [] se découpe ainsi :
+    // 0: ID, 1: Haut, 2: Droite, 3: Bas, 4: Gauche
     int[][][] collisionGrid = {
             {{1,0,1,1,0},{8,0,1,1,1},{8,0,1,1,1},{10,0,0,1,1},{4,0,0,1,1},{1,0,1,1,0},{4,0,0,1,1},{1,0,1,1,0},{4,0,0,1,1},{1,0,1,1,0},{8,0,1,1,1},{8,0,1,1,1},{8,0,1,1,1},{4,0,0,1,1}},
             {{2,1,1,0,0},{7,1,0,1,1},{5,1,1,1,0},{10,0,1,0,1},{0,1,1,1,1},{7,1,0,1,1},{5,1,1,1,0},{7,1,0,1,1},{9,1,0,1,0},{5,1,1,1,0},{3,1,0,0,1},{5,1,1,1,0},{0,1,1,1,1},{3,1,0,0,1}},
@@ -27,7 +28,6 @@ public class GameMaster {
             {{11,1,0,0,0},{9,1,0,1,0},{1,0,1,1,0},{3,1,0,0,1},{1,0,1,1,0},{4,0,0,1,1},{5,1,1,1,0},{7,1,0,1,1},{1,0,1,1,0},{7,1,0,1,1},{2,1,1,0,0},{8,0,1,1,1},{7,1,0,1,1},{11,1,0,0,0}},
             {{1,0,1,1,0},{0,1,1,1,1},{7,1,0,1,1},{1,0,1,1,0},{7,1,0,1,1},{9,1,0,1,0},{5,1,1,1,0},{7,1,0,1,1},{5,1,1,1,0},{0,1,1,1,1},{10,0,1,0,1},{7,1,0,1,1},{5,1,1,1,0},{4,0,0,1,1}},
             {{2,1,1,0,0},{6,1,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{10,0,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1}}
-
     };
 
 
@@ -117,6 +117,33 @@ public class GameMaster {
         GuideUnitPanel.GuideTiles guideTiles = theGuide.new GuideTiles() ;
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
         theGuide.paintTiles(guideTiles);
+
+        //  Pas OK
+//        for (int i=tilePosY;i<=unitMaxMvt;i++) {
+//            for (int j=tilePosX; j <=unitMaxMvt; j++) {
+//                for (int k=0; k <=unitMaxMvt; k++){
+//                    System.out.println("i : "+i+" j: "+j+" ID: "+collisionGrid[i][j][0]);
+//                }
+//            }
+//        }
+
+        // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
+        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
+            System.out.println(collisionGrid[tilePosY][tilePosX][i]);
+
+
+
+            // Si le bas est bloqué
+            if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 0){
+                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccesible");
+            } else if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
+                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accesible");
+            }
+        }
+
+
+
+
     }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe

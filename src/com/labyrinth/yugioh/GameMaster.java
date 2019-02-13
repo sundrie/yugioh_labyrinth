@@ -132,13 +132,33 @@ public class GameMaster {
             System.out.println(collisionGrid[tilePosY][tilePosX][i]);
 
 
-
-            // Si le bas est bloqué
+            //  Haut
+            // Si c'est bloqué 0 ou non 1
+            if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 0){
+                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est inaccesible");
+            } else if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1){
+                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accesible");
+            }
+            // Droite
+            if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 0){
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est inaccesible");
+            } else if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1){
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est accesible");
+            }
+            // Bas
             if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 0){
                 System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccesible");
             } else if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
                 System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accesible");
             }
+            // Gauche
+            if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 0){
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est inaccesible");
+            } else if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1){
+                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est accesible");
+            }
+
+
         }
 
 

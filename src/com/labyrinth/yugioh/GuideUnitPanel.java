@@ -49,6 +49,14 @@ public class GuideUnitPanel extends JPanel {
     public class GuideTiles extends JPanel{
         public void paintComponent(Graphics g){
             super.paintComponent(g);
+            // Les cases de mouvements
+            g.setColor(new Color(0,130,255, 80));
+
+            for (int i=0;i<guideGrid.size();i++){
+                // [0] est le Y et [1] le X
+//                guideGrid.get(i)[0]+" "+guideGrid.get(i)[1]
+                g.fillRect(guideGrid.get(i)[1]*gPanel.tSize,guideGrid.get(i)[0]*gPanel.tSize,gPanel.tSize,gPanel.tSize);
+            }
 
 //            // Pour avoir un rouge transparent
 //            g.setColor(new Color(255,0,0, 80));
@@ -61,8 +69,7 @@ public class GuideUnitPanel extends JPanel {
 //            // Peint le rectangle de gauche
 //            g.fillRect(guideGrid[4][0],guideGrid[4][1],gPanel.tSize,gPanel.tSize);
 //
-//            // Les cases de mouvements
-            g.setColor(new Color(0,130,255, 80));
+//
 //
 //
 //            g.fillRect(guideGrid[5][0],guideGrid[5][1],gPanel.tSize,gPanel.tSize);

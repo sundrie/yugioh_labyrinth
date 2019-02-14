@@ -33,6 +33,12 @@ public class GameMaster {
             {{2,1,1,0,0},{6,1,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{10,0,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1}}
     };
 
+    // ArrayList permets de push dans un Array car les array de base en java ont une taille fixe
+    // On précise que ArrayList contiendra des arrays d'entiers
+    ArrayList<int[]> guideMvt = new ArrayList<int[]>();
+    // tmp comme son nom l'indique servira pour add() car mettre add({tilePosY - 1, tilePosX}) ne fonctionne pas
+    int[] tmp ={};
+
 
     public GameMaster(GamePanel gp, InfoPanel ip){
         gPan = gp;
@@ -90,48 +96,46 @@ public class GameMaster {
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
         theGuide.paintTiles(guideTiles);
 
-        // ArrayList permets de push dans un Array car les array de base en java ont une taille fixe
-        // On précise que ArrayList contiendra des arrays d'entiers
-        ArrayList<int[]> guideMvt = new ArrayList<int[]>();
-        // tmp comme son nom l'indique servira pour add() car mettre add({tilePosY - 1, tilePosX}) ne fonctionne pas
-        int[] tmp ={};
-
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
             System.out.println(collisionGrid[tilePosY][tilePosX][i]);
             //  Haut
             // Si c'est bloqué 0 ou non 1
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est inaccessible");
+//                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est inaccessible");
             } else if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accessible");
+//                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accessible");
                 tmp = new int[]{tilePosY-1,tilePosX};
                 // On "push" à la fin du array le tableau
                 guideMvt.add(tmp);
+                guidePath(tmp);
             }
             // Droite
             if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est inaccessible");
+//                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est inaccessible");
             } else if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est accessible");
+//                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX+1)+" est accessible");
                 tmp = new int[]{tilePosY,tilePosX+1};
                 guideMvt.add(tmp);
+                guidePath(tmp);
             }
             // Bas
             if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccessible");
+//                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est inaccessible");
             } else if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accessible");
+//                System.out.println("La case situé en : "+(tilePosY+1)+" - "+tilePosX+" est accessible");
                 tmp = new int[]{tilePosY+1,tilePosX};
                 guideMvt.add(tmp);
+                guidePath(tmp);
             }
             // Gauche
             if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 0){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est inaccessible");
+//                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est inaccessible");
             } else if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est accessible");
+//                System.out.println("La case situé en : "+tilePosY+" - "+(tilePosX-1)+" est accessible");
                 tmp = new int[]{tilePosY,tilePosX-1};
                 guideMvt.add(tmp);
+                guidePath(tmp);
             }
 
 
@@ -145,9 +149,35 @@ public class GameMaster {
             }
             // On envoie les coordonnées des tiles que doit peindre notre guide
             theGuide.setGrid(guideMvt);
+    }
 
-
-
+    // Cette méthode va faire la même chose que précédemment a savoir teester les collisions et push dans l'array guideMvt si l'unité peut passer
+    public void guidePath(int[] nextTile){
+        int tilePosY = nextTile[0];
+        int tilePosX = nextTile[1];
+        // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
+        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
+            // Haut
+            if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
+                tmp = new int[]{tilePosY - 1, tilePosX};
+                guideMvt.add(tmp);
+            }
+            // Droite
+             if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
+                 tmp = new int[]{tilePosY, tilePosX + 1};
+                 guideMvt.add(tmp);
+             }
+             // Bas
+             if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
+                 tmp = new int[]{tilePosY + 1, tilePosX};
+                 guideMvt.add(tmp);
+             }
+             // Gauche
+             if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
+                 tmp = new int[]{tilePosY, tilePosX - 1};
+                 guideMvt.add(tmp);
+             }
+        }
     }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe

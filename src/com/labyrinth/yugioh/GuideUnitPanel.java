@@ -52,6 +52,7 @@ public class GuideUnitPanel extends JPanel {
             // Les cases de mouvements
             g.setColor(new Color(0,130,255, 80));
 
+            // On peint le nombre de fois demandé de tiles
             for (int i=0;i<guideGrid.size();i++){
                 // [0] est le Y et [1] le X
 //                guideGrid.get(i)[0]+" "+guideGrid.get(i)[1]

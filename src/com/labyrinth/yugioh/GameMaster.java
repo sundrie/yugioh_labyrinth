@@ -129,44 +129,69 @@ public class GameMaster {
 //        }
 
         int[] uPos = {tilePosY,tilePosX};
-        guidePath(uPos);
+        int c=0;
+
+        do {
+            if(c == 0) {
+                guidePath(uPos);
+            }else{
+                for (int i=0;i<nextPath.size();i++) {
+                    if (nextPath.get(i)[0]<=unitMaxMvt && nextPath.get(i)[1]<=unitMaxMvt) {
+                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
+                        int[] todo = {nextPath.get(i)[0], nextPath.get(i)[1]};
+                        guidePath(todo);
+                    }
+                }
+            }
+            c++;
+        }while (c < unitMaxMvt);
+
 
         // Renvoie la taille du array
 //        System.out.println(guideMvt.size());
-        for (int i=0;i<guideMvt.size();i++) {
-            System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" "+guideMvt.get(i)[1]);
-        }
+//        for (int i=0;i<guideMvt.size();i++) {
+//            System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" / "+guideMvt.get(i)[1]);
+//        }
 
     // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(guideMvt);
     }
 
+
+    ArrayList<int[]> nextPath = new ArrayList<int[]>();
+
+
     // Cette méthode va faire la même chose que précédemment a savoir teester les collisions et push dans l'array guideMvt si l'unité peut passer
     public void guidePath(int[] nextTile){
         int tilePosY = nextTile[0];
         int tilePosX = nextTile[1];
-        
+        // clear() vide nextPath de tout ce qu'il contient
+        nextPath.clear();
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++){
             // Haut
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                 tmp = new int[]{tilePosY - 1, tilePosX};
                 guideMvt.add(tmp);
+                nextPath.add(tmp);
             }
             // Droite
              if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX + 1};
                  guideMvt.add(tmp);
+                 nextPath.add(tmp);
              }
              // Bas
              if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY + 1, tilePosX};
                  guideMvt.add(tmp);
+                 nextPath.add(tmp);
              }
              // Gauche
              if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX - 1};
                  guideMvt.add(tmp);
+                 nextPath.add(tmp);
              }
         }
     }

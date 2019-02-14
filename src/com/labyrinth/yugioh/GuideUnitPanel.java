@@ -2,32 +2,32 @@ package com.labyrinth.yugioh;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GuideUnitPanel extends JPanel {
     GamePanel gPanel;
-    int[][] guideGrid;
+    ArrayList<int[]> guideGrid = new ArrayList<int[]>();
     int w;
     int h;
 
-
     public GuideUnitPanel(GamePanel gamePanel, int width, int height){
         gPanel = gamePanel;
-//        targetUnit = unit;
-//        guideGrid = guideGridPos;
         w = width;
         h = height;
 
         // Permets de mettre le JPanel en transparent
         setOpaque(false);
-//        System.out.println(guideGrid[0][0]+" - "+guideGrid[0][1]);
-//        System.out.println(guideGrid[1][0]+" - "+guideGrid[1][1]);
         // Par défaut il y a un margin à 5. On écrase ce 5 par 0 ainsi il n'y a plus de margins gênants
         setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
     }
 
 
-    public void setGrid(int[][] grid){
+    public void setGrid(ArrayList<int[]> grid){
         guideGrid = grid;
+        System.out.println(guideGrid.size());
+        for (int i=0;i<guideGrid.size();i++) {
+            System.out.println("Valeurs récupérées : "+guideGrid.get(i)[0]+" "+guideGrid.get(i)[1]);
+        }
     }
 
     @Override
@@ -49,7 +49,6 @@ public class GuideUnitPanel extends JPanel {
     public class GuideTiles extends JPanel{
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-//            System.out.println("GuideTiles : "+guideGrid[2][0]+" "+guideGrid[2][1]);
 
 //            // Pour avoir un rouge transparent
 //            g.setColor(new Color(255,0,0, 80));

@@ -24,7 +24,7 @@ public class GuideUnitPanel extends JPanel {
 
     public void setGrid(ArrayList<int[]> grid){
         guideGrid = grid;
-        System.out.println(guideGrid.size());
+//        System.out.println(guideGrid.size());
         for (int i=0;i<guideGrid.size();i++) {
             System.out.println("Valeurs récupérées : "+guideGrid.get(i)[0]+" "+guideGrid.get(i)[1]);
         }

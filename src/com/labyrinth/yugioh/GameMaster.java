@@ -3,7 +3,6 @@ package com.labyrinth.yugioh;
 
 import java.awt.*;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 
 public class GameMaster {
@@ -32,6 +31,7 @@ public class GameMaster {
             {{1,0,1,1,0},{0,1,1,1,1},{7,1,0,1,1},{1,0,1,1,0},{7,1,0,1,1},{9,1,0,1,0},{5,1,1,1,0},{7,1,0,1,1},{5,1,1,1,0},{0,1,1,1,1},{10,0,1,0,1},{7,1,0,1,1},{5,1,1,1,0},{4,0,0,1,1}},
             {{2,1,1,0,0},{6,1,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{3,1,0,0,1},{2,1,1,0,0},{10,0,1,0,1},{6,1,1,0,1},{6,1,1,0,1},{3,1,0,0,1}}
     };
+
 
     // ArrayList permets de push dans un Array car les array de base en java ont une taille fixe
     // On précise que ArrayList contiendra des arrays d'entiers
@@ -96,45 +96,48 @@ public class GameMaster {
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
         theGuide.paintTiles(guideTiles);
 
-        // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
-        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
-            System.out.println(collisionGrid[tilePosY][tilePosX][i]);
-            //  Haut
-            // collisionGrid[tilePosY][tilePosX][i] == 1 veut dire qu'on peut passer sinon ça serait 0
-            if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1){
-//                System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accessible");
-                tmp = new int[]{tilePosY-1,tilePosX};
-                // On "push" à la fin du array le tableau
-                guideMvt.add(tmp);
-                guidePath(tmp);
-            }
-            // Droite
-            if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                tmp = new int[]{tilePosY,tilePosX+1};
-                guideMvt.add(tmp);
-                guidePath(tmp);
-            }
-            // Bas
-            if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                tmp = new int[]{tilePosY+1,tilePosX};
-                guideMvt.add(tmp);
-                guidePath(tmp);
-            }
-            // Gauche
-            if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1){
-                tmp = new int[]{tilePosY,tilePosX-1};
-                guideMvt.add(tmp);
-                guidePath(tmp);
-            }
-        }
+//        // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
+//        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
+//            System.out.println(collisionGrid[tilePosY][tilePosX][i]);
+//            //  Haut
+//            // collisionGrid[tilePosY][tilePosX][i] == 1 veut dire qu'on peut passer sinon ça serait 0
+//            if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1){
+////                    System.out.println("La case situé en : "+(tilePosY-1)+" - "+tilePosX+" est accessible");
+//                tmp = new int[]{tilePosY-1,tilePosX};
+//                // On "push" à la fin du array le tableau
+//                guideMvt.add(tmp);
+//                guidePath(tmp);
+//            }
+//            // Droite
+//            if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1){
+//                tmp = new int[]{tilePosY,tilePosX+1};
+//                guideMvt.add(tmp);
+//                guidePath(tmp);
+//            }
+//            // Bas
+//            if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1){
+//                tmp = new int[]{tilePosY+1,tilePosX};
+//                guideMvt.add(tmp);
+//                guidePath(tmp);
+//            }
+//            // Gauche
+//            if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1){
+//                tmp = new int[]{tilePosY,tilePosX-1};
+//                guideMvt.add(tmp);
+//                guidePath(tmp);
+//            }
+//        }
 
+        int[] uPos = {tilePosY,tilePosX};
+        guidePath(uPos);
 
         // Renvoie la taille du array
-        System.out.println(guideMvt.size());
+//        System.out.println(guideMvt.size());
         for (int i=0;i<guideMvt.size();i++) {
             System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" "+guideMvt.get(i)[1]);
         }
-        // On envoie les coordonnées des tiles que doit peindre notre guide
+
+    // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(guideMvt);
     }
 
@@ -142,8 +145,9 @@ public class GameMaster {
     public void guidePath(int[] nextTile){
         int tilePosY = nextTile[0];
         int tilePosX = nextTile[1];
+        
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
-        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++) {
+        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++){
             // Haut
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                 tmp = new int[]{tilePosY - 1, tilePosX};

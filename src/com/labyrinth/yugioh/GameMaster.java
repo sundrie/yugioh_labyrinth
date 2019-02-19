@@ -160,13 +160,30 @@ public class GameMaster {
 
     ArrayList<int[]> nextPath = new ArrayList<int[]>();
 
+    // Cette fonction devra supprimer les doublons d'un ArrayList contenant les coordonnées des tiles
+    public ArrayList<int[]> removeDuplicateArrayList(ArrayList<int[]> array){
+
+        ArrayList<int[]> cleanArray = null;
+
+        for (int i=0;i<array.size();i++) {
+            System.out.println("Valeurs du array a clean : "+array.get(i)[0]+" / "+array.get(i)[1]);
+
+        }
+
+
+
+
+        return cleanArray;
+    }
+
 
     // Cette méthode va faire la même chose que précédemment a savoir teester les collisions et push dans l'array guideMvt si l'unité peut passer
     public void guidePath(int[] nextTile){
         int tilePosY = nextTile[0];
         int tilePosX = nextTile[1];
         // clear() vide nextPath de tout ce qu'il contient
-        nextPath.clear();
+//        nextPath.clear();
+
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++){
             // Haut
@@ -194,6 +211,8 @@ public class GameMaster {
                  nextPath.add(tmp);
              }
         }
+
+        removeDuplicateArrayList(nextPath);
     }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe

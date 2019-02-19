@@ -4,6 +4,9 @@ package com.labyrinth.yugioh;
 import java.awt.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class GameMaster {
     // Cette classe va s'occuper de gérer tous les mécanismes, calculs permettant au jeu de fonctionner
@@ -132,48 +135,42 @@ public class GameMaster {
         int c=0;
 
         do {
-            if(c == 0) {
+//            if(c == 0) {
                 guidePath(uPos);
-            }else{
-                for (int i=0;i<nextPath.size();i++) {
-                    if (nextPath.get(i)[0]<=unitMaxMvt && nextPath.get(i)[1]<=unitMaxMvt) {
-                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
-                        int[] todo = {nextPath.get(i)[0], nextPath.get(i)[1]};
-                        guidePath(todo);
-                    }
-                }
-            }
+//            }else{
+//                for (int i=0;i<guideMvt.size();i++) {
+//                    if (guideMvt.get(i)[0]<=unitMaxMvt && guideMvt.get(i)[1]<=unitMaxMvt) {
+////                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
+//                        int[] todo = {guideMvt.get(i)[0], guideMvt.get(i)[1]};
+//                        guidePath(todo);
+//                    }
+//                }
+//            }
             c++;
         }while (c < unitMaxMvt);
 
-
         // Renvoie la taille du array
 //        System.out.println(guideMvt.size());
-//        for (int i=0;i<guideMvt.size();i++) {
-//            System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" / "+guideMvt.get(i)[1]);
-//        }
+        for (int i=0;i<guideMvt.size();i++) {
+            System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" / "+guideMvt.get(i)[1]);
+        }
 
     // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(guideMvt);
     }
 
 
-    ArrayList<int[]> nextPath = new ArrayList<int[]>();
+    public void addWithoutDuplicates(int[] newTile){
 
-    // Cette fonction devra supprimer les doublons d'un ArrayList contenant les coordonnées des tiles
-    public ArrayList<int[]> removeDuplicateArrayList(ArrayList<int[]> array){
-
-        ArrayList<int[]> cleanArray = null;
-
-        for (int i=0;i<array.size();i++) {
-            System.out.println("Valeurs du array a clean : "+array.get(i)[0]+" / "+array.get(i)[1]);
-
+        for (int i=0;i<guideMvt.size();i++) {
+//            if ((newTile[0] != guideMvt.get(i)[0]) && (newTile[1] != guideMvt.get(i)[1])) {
+            if (!Arrays.equals(newTile, guideMvt.get(i))){
+                System.out.println("Valeurs pas dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
+                guideMvt.add(newTile);
+            } else if (Arrays.equals(newTile, guideMvt.get(i))){
+                System.out.println("Valeurs dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
+            }
         }
-
-
-
-
-        return cleanArray;
     }
 
 
@@ -181,38 +178,37 @@ public class GameMaster {
     public void guidePath(int[] nextTile){
         int tilePosY = nextTile[0];
         int tilePosX = nextTile[1];
-        // clear() vide nextPath de tout ce qu'il contient
-//        nextPath.clear();
+
+//        guideMvt.clear();
 
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++){
             // Haut
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                 tmp = new int[]{tilePosY - 1, tilePosX};
-                guideMvt.add(tmp);
-                nextPath.add(tmp);
+                addWithoutDuplicates(tmp);
+//                guideMvt.add(tmp);
             }
             // Droite
              if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX + 1};
-                 guideMvt.add(tmp);
-                 nextPath.add(tmp);
+                 addWithoutDuplicates(tmp);
+//                 guideMvt.add(tmp);
              }
              // Bas
              if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY + 1, tilePosX};
-                 guideMvt.add(tmp);
-                 nextPath.add(tmp);
+                 addWithoutDuplicates(tmp);
+//                 guideMvt.add(tmp);
              }
              // Gauche
              if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX - 1};
-                 guideMvt.add(tmp);
-                 nextPath.add(tmp);
+                 addWithoutDuplicates(tmp);
+//                 guideMvt.add(tmp);
              }
         }
 
-        removeDuplicateArrayList(nextPath);
     }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe

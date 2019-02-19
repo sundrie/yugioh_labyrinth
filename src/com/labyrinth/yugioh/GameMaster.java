@@ -135,17 +135,17 @@ public class GameMaster {
         int c=0;
 
         do {
-//            if(c == 0) {
+            if(c == 0) {
                 guidePath(uPos);
-//            }else{
-//                for (int i=0;i<guideMvt.size();i++) {
-//                    if (guideMvt.get(i)[0]<=unitMaxMvt && guideMvt.get(i)[1]<=unitMaxMvt) {
-////                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
-//                        int[] todo = {guideMvt.get(i)[0], guideMvt.get(i)[1]};
-//                        guidePath(todo);
-//                    }
-//                }
-//            }
+            }else{
+                for (int i=0;i<guideMvt.size();i++) {
+                    if (guideMvt.get(i)[0]<=unitMaxMvt && guideMvt.get(i)[1]<=unitMaxMvt) {
+//                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
+                        int[] todo = {guideMvt.get(i)[0], guideMvt.get(i)[1]};
+                        guidePath(todo);
+                    }
+                }
+            }
             c++;
         }while (c < unitMaxMvt);
 
@@ -160,15 +160,21 @@ public class GameMaster {
     }
 
 
+    ArrayList<int[]> noDuplicates = new ArrayList<int[]>();
+
+
     public void addWithoutDuplicates(int[] newTile){
 
         for (int i=0;i<guideMvt.size();i++) {
+
+            for (int j=0;j<noDuplicates.size();j++) {
 //            if ((newTile[0] != guideMvt.get(i)[0]) && (newTile[1] != guideMvt.get(i)[1])) {
-            if (!Arrays.equals(newTile, guideMvt.get(i))){
-                System.out.println("Valeurs pas dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
-                guideMvt.add(newTile);
-            } else if (Arrays.equals(newTile, guideMvt.get(i))){
-                System.out.println("Valeurs dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
+                if (!Arrays.equals(guideMvt.get(i), noDuplicates.get(j))) {
+                    System.out.println("Valeurs pas dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
+                    guideMvt.add(newTile);
+//            } else if (Arrays.equals(newTile, guideMvt.get(i))){
+//                System.out.println("Valeurs dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
+                }
             }
         }
     }
@@ -187,26 +193,38 @@ public class GameMaster {
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                 tmp = new int[]{tilePosY - 1, tilePosX};
                 addWithoutDuplicates(tmp);
-//                guideMvt.add(tmp);
+                // Pour éviter que ça bloque à la première itération à cause de guideMvt vide
+                if (guideMvt.size()==0) {
+                    guideMvt.add(tmp);
+                    noDuplicates.add(tmp);
+                }
             }
             // Droite
              if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX + 1};
                  addWithoutDuplicates(tmp);
-//                 guideMvt.add(tmp);
+                 if (guideMvt.size()==0) {
+                    guideMvt.add(tmp);
+                     noDuplicates.add(tmp);
+                }
              }
              // Bas
              if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY + 1, tilePosX};
                  addWithoutDuplicates(tmp);
-//                 guideMvt.add(tmp);
+                 if (guideMvt.size()==0) {
+                     guideMvt.add(tmp);
+                     noDuplicates.add(tmp);
+                 }
              }
              // Gauche
              if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX - 1};
                  addWithoutDuplicates(tmp);
-//                 guideMvt.add(tmp);
-             }
+                 }if (guideMvt.size()==0) {
+                    guideMvt.add(tmp);
+                    noDuplicates.add(tmp);
+                 }
         }
 
     }

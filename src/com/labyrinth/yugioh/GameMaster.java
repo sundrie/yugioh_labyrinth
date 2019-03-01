@@ -147,7 +147,7 @@ public class GameMaster {
                 }
             }
             c++;
-        }while (c < unitMaxMvt);
+        }while (c < 1);
 
         // Renvoie la taille du array
 //        System.out.println(guideMvt.size());
@@ -157,26 +157,6 @@ public class GameMaster {
 
     // On envoie les coordonnées des tiles que doit peindre notre guide
         theGuide.setGrid(guideMvt);
-    }
-
-
-    ArrayList<int[]> noDuplicates = new ArrayList<int[]>();
-
-
-    public void addWithoutDuplicates(int[] newTile){
-
-        for (int i=0;i<guideMvt.size();i++) {
-
-            for (int j=0;j<noDuplicates.size();j++) {
-//            if ((newTile[0] != guideMvt.get(i)[0]) && (newTile[1] != guideMvt.get(i)[1])) {
-                if (!Arrays.equals(guideMvt.get(i), noDuplicates.get(j))) {
-                    System.out.println("Valeurs pas dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
-                    guideMvt.add(newTile);
-//            } else if (Arrays.equals(newTile, guideMvt.get(i))){
-//                System.out.println("Valeurs dans guideMvt : " + guideMvt.get(i)[0] + " / " + guideMvt.get(i)[1]);
-                }
-            }
-        }
     }
 
 
@@ -192,39 +172,23 @@ public class GameMaster {
             // Haut
             if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                 tmp = new int[]{tilePosY - 1, tilePosX};
-                addWithoutDuplicates(tmp);
-                // Pour éviter que ça bloque à la première itération à cause de guideMvt vide
-                if (guideMvt.size()==0) {
-                    guideMvt.add(tmp);
-                    noDuplicates.add(tmp);
-                }
+                guideMvt.add(tmp);
             }
             // Droite
              if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX + 1};
-                 addWithoutDuplicates(tmp);
-                 if (guideMvt.size()==0) {
-                    guideMvt.add(tmp);
-                     noDuplicates.add(tmp);
-                }
+                 guideMvt.add(tmp);
              }
              // Bas
              if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY + 1, tilePosX};
-                 addWithoutDuplicates(tmp);
-                 if (guideMvt.size()==0) {
-                     guideMvt.add(tmp);
-                     noDuplicates.add(tmp);
-                 }
+                 guideMvt.add(tmp);
              }
              // Gauche
              if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
                  tmp = new int[]{tilePosY, tilePosX - 1};
-                 addWithoutDuplicates(tmp);
-                 }if (guideMvt.size()==0) {
-                    guideMvt.add(tmp);
-                    noDuplicates.add(tmp);
-                 }
+                 guideMvt.add(tmp);
+             }
         }
 
     }

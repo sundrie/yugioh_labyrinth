@@ -1,6 +1,7 @@
 package com.labyrinth.yugioh;
 
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class GameMaster {
@@ -120,13 +121,12 @@ public class GameMaster {
 
         gridSGuideSet.add(unitPosString);
 
-        System.out.println(gridSGuideSet.size());
-
         int c=0;
 
         do {
             if(c == 0) {
                 guidePath(uPos);
+                guideConstruct(gridSGuideSet,unitPosString);
             }else{
                 for (int i=0;i<guideMvt.size();i++) {
                     if (guideMvt.get(i)[0]<=unitMaxMvt && guideMvt.get(i)[1]<=unitMaxMvt) {
@@ -150,7 +150,19 @@ public class GameMaster {
     }
 
 
-    // Cette méthode va faire la même chose que précédemment a savoir teester les collisions et push dans l'array guideMvt si l'unité peut passer
+    public void guideConstruct(Set<String> guide, String gridSPos){
+        System.out.println(guide.size());
+        System.out.println(gridSPos);
+        // Ça c'est pour sauvegarder la position dans gridS
+        int xIndex = Integer.parseInt(gridSPos.substring(1));
+        System.out.println(xIndex);
+        // C'est bien devenu un int
+        System.out.println(xIndex+20);
+
+    }
+
+
+    // Cette méthode va faire la même chose que précédemment a savoir tester les collisions et push dans l'array guideMvt si l'unité peut passer
     public void guidePath(int[] nextTile){
         int tilePosY = nextTile[0];
         int tilePosX = nextTile[1];

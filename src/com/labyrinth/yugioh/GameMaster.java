@@ -161,6 +161,15 @@ public class GameMaster {
         // Ça c'est pour sauvegarder la position dans gridS
         int xIndex = Integer.parseInt(gridSPos.substring(1));
         System.out.println(xIndex);
+
+        // Le -1 est là parce que j'ai commencé à A1 et pas A0 ce qui est gênant pour parcourir un tableau
+        int xIndexForSearching = xIndex-1;
+        for (int i = 0; i < 14;i++){
+            System.out.println("gridS : "+gridS[xIndexForSearching][i]);
+            if (gridS[xIndexForSearching][i] == gridSPos){
+                System.out.println(gridSPos + " trouvé en y : "+ i +" et x : "+ xIndexForSearching);
+            }
+        }
     }
 
 

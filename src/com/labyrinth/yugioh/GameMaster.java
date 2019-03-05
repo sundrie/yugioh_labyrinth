@@ -153,12 +153,14 @@ public class GameMaster {
     public void guideConstruct(Set<String> guide, String gridSPos){
         System.out.println(guide.size());
         System.out.println(gridSPos);
+
+        // On sépare la position donnée en 2 pour récupérer le y et x afin d'utiliser gridS
+        String yLetter = gridSPos.substring(0,1);
+        System.out.println(yLetter);
+
         // Ça c'est pour sauvegarder la position dans gridS
         int xIndex = Integer.parseInt(gridSPos.substring(1));
         System.out.println(xIndex);
-        // C'est bien devenu un int
-        System.out.println(xIndex+20);
-
     }
 
 

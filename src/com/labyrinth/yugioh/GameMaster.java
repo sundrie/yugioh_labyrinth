@@ -110,6 +110,18 @@ public class GameMaster {
 
 
         int[] uPos = {tilePosY,tilePosX};
+
+        // Grâce aux 2 valeurs de tilePosY et tilePosX ont récupère la position de l'unité dans notre gridS
+        String unitPosString = gridS[tilePosY][tilePosX];
+//        System.out.println(unitPosString);
+
+        // Ce set va stocker nos positions sans doublons grâce aux propriétés des Set
+        Set<String> gridSGuideSet =  new LinkedHashSet<String>();
+
+        gridSGuideSet.add(unitPosString);
+
+        System.out.println(gridSGuideSet.size());
+
         int c=0;
 
         do {

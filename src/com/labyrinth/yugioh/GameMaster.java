@@ -139,6 +139,8 @@ public class GameMaster {
             c++;
         }while (c < 1);
 
+        System.out.println("La taille du set "+gridSGuideSet.size());
+
         // Renvoie la taille du array
 //        System.out.println(guideMvt.size());
         for (int i=0;i<guideMvt.size();i++) {
@@ -153,10 +155,6 @@ public class GameMaster {
     public void guideConstruct(Set<String> guide, String gridSPos){
 //        System.out.println(guide.size());
 //        System.out.println(gridSPos);
-
-        // On sépare la position donnée en 2 pour récupérer le y et x afin d'utiliser gridS
-        String yLetter = gridSPos.substring(0,1);
-//        System.out.println(yLetter);
 
         // Ça c'est pour sauvegarder la position dans gridS
         int yIndex = Integer.parseInt(gridSPos.substring(1));
@@ -181,19 +179,19 @@ public class GameMaster {
             System.out.println(collisionGrid[yIndex][xIndex][i]);
             // Haut
             if (i == 1 && collisionGrid[yIndex][xIndex][i] == 1) {
-//                tmp = new int[]{yIndex - 1, xIndex};
+                guide.add(gridS[yIndex-1][xIndex]);
             }
             // Droite
             if (i == 2 && collisionGrid[yIndex][xIndex][i] == 1) {
-//                tmp = new int[]{yIndex, xIndex + 1};
+                guide.add(gridS[yIndex][xIndex + 1]);
             }
             // Bas
             if (i == 3 && collisionGrid[yIndex][xIndex][i] == 1) {
-//                tmp = new int[]{yIndex + 1, xIndex};
+                guide.add(gridS[yIndex+1][xIndex]);
             }
             // Gauche
             if (i == 4 && collisionGrid[yIndex][xIndex][i] == 1) {
-//                tmp = new int[]{yIndex, xIndex - 1};
+                guide.add(gridS[yIndex][xIndex-1]);
             }
         }
     }

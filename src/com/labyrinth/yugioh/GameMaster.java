@@ -32,6 +32,7 @@ public class GameMaster {
     };
 
     String gridS[][] = {
+            {"A0","B0","C0","D0","E0","F0","G0","H0","I0","J0","K0","L0","M0","N0"},
             {"A1","B1","C1","D1","E1","F1","G1","H1","I1","J1","K1","L1","M1","N1"},
             {"A2","B2","C2","D2","E2","F2","G2","H2","I2","J2","K2","L2","M2","N2"},
             {"A3","B3","C3","D3","E3","F3","G3","H3","I3","J3","K3","L3","M3","N3"},
@@ -41,8 +42,7 @@ public class GameMaster {
             {"A7","B7","C7","D7","E7","F7","G7","H7","I7","J7","K7","L7","M7","N7"},
             {"A8","B8","C8","D8","E8","F8","G8","H8","I8","J8","K8","L8","M8","N8"},
             {"A9","B9","C9","D9","E9","F9","G9","H9","I9","J9","K9","L9","M9","N9"},
-            {"A10","B10","C10","D10","E10","F10","G10","H10","I10","J10","K10","L10","M10","N10"},
-            {"A11","B11","C11","D11","E11","F11","G11","H11","I11","J11","K11","L11","M11","N11"}
+            {"A10","B10","C10","D10","E10","F10","G10","H10","I10","J10","K10","L10","M10","N10"}
     };
 
 
@@ -162,14 +162,15 @@ public class GameMaster {
         int xIndex = Integer.parseInt(gridSPos.substring(1));
         System.out.println(xIndex);
 
-        // Le -1 est là parce que j'ai commencé à A1 et pas A0 ce qui est gênant pour parcourir un tableau
-        int xIndexForSearching = xIndex-1;
         for (int i = 0; i < 14;i++){
-            System.out.println("gridS : "+gridS[xIndexForSearching][i]);
-            if (gridS[xIndexForSearching][i] == gridSPos){
-                System.out.println(gridSPos + " trouvé en y : "+ i +" et x : "+ xIndexForSearching);
+            System.out.println("gridS : "+gridS[xIndex][i]);
+            if (gridS[xIndex][i] == gridSPos){
+                System.out.println(gridSPos + " trouvé en y : "+ i +" et x : "+ xIndex);
             }
         }
+
+
+
     }
 
 

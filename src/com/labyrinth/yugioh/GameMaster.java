@@ -141,7 +141,7 @@ public class GameMaster {
         guideMvt = fromStringToInt(gridSGuideSet);
 
     // On envoie les coordonnées des tiles que doit peindre notre guide
-//        theGuide.setGrid(guideMvt);
+        theGuide.setGrid(guideMvt);
     }
 
     // Ceci va nous redonner tout le contenu du Set
@@ -170,8 +170,23 @@ public class GameMaster {
         Iterator iterator = set.iterator();
         while(iterator.hasNext()){
             String element = (String) iterator.next();
-            System.out.println("Contenu du set fromStringToInt : "+element);
+
+            int yIndex = Integer.parseInt(element.substring(1));
+            int xIndex=0;
+
+            // On recherche le code de la tile dans gridS pour obtenir l'index en y
+            for (int i = 0; i < 14;i++){
+//            System.out.println("gridS : "+gridS[xIndex][i]);
+                if (gridS[yIndex][i] == element){
+//                System.out.println(gridSPos + " trouvé en y : "+ i +" et x : "+ xIndex);
+                    xIndex = i;
+                }
+            }
+            int[]tmp = {yIndex, xIndex};
+            list.add(tmp);
         }
+
+        System.out.println(list.size());
 
         return list;
     }

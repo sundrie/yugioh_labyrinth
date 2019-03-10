@@ -109,9 +109,6 @@ public class GameMaster {
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
         theGuide.paintTiles(guideTiles);
 
-
-        int[] uPos = {tilePosY,tilePosX};
-
         // Grâce aux 2 valeurs de tilePosY et tilePosX ont récupère la position de l'unité dans notre gridS
         String unitPosString = gridS[tilePosY][tilePosX];
 //        System.out.println(unitPosString);
@@ -128,26 +125,27 @@ public class GameMaster {
             if(c == 0) {
                 guideConstruct(gridSGuideSet,unitPosString);
             }else{
-                extractDataFromSet(gridSGuideSet);
-//                guideConstruct(gridSGuideSet,"");
-
+                // On récupère le contenu du set pour pouvoir l'utiliser pour chercher les cases suivantes
+                ArrayList<String> todo = extractDataFromSet(gridSGuideSet);
+                for (int i=0;i<todo.size();i++) {
+                    guideConstruct(gridSGuideSet,todo.get(i));
+                }
             }
             c++;
         }while (c < unitMaxMvt);
 
         System.out.println("La taille du set "+gridSGuideSet.size());
 
-        // L'iterator nous permets de voir le contenu du set
-//        Iterator iterator = gridSGuideSet.iterator();
-//        while(iterator.hasNext()){
-//            String element = (String) iterator.next();
-//            System.out.println("Contenu du set : "+element);
-//        }
-
         // Renvoie la taille du array
-//        System.out.println(guideMvt.size());
         for (int i=0;i<guideMvt.size();i++) {
             System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" / "+guideMvt.get(i)[1]);
+        }
+
+        // L'iterator nous permets de voir et parcourir le contenu du set
+        Iterator iterator = gridSGuideSet.iterator();
+        while(iterator.hasNext()){
+            String element = (String) iterator.next();
+            System.out.println("Contenu du set : "+element);
         }
 
     // On envoie les coordonnées des tiles que doit peindre notre guide
@@ -164,10 +162,10 @@ public class GameMaster {
 
         while(iterator.hasNext()){
             String element = (String) iterator.next();
-            System.out.println("Contenu du set : "+element);
+//            System.out.println("Contenu du set : "+element);
             data.add(element);
         }
-        System.out.println("Nb data : "+data.size());
+//        System.out.println("Nb data : "+data.size());
 
         return data;
     }

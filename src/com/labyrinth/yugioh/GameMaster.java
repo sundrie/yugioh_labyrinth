@@ -46,13 +46,6 @@ public class GameMaster {
     };
 
 
-    // ArrayList permets de push dans un Array car les array de base en java ont une taille fixe
-    // On précise que ArrayList contiendra des arrays d'entiers
-    ArrayList<int[]> guideMvt = new ArrayList<int[]>();
-    // tmp comme son nom l'indique servira pour add() car mettre add({tilePosY - 1, tilePosX}) ne fonctionne pas
-    int[] tmp ={};
-
-
     public GameMaster(GamePanel gp, InfoPanel ip){
         gPan = gp;
         iPan = ip;
@@ -136,11 +129,6 @@ public class GameMaster {
 
         System.out.println("La taille du set "+gridSGuideSet.size());
 
-        // Renvoie la taille du array
-        for (int i=0;i<guideMvt.size();i++) {
-            System.out.println("Valeurs push : "+guideMvt.get(i)[0]+" / "+guideMvt.get(i)[1]);
-        }
-
         // L'iterator nous permets de voir et parcourir le contenu du set
         Iterator iterator = gridSGuideSet.iterator();
         while(iterator.hasNext()){
@@ -148,8 +136,12 @@ public class GameMaster {
             System.out.println("Contenu du set : "+element);
         }
 
+        ArrayList<int[]> guideMvt = new ArrayList<int[]>();
+
+        guideMvt = fromStringToInt(gridSGuideSet);
+
     // On envoie les coordonnées des tiles que doit peindre notre guide
-        theGuide.setGrid(guideMvt);
+//        theGuide.setGrid(guideMvt);
     }
 
     // Ceci va nous redonner tout le contenu du Set
@@ -168,6 +160,20 @@ public class GameMaster {
 //        System.out.println("Nb data : "+data.size());
 
         return data;
+    }
+
+
+    // Ceci va permettre de transformer le set en ArrayList de int[] utilisable par mon programme
+    public ArrayList<int[]> fromStringToInt(Set<String> set){
+        ArrayList<int[]> list = new ArrayList<int[]>();
+
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()){
+            String element = (String) iterator.next();
+            System.out.println("Contenu du set fromStringToInt : "+element);
+        }
+
+        return list;
     }
 
 
@@ -215,39 +221,6 @@ public class GameMaster {
         }
     }
 
-
-    // Cette méthode va faire la même chose que précédemment a savoir tester les collisions et push dans l'array guideMvt si l'unité peut passer
-    public void guidePath(int[] nextTile){
-        int tilePosY = nextTile[0];
-        int tilePosX = nextTile[1];
-
-//        guideMvt.clear();
-
-        // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
-        for (int i=1;i<collisionGrid[tilePosY][tilePosX].length;i++){
-            // Haut
-            if (i == 1 && collisionGrid[tilePosY][tilePosX][i] == 1) {
-                tmp = new int[]{tilePosY - 1, tilePosX};
-                guideMvt.add(tmp);
-            }
-            // Droite
-             if (i == 2 && collisionGrid[tilePosY][tilePosX][i] == 1) {
-                 tmp = new int[]{tilePosY, tilePosX + 1};
-                 guideMvt.add(tmp);
-             }
-             // Bas
-             if (i == 3 && collisionGrid[tilePosY][tilePosX][i] == 1) {
-                 tmp = new int[]{tilePosY + 1, tilePosX};
-                 guideMvt.add(tmp);
-             }
-             // Gauche
-             if (i == 4 && collisionGrid[tilePosY][tilePosX][i] == 1) {
-                 tmp = new int[]{tilePosY, tilePosX - 1};
-                 guideMvt.add(tmp);
-             }
-        }
-
-    }
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe
     public void isOOB(int[][] array){

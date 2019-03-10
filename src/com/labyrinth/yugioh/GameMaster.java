@@ -119,27 +119,30 @@ public class GameMaster {
         // Ce set va stocker nos positions sans doublons grâce aux propriétés des Set
         Set<String> gridSGuideSet =  new LinkedHashSet<String>();
 
+
         gridSGuideSet.add(unitPosString);
 
         int c=0;
 
         do {
             if(c == 0) {
-                guidePath(uPos);
                 guideConstruct(gridSGuideSet,unitPosString);
             }else{
-                for (int i=0;i<guideMvt.size();i++) {
-                    if (guideMvt.get(i)[0]<=unitMaxMvt && guideMvt.get(i)[1]<=unitMaxMvt) {
-//                        System.out.println("Valeurs a faire : " + nextPath.get(i)[0] + " / " + nextPath.get(i)[1]);
-                        int[] todo = {guideMvt.get(i)[0], guideMvt.get(i)[1]};
-                        guidePath(todo);
-                    }
-                }
+                extractDataFromSet(gridSGuideSet);
+//                guideConstruct(gridSGuideSet,"");
+
             }
             c++;
-        }while (c < 1);
+        }while (c < unitMaxMvt);
 
         System.out.println("La taille du set "+gridSGuideSet.size());
+
+        // L'iterator nous permets de voir le contenu du set
+//        Iterator iterator = gridSGuideSet.iterator();
+//        while(iterator.hasNext()){
+//            String element = (String) iterator.next();
+//            System.out.println("Contenu du set : "+element);
+//        }
 
         // Renvoie la taille du array
 //        System.out.println(guideMvt.size());
@@ -151,6 +154,26 @@ public class GameMaster {
         theGuide.setGrid(guideMvt);
     }
 
+    // Ceci va nous redonner tout le contenu du Set
+    public ArrayList<String> extractDataFromSet(Set<String> set){
+        // L'iterator nous permets de voir et parcourir le contenu du set
+        Iterator iterator = set.iterator();
+
+        ArrayList<String> data = new ArrayList<String>();
+
+
+        while(iterator.hasNext()){
+            String element = (String) iterator.next();
+            System.out.println("Contenu du set : "+element);
+            data.add(element);
+        }
+        System.out.println("Nb data : "+data.size());
+
+        return data;
+    }
+
+
+
 
     public void guideConstruct(Set<String> guide, String gridSPos){
 //        System.out.println(guide.size());
@@ -158,7 +181,6 @@ public class GameMaster {
 
         // Ça c'est pour sauvegarder la position dans gridS
         int yIndex = Integer.parseInt(gridSPos.substring(1));
-
         int xIndex=0;
 
         // On recherche le code de la tile dans gridS pour obtenir l'index en y
@@ -176,7 +198,6 @@ public class GameMaster {
 
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non
         for (int i=1;i<collisionGrid[yIndex][xIndex].length;i++){
-            System.out.println(collisionGrid[yIndex][xIndex][i]);
             // Haut
             if (i == 1 && collisionGrid[yIndex][xIndex][i] == 1) {
                 guide.add(gridS[yIndex-1][xIndex]);

@@ -167,7 +167,7 @@ public class GamePanel extends JPanel implements MouseListener {
     // Permets de dessiner le guide de mouvement et d'attaque
     public void drawGuide(Unit unitToGuide){
 //        GuideUnitPanel theGuide = gameMaster.drawAttackRange(unitToGuide);
-        gameMaster.newGuidDraw(theGuide, unitToGuide);
+        gameMaster.guidDraw(theGuide, unitToGuide);
         add(theGuide);
     }
 
@@ -222,7 +222,7 @@ public class GamePanel extends JPanel implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         // Si une unité à été "sélectionnée" (clic gauche dessus) alors on bouge cette unité
-        if (choosedUnit != null) {
+        if (choosedUnit != null){
 //        System.out.println(e.getSource().getClass());
             // Si le bouton cliqué est celui de droite
             if (e.getButton() == 3) {
@@ -244,6 +244,8 @@ public class GamePanel extends JPanel implements MouseListener {
                             JOptionPane msgOutOfRange;
                             msgOutOfRange = new JOptionPane();
                             msgOutOfRange.showMessageDialog(null, "Cette case est hors de portée de mouvement de votre unité", "Attention", JOptionPane.WARNING_MESSAGE);
+                            // break permets de sortir de la boucle pour éviter le pop de plusieurs messages à la suite
+                            break;
                         }
                     }
 

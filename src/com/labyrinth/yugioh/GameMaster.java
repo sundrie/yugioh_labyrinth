@@ -62,7 +62,7 @@ public class GameMaster {
 //        System.out.println(grid[0][0]);
     }
 
-    public void newGuidDraw(GuideUnitPanel guideP,Unit unit){
+    public void guidDraw(GuideUnitPanel guideP,Unit unit){
 
         theUnit = unit;
 
@@ -162,7 +162,6 @@ public class GameMaster {
         return data;
     }
 
-
     // Ceci va permettre de transformer le set en ArrayList de int[] utilisable par mon programme
     public ArrayList<int[]> fromStringToInt(Set<String> set){
         ArrayList<int[]> list = new ArrayList<int[]>();
@@ -187,9 +186,6 @@ public class GameMaster {
         }
         return list;
     }
-
-
-
 
     public void guideConstruct(Set<String> guide, String gridSPos){
 //        System.out.println(guide.size());
@@ -232,7 +228,6 @@ public class GameMaster {
             }
         }
     }
-
 
     // Détermine si quelque chose est OOB = Out of Bonds en dehors des limites du labyrinthe
     public void isOOB(int[][] array){

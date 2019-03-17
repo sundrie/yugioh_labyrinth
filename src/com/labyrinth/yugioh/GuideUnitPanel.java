@@ -24,10 +24,6 @@ public class GuideUnitPanel extends JPanel {
 
     public void setGrid(ArrayList<int[]> grid){
         guideGrid = grid;
-//        System.out.println(guideGrid.size());
-//        for (int i=0;i<guideGrid.size();i++) {
-//            System.out.println("Valeurs récupérées : "+guideGrid.get(i)[0]+" "+guideGrid.get(i)[1]);
-//        }
     }
 
     @Override
@@ -36,7 +32,9 @@ public class GuideUnitPanel extends JPanel {
     }
 
     // On ajoute un JPanel qui peindra sur demande les tiles de guide
-    public void paintTiles(GuideTiles guideTiles){
+    public void paintTiles(){
+        // On créé une nouvelle classe cette fois interne à GuideUnitPanel
+        GuideUnitPanel.GuideTiles guideTiles = this.new GuideTiles();
         add(guideTiles);
         // On donne les mêmes dimensions aux 2 JPanels
         guideTiles.setPreferredSize(new Dimension(w,h));

@@ -100,7 +100,7 @@ public class GameMaster {
         // On créé une nouvelle classe cette fois interne à GuideUnitPanel
         GuideUnitPanel.GuideTiles guideTiles = theGuide.new GuideTiles() ;
 //        System.out.println(gridGuide[2][0]+" "+gridGuide[2][1]);
-        theGuide.paintTiles(guideTiles);
+        theGuide.paintTiles();
 
         // Grâce aux 2 valeurs de tilePosY et tilePosX ont récupère la position de l'unité dans notre gridS
         String unitPosString = gridS[tilePosY][tilePosX];
@@ -127,13 +127,13 @@ public class GameMaster {
             c++;
         }while (c < unitMaxMvt);
 
-        System.out.println("La taille du set "+gridSGuideSet.size());
+//        System.out.println("La taille du set "+gridSGuideSet.size());
 
         // L'iterator nous permets de voir et parcourir le contenu du set
         Iterator iterator = gridSGuideSet.iterator();
         while(iterator.hasNext()){
             String element = (String) iterator.next();
-            System.out.println("Contenu du set : "+element);
+//            System.out.println("Contenu du set : "+element);
         }
 
         ArrayList<int[]> guideMvt = new ArrayList<int[]>();
@@ -185,9 +185,6 @@ public class GameMaster {
             int[]tmp = {yIndex, xIndex};
             list.add(tmp);
         }
-
-        System.out.println(list.size());
-
         return list;
     }
 
@@ -211,8 +208,8 @@ public class GameMaster {
             }
         }
 
-        System.out.println("y : "+yIndex);
-        System.out.println("x : "+xIndex);
+//        System.out.println("y : "+yIndex);
+//        System.out.println("x : "+xIndex);
 
 
         // On parcourt les collisions pour savoir si i dans une direction c'est bloqué ou non

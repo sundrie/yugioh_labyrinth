@@ -232,6 +232,14 @@ public class GamePanel extends JPanel implements MouseListener {
                     // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
                     int tilePos[] = getTileInfo(e.getX(),e.getY());
 
+                    for (int i=0;i<theGuide.guideGrid.size();i++){
+                        System.out.println(tilePos[0]);
+                        if (theGuide.guideGrid.get(i)[0]==tilePos[0]) {
+                            System.out.println("Clic dans une zone du guide");
+                            System.out.println(theGuide.guideGrid.get(i)[0] + "/" + theGuide.guideGrid.get(i)[1]);
+                        }
+                    }
+
                     // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                     moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
                 }else{

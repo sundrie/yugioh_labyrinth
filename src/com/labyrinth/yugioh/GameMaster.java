@@ -241,8 +241,15 @@ public class GameMaster {
     // Sert à fixer l'unité qui est active
     Unit activeUnit;
     public void activeUnit(Unit unit){
-        activeUnit = unit;
-        System.out.println(activeUnit.name);
+        // A la première itération on affecte à activeUnit la valeur de unit reçue
+        if (activeUnit == null){
+            activeUnit = unit;
+        }
+        // Si le nom est différent de celui de l'unité active
+        if (unit.name != activeUnit.name){
+            System.out.println("C'est une unité différente de celle active");
+        }
+
     }
 
 }

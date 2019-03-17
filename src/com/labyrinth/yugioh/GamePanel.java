@@ -239,6 +239,11 @@ public class GamePanel extends JPanel implements MouseListener {
                             System.out.println("Clic dans une zone du guide");
                             // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                             moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
+                        } else {
+                            // Le code suivant permets de faire une fenêtre popup
+                            JOptionPane msgOutOfRange;
+                            msgOutOfRange = new JOptionPane();
+                            msgOutOfRange.showMessageDialog(null, "Cette case est hors de portée de mouvement de votre unité", "Attention", JOptionPane.WARNING_MESSAGE);
                         }
                     }
 

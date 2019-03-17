@@ -63,9 +63,7 @@ public class GameMaster {
     }
 
     public void guidDraw(GuideUnitPanel guideP,Unit unit){
-
         theUnit = unit;
-
         int tileInfo[] = gPan.getTileInfo(unit.getX(),unit.getY());
 //        System.out.println(tileInfo[0]+" "+tileInfo[1]+" "+tileInfo[2]);
 
@@ -79,10 +77,6 @@ public class GameMaster {
 
         // C'est la distance max que peut parcourir l'unité
         int unitMaxMvt = theUnit.level;
-
-        // Droite
-//        System.out.println("ID de la tile la plus à droite : "+grid[tilePosY][tilePosX+unitMaxMvt]);
-//        System.out.println(tilePosX+unitMaxMvt);
 
         int[][] gridGuide ={
                 {unitTileX,unitTileY},  // Les coordonnées de la tile où se trouve l'unité
@@ -242,6 +236,13 @@ public class GameMaster {
 //                System.out.println("i: "+i+"/ j: "+j+" | "+array[i][j]);
             }
         }
+    }
+
+    // Sert à fixer l'unité qui est active
+    Unit activeUnit;
+    public void activeUnit(Unit unit){
+        activeUnit = unit;
+        System.out.println(activeUnit.name);
     }
 
 }

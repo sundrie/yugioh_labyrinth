@@ -176,8 +176,9 @@ public class GamePanel extends JPanel implements MouseListener {
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit){
         choosedUnit = unit;
-//        System.out.println(name);
         iPan.displayUnitInfo(choosedUnit);
+
+        gameMaster.activeUnit(choosedUnit);
     }
 
     // On transmets les coordonnées de la souris
@@ -207,7 +208,6 @@ public class GamePanel extends JPanel implements MouseListener {
 
     public void moveAndPaintUnit(int newX,int newY){
         choosedUnit.move(newX,newY);
-
         // On envoie à orderP l'unité auquel elle est liée
         orderP.setUnit(choosedUnit);
         add(orderP);
@@ -239,25 +239,14 @@ public class GamePanel extends JPanel implements MouseListener {
                             System.out.println("Clic dans une zone du guide");
                             // On bouge l'unité à la tile ciblé tout en centrant l'unité en ajoutant unitSize/2
                             moveAndPaintUnit(tilePos[0]*tSize+unitSize/2, tilePos[1]*tSize+unitSize/2);
-                        } else {
-                            // Le code suivant permets de faire une fenêtre popup
-                            JOptionPane msgOutOfRange;
-                            msgOutOfRange = new JOptionPane();
-                            msgOutOfRange.showMessageDialog(null, "Cette case est hors de portée de mouvement de votre unité", "Attention", JOptionPane.WARNING_MESSAGE);
-                            // break permets de sortir de la boucle pour éviter le pop de plusieurs messages à la suite
-                            break;
                         }
                     }
-
-
                 }else{
                     // Le code suivant permets de faire une fenêtre popup
                     JOptionPane msgCantMove;
                     msgCantMove = new JOptionPane();
                     msgCantMove.showMessageDialog(null, "Cette unité a déjà bougé durant ce tour", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
-
-
             }
         }
 

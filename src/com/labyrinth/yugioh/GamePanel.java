@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements MouseListener {
     InfoPanel iPan;
     GameMaster gameMaster;
     OrderPanel orderP = new OrderPanel(100,100);
+    GuideUnitPanel theGuide = new GuideUnitPanel(this, gpW, gpH);
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
 
@@ -161,22 +162,19 @@ public class GamePanel extends JPanel implements MouseListener {
         }
     }
 
-    GuideUnitPanel theGuide = new GuideUnitPanel(this, gpW, gpH);
     // Permets de dessiner le guide de mouvement et d'attaque
-    public void drawGuide(Unit unitToGuide){
-//        GuideUnitPanel theGuide = gameMaster.drawAttackRange(unitToGuide);
-        gameMaster.guidDraw(theGuide);
+    public void drawGuide(){
         add(theGuide);
     }
 
-
+    // Transmets le guideUnitPanel pour que GameMaster puisse l'utiliser
+    public GuideUnitPanel getGuide(){
+        return theGuide;
+    }
 
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
     public void collectUnitData(Unit unit){
         choosedUnit = unit;
-        iPan.displayUnitInfo(choosedUnit);
-
-        gameMaster.theActiveUnit(choosedUnit);
     }
 
     // On transmets les coordonnées de la souris

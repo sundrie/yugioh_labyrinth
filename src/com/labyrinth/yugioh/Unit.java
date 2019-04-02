@@ -104,9 +104,6 @@ public class Unit implements MouseListener {
                 gm.unitClicked(this);
                 // On envoie toutes les datas de l'unitée cliquée
                 pCont.collectUnitData(this);
-                pCont.drawGuide(this);
-
-
             }
         }
     }

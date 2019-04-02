@@ -238,22 +238,28 @@ public class GameMaster {
     }
 
     // Sert à fixer l'unité qui est active
-    Unit activeUnit;
-    public void theActiveUnit(Unit unit){
-        // A la première itération on affecte à activeUnit la valeur de unit reçue
-        if (activeUnit == null){
-            activeUnit = unit;
-        }
-        // Si le nom est différent de celui de l'unité active
-        if (unit.name != activeUnit.name){
-            System.out.println("C'est une unité différente de celle active");
-        }
-    }
+//    Unit activeUnit;
+//    public void theActiveUnit(Unit unit){
+//        // A la première itération on affecte à activeUnit la valeur de unit reçue
+//        if (activeUnit == null){
+//            activeUnit = unit;
+//        }
+//        // Si le nom est différent de celui de l'unité active
+//        if (unit.name != activeUnit.name){
+//            System.out.println("C'est une unité différente de celle active");
+//        }
+//    }
 
     // UnitClicked() est fourni par Unit.java directement
     public void unitClicked(Unit unit){
         theUnit = unit;
-        System.out.println(theUnit.name);
+        iPan.displayUnitInfo(theUnit);
+        // On récupère le panel guide depuis gamePanel
+        GuideUnitPanel guide = gPan.getGuide();
+        // On utilise la méthode de GameMaster pour permettre la construction du guide
+        guidDraw(guide);
+        // On demande au GamePanel d'afficher le guide fini
+        gPan.drawGuide();
     }
 
 }

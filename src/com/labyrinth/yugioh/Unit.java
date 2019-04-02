@@ -23,11 +23,12 @@ public class Unit implements MouseListener {
 
     GamePanel pCont;
     OrderPanel ordP;
+    GameMaster gm;
     // Ce booléen indiquera si l'unité a agit ou non
     // Il est initialisé a vrai car à sa création une unité ne peut avoir agit avant
     boolean canAct = true;
 
-    public Unit(GamePanel gamePanel, OrderPanel op, int x, int y, String uName, int lvl, int attaque, int defense){
+    public Unit(GameMaster gMaster, GamePanel gamePanel, OrderPanel op, int x, int y, String uName, int lvl, int attaque, int defense){
         // On enregistre aussi son nom
         name = uName;
         level = lvl;
@@ -41,6 +42,7 @@ public class Unit implements MouseListener {
         pCont = gamePanel;
         ordP = op;
 
+        gm = gMaster;
 //        System.out.println(name+level+atk+def);
     }
 
@@ -102,6 +104,8 @@ public class Unit implements MouseListener {
                 // On envoie toutes les datas de l'unitée cliquée
                 pCont.collectUnitData(this);
                 pCont.drawGuide(this);
+
+                gm.unitClicked(this);
             }
         }
     }

@@ -39,9 +39,6 @@ public class GamePanel extends JPanel implements MouseListener {
     // Ceci correspond à l'unité qui va agir
     Unit choosedUnit;
 
-    Unit blueUnit;
-
-
     // Constructeur dans lequel le addMousListener a été mis pour éviter notamment des problèmes avec repaint
     public GamePanel(){
         this.addMouseListener(this);
@@ -168,7 +165,7 @@ public class GamePanel extends JPanel implements MouseListener {
     // Permets de dessiner le guide de mouvement et d'attaque
     public void drawGuide(Unit unitToGuide){
 //        GuideUnitPanel theGuide = gameMaster.drawAttackRange(unitToGuide);
-        gameMaster.guidDraw(theGuide, unitToGuide);
+        gameMaster.guidDraw(theGuide);
         add(theGuide);
     }
 

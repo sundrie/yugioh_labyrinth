@@ -10,7 +10,7 @@ public class GameMaster {
     GamePanel gPan;
     InfoPanel iPan;
     Unit[] unitList;
-    // theUnit correspond à l'unité
+    // theUnit correspond à l'unité qui est selectionnée par le joueur
     Unit theUnit;
     GuideUnitPanel theGuide;
     int[][] grid;
@@ -62,9 +62,8 @@ public class GameMaster {
 //        System.out.println(grid[0][0]);
     }
 
-    public void guidDraw(GuideUnitPanel guideP,Unit unit){
-        theUnit = unit;
-        int tileInfo[] = gPan.getTileInfo(unit.getX(),unit.getY());
+    public void guidDraw(GuideUnitPanel guideP){
+        int tileInfo[] = gPan.getTileInfo(theUnit.getX(),theUnit.getY());
 //        System.out.println(tileInfo[0]+" "+tileInfo[1]+" "+tileInfo[2]);
 
         // Les résultats sont multipliés par la taille de tile afin d'obtenir les x et y de la tile où se trouve l'unité
@@ -251,8 +250,10 @@ public class GameMaster {
         }
     }
 
+    // UnitClicked() est fourni par Unit.java directement
     public void unitClicked(Unit unit){
-        System.out.println(unit.name);
+        theUnit = unit;
+        System.out.println(theUnit.name);
     }
 
 }

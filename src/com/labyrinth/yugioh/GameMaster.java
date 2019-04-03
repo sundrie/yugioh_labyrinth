@@ -253,6 +253,7 @@ public class GameMaster {
     // UnitClicked() est fourni par Unit.java directement
     public void unitClicked(Unit unit){
         theUnit = unit;
+        gPan.setUnit(theUnit);
         iPan.displayUnitInfo(theUnit);
         // On récupère le panel guide depuis gamePanel
         GuideUnitPanel guide = gPan.getGuide();

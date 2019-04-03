@@ -173,7 +173,7 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     // Récupère ce que la class Unit envoie lorsqu'on a cliqué dessus
-    public void collectUnitData(Unit unit){
+    public void setUnit(Unit unit){
         choosedUnit = unit;
     }
 

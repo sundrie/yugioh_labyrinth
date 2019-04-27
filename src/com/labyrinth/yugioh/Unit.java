@@ -67,18 +67,13 @@ public class Unit implements MouseListener {
     }
 
     // Permets de changer la position de notre unité en écrasant les valeurs par les nouvelles
-    public void move(int newX, int newY){
+    public void move(int newY, int newX){
         // Avant d'écraser les valeurs de posX et posY elles seront conservées dans d'autres variables pour permettre d'annuler son mouvement
         prevposX = posX;
         prevposY = posY;
 
         posX = newX;
         posY = newY;
-
-        System.out.println("avant : "+prevposX+" "+prevposY);
-        System.out.println("après : "+posX+" "+posY);
-//        System.out.println("previous pos : "+prevposX +" "+ prevposY);
-//        System.out.println("nouvelle pos : "+posX+" "+posY);
     }
 
     // Cette méthode est appelée par l'OrderPanel lorsqu'un clic sur le bouton Annulé a été effectué

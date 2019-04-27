@@ -60,7 +60,6 @@ public class GamePanel extends JPanel implements MouseListener {
 
     // Cette méthode va générer le labyrinthe
     public void generateLabyrinth(Graphics g){
-
         // Les futures tiles feront 60 sur 60 en taille
         // Le plateau fait 14 de long sur 11 de haut
         // Cette boucle va s'occuper de la hauteur
@@ -117,7 +116,6 @@ public class GamePanel extends JPanel implements MouseListener {
     // Ajoute les unités sur le labyrinthe
     // Pour l'instant et pour les tests ce sera 7 pions sur chaque spawn
     public void generateUnits(Graphics g){
-
         // Puisque les points de spawn sur ce labyrinth sont fixés il suffit d'une seule boucle pour la colonne 0 et 13
         for (int i=0;i<grid.length;i++){
             // Les tiles 11 correspondent à nos points de spawn
@@ -203,7 +201,7 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     public void moveAndPaintUnit(int newY,int newX){
-        choosedUnit.move(newX,newY);
+        choosedUnit.move(newY,newX);
         // On envoie à orderP l'unité auquel elle est liée
         orderP.setUnit(choosedUnit);
         add(orderP);
@@ -227,11 +225,8 @@ public class GamePanel extends JPanel implements MouseListener {
                     // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
                     // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
                     int tilePos[] = getTileInfo(e.getY(),e.getX());
-
-                    System.out.println(tilePos[0]+" "+tilePos[1]);
                     // On parcourt les cases que notre guide a précédemment dessiné
                     for (int i=0;i<theGuide.guideGrid.size();i++){
-                        System.out.println("guide : "+theGuide.guideGrid.get(i)[0]+" "+theGuide.guideGrid.get(i)[1]);
                         // Et si la case cliqué est comprise dans notre guide alors on peut déplacer l'unité
                         if (theGuide.guideGrid.get(i)[0]==tilePos[0] && theGuide.guideGrid.get(i)[1]==tilePos[1]) {
                             System.out.println("Clic dans une zone du guide");

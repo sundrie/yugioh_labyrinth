@@ -203,6 +203,7 @@ public class GamePanel extends JPanel implements MouseListener {
     }
 
     public void moveAndPaintUnit(int newX,int newY){
+        System.out.println("X : "+newX+" Y : "+newY);
         choosedUnit.move(newX,newY);
         // On envoie à orderP l'unité auquel elle est liée
         orderP.setUnit(choosedUnit);
@@ -226,10 +227,12 @@ public class GamePanel extends JPanel implements MouseListener {
                 if (choosedUnit.canAct == true){
                     // Nous récupérons les infos de la tile dans l'ordre X,Y et ID.
                     // e.getX() renvoie la position où à eu lieu l'événement (ici un clic)
-                    int tilePos[] = getTileInfo(e.getX(),e.getY());
+                    int tilePos[] = getTileInfo(e.getY(),e.getX());
 
+                    System.out.println(tilePos[0]+" "+tilePos[1]);
                     // On parcourt les cases que notre guide a précédemment dessiné
                     for (int i=0;i<theGuide.guideGrid.size();i++){
+                        System.out.println("guide : "+theGuide.guideGrid.get(i)[0]+" "+theGuide.guideGrid.get(i)[1]);
                         // Et si la case cliqué est comprise dans notre guide alors on peut déplacer l'unité
                         if (theGuide.guideGrid.get(i)[0]==tilePos[0] && theGuide.guideGrid.get(i)[1]==tilePos[1]) {
                             System.out.println("Clic dans une zone du guide");

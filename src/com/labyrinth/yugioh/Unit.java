@@ -75,6 +75,8 @@ public class Unit implements MouseListener {
         posX = newX;
         posY = newY;
 
+        System.out.println("avant : "+prevposX+" "+prevposY);
+        System.out.println("après : "+posX+" "+posY);
 //        System.out.println("previous pos : "+prevposX +" "+ prevposY);
 //        System.out.println("nouvelle pos : "+posX+" "+posY);
     }

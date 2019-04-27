@@ -202,8 +202,7 @@ public class GamePanel extends JPanel implements MouseListener {
 //        System.out.println(gameMaster);
     }
 
-    public void moveAndPaintUnit(int newX,int newY){
-        System.out.println("X : "+newX+" Y : "+newY);
+    public void moveAndPaintUnit(int newY,int newX){
         choosedUnit.move(newX,newY);
         // On envoie à orderP l'unité auquel elle est liée
         orderP.setUnit(choosedUnit);
